@@ -26,5 +26,5 @@ tej bardziej zaawansowanej już takiego nie znajdziemy więc będzie trzeba go s
 
 #### Bibliografia
 
-* [Mesosphere usage, ](https://github.com/copleykj/Mesosphere)
-* [MeteorJS. Meteor docs, ](http://docs.meteor.com/)
+* [Mesosphere usage, 2014](https://github.com/copleykj/Mesosphere)
+* [MeteorJS. Meteor docs, 2014](http://docs.meteor.com/)
