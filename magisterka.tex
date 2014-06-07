@@ -1,0 +1,125 @@
+\documentclass[brudnopis]{xmgr}
+
+%\defaultfontfeatures{Scale=MatchLowercase}
+%\setmainfont[Numbers=OldStyle,Ligatures=TeX]{Minion Pro}
+%\setsansfont[Numbers=OldStyle,Ligatures=TeX]{Myriad Pro}
+% for fontspec version < 2.0
+\setmainfont[Numbers=OldStyle,Mapping=tex-text]{Minion Pro}
+\setsansfont[Numbers=OldStyle,Mapping=tex-text]{Myriad Pro}
+%\setmonofont[Scale=0.75]{Monaco}
+
+% Opcjonalnie identyfikator dokumentu 
+% drukowany tylko z włączoną opcją 'brudnopis':
+\wersja   {wersja wstępna [\ymdtoday]}
+
+\author   {Mateusz Kwiatkowski}
+\nralbumu {194\,925}
+\email    {emflover@gmail.com}
+
+\kierunek{\textbf{INFORMATYKA}}
+
+\title    {Walidacja w MeteorJS na przykładzie elektronicznego indeksu}
+\date     {2014}
+\miejsce  {Gdańsk}
+
+\opiekun  {dr Włodzimierz Bzyl}
+
+% dodatkowe polecenia
+
+\begin{document}
+
+\begin{abstract}
+%STRESZCZENIE
+\end{abstract}
+%\keywords{SGML, 
+% dokumenty strukturalne}
+
+% tytuł i spis treści
+\maketitle
+%
+% wstęp
+\introduction
+
+Jeszcze do niedawna na wszystkich uczelniach stosowano klasyczne indeksy
+papierowe, jednak w wyniku rozwoju technologii internetowych coraz częściej
+rezygnuje się z klasycznych rozwiązań zastępując je ich elektronicznymi odpowiednikami.
+\\
+\\
+Na każdej uczelni znajduje się wielu studentów oraz wykładowców przez co trzeba zadbać. W momencie
+gdy wiele osób jednocześnie chce przejrzeć indeks lub wystawić oceny nie można dopuścić do sytuacji gdy nasza
+aplikacja nie będzie w stanie obsłużyć wszystkich osób w jednym czasie. Z pomocą przychodzi nam javascriptowy
+framework \textbf{MeteorJS} który w połączeniu z bazą danych \textbf{MongoDB} zapewni nam wystarczającą skalowalność
+aplikacji oraz dostarczy nam sporą ilość gotowych pakietów, które uproszczą stworzenie nowego produktu.
+\\
+\\
+Ponieważ Meteor jest dość nowym frameworkiem, funkcjonalność pakietów które sa dostępne nie jest kompletna.
+Korzystając z elektronicznego indeksu jedną z ważniejszych funkcji jest walidacja. Aplikacja nie może dopuścić do
+sytuacji gdzie nauczyciel wystawi studentowi ocenę spoza skali czy też wprowadzić niepełne dane, ale również
+poprawnie interpetować czy dany użytkownik może wykonać w danej konkretną akcję. O ile do tej prostszej części
+walidacji istnieje pakiet to do tej bardziej zaawansowanej już takiego nie znajdziemy więc będzie trzeba go stworzyć.
+
+
+
+
+\chapter{Walidacja}
+
+
+    
+\section{Walidacja w MeteorJS}
+
+\section{MeteorJS i Mesosphere}
+
+
+      
+\chapter{Pakiet do walidacji}
+
+\section{Meteorite i Atmospherejs}
+    
+\section{Co zawierają pakiety}
+
+\section{Stratosphere}
+   
+\section{Testowanie pakietów}
+
+\chapter{Aplikacja w MeteorJS}
+
+\chapter{Testowanie aplikacji}
+
+\chapter{Porównanie z obecnie używanym elektronicznym indeksem}
+
+% zakończenie 
+\summary
+
+% załączniki (opcjonalnie):
+%\appendix
+%\chapter{Tytuł załącznika jeden}
+
+%Treść załącznika jeden.
+
+%\chapter{Tytuł załącznika dwa}
+
+%Treść załącznika dwa.
+
+\cite {Atmosphere}
+\cite {Meteor}
+\cite{Node}
+\cite{Mongo}
+\cite{Mesosphere}
+\cite{DiscoverMeteor}
+\cite{ScalingMongoDB}
+\cite{ScalingWithMongoDB}
+\cite{TDDwM}
+
+% literatura (obowiązkowo):
+\bibliographystyle{unsrt}
+\bibliography{xml}
+
+% spis tabel (jeżeli jest potrzebny):
+%\listoftables
+
+% spis rysunków (jeżeli jest potrzebny):
+%\listoffigures
+
+\oswiadczenie
+
+\end{document}
