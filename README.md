@@ -1,7 +1,7 @@
 ### Walidacja w MeteorJS na przykładzie elektronicznego indeksu
 #### *Mateusz Kwiatkowski*
 
-* [link do aktualnego PDF-a z treścią pracy mgr](https://github.com/Flover/praca_magisterska/blob/master/magisterka.pdf)
+* [link do aktualnego PDF-a z treścią pracy mgr](https://github.com/Flover/praca_magisterska/raw/master/magisterka.pdf)
 
 #### *Wprowadzenie*
 Jeszcze do niedawna na wszystkich uczelniach stosowano klasyczne indeksy
@@ -26,5 +26,5 @@ tej bardziej zaawansowanej już takiego nie znajdziemy więc będzie trzeba go s
 
 #### Bibliografia
 
-* [Mesosphere usage, ](https://github.com/copleykj/Mesosphere)
-* [MeteorJS. Meteor docs, ](http://docs.meteor.com/)
+* [Mesosphere usage, 2014](https://github.com/copleykj/Mesosphere)
+* [MeteorJS. Meteor docs, 2014](http://docs.meteor.com/)
