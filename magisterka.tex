@@ -1,4 +1,5 @@
 \documentclass[brudnopis]{xmgr}
+\usepackage{amsrefs}
 
 %\defaultfontfeatures{Scale=MatchLowercase}
 %\setmainfont[Numbers=OldStyle,Ligatures=TeX]{Minion Pro}
@@ -102,19 +103,27 @@ aplikacji oraz dostarczy nam sporą ilość gotowych pakietów, które uproszcz�
 
 %Treść załącznika dwa.
 
-\cite {Atmosphere}
-\cite {Meteor}
-\cite{Node}
-\cite{Mongo}
+\cite{MeteorDocs}
+\cite{NodeDocs}
+\cite{MongoDocs}
 \cite{Mesosphere}
-\cite{DiscoverMeteor}
-\cite{ScalingMongoDB}
+\cite{DiscoverMeteor2013}
+\cite{ScalingMongoDB2011}
 \cite{ScalingWithMongoDB}
-\cite{TDDwM}
+\cite{Laika}
+\cite{TinyTest}
 
 % literatura (obowiązkowo):
-\bibliographystyle{unsrt}
-\bibliography{xml}
+%\bibliographystyle{unsrt}
+%\bibliography{xml}
+
+\begin{bibdiv}
+\begin{biblist}
+
+  \bibselect{mgr}
+
+\end{biblist}
+\end{bibdiv}
 
 % spis tabel (jeżeli jest potrzebny):
 %\listoftables

@@ -1,0 +1,119 @@
+\documentclass[12pt]{amsbook}
+\usepackage{amsrefs}
+
+%\providecommand{\cyr}{}
+%\providecommand{\cprime}{\textprime}
+%\providecommand{\germ}{\mathfrak }
+
+\usepackage{fontspec}
+\defaultfontfeatures{Mapping=tex-text}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage[polish]{polyglossia}
+
+\setmainfont[Mapping=tex-text]{Minion Pro:+onum}
+\setsansfont[Mapping=tex-text]{Myriad Pro}
+
+\raggedbottom
+
+\begin{document}
+
+\begin{bibdiv}
+\begin{biblist}
+
+\bib{DiscoverMeteor2013}{book}{
+    author={Tom Coleman},
+    author={Sacha Greif},
+     title={\href{http://pl.discovermeteor.com/}{\mybibdoicolor{Discover Meteor: Building Real-Time Javascript Web Apps}}},
+   edition={First edition},
+ publisher={},
+   address={},
+      date={2013},
+      ISBN={},
+}
+
+\bib{ScalingMongoDB2011}{book}{
+    author={Kristina Chodorow},
+     title={\href{http://it-ebooks.info/book/179/}{\mybibdoicolor{Scaling MongoDB}}},
+   edition={First edition},
+ publisher={},
+   address={},
+      date={2011-03-07},
+      ISBN={1449303218; 978-1449303211},
+}
+
+\bib{ScalingWithMongoDB}{article}{
+    author={Rick Copeland},
+     title={\href{http://www.slideshare.net/rick446/scaling-withmongodb}{\mybibdoicolor{Scaling with MongoDB}}},
+      date={2012-02-29},
+      ISSN={},
+   journal={Slideshare},
+     pages={32},
+    url={http://www.slideshare.net/rick446/scaling-withmongodb},
+}
+
+\bib{MongoDocs}{article}{
+    author={MongoDB},
+     title={\href{http://docs.mongodb.org/manual/}{\mybibdoicolor{The MongoDB Manual}}},
+      date={2014},
+      ISSN={},
+   journal={},
+     pages={},
+    url={http://docs.mongodb.org/manual/},
+}
+
+\bib{MeteorDocs}{article}{
+    author={MeteorJS},
+     title={\href{http://docs.meteor.com}{\mybibdoicolor{Meteor Documentation}}},
+      date={2014},
+      ISSN={},
+   journal={},
+     pages={},
+    url={http://docs.meteor.com},
+}
+
+\bib{NodeDocs}{article}{
+    author={Joyent},
+     title={\href{http://nodejs.org/api/}{\mybibdoicolor{Node.js Manual and Documentation}}},
+      date={2014},
+      ISSN={},
+   journal={},
+     pages={},
+    url={http://nodejs.org/api/},
+}
+
+\bib{Laika}{article}{
+    author={Arunoda Susiripala},
+     title={\href{http://www.sitepoint.com/test-driven-development-with-meteor/}{\mybibdoicolor{Test Driven Development with Meteor}}},
+      date={2013-06-03},
+      ISSN={},
+   journal={Sitepoint},
+     pages={},
+    url={http://www.sitepoint.com/test-driven-development-with-meteor/},
+}
+
+\bib{Mesosphere}{article}{
+    author={Kelly Copley},
+     title={\href{https://github.com/copleykj/Mesosphere}{\mybibdoicolor{Mesosphere}}},
+      date={2014-03-21},
+      ISSN={},
+    publisher={Github},
+   journal={Github Repository},
+     pages={},
+    url={https://github.com/copleykj/Mesosphere},
+}
+
+\bib{TinyTest}{article}{
+    author={Eventedmind},
+     title={\href{https://www.eventedmind.com/feed/meteor-testing-packages-with-tinytest}{\mybibdoicolor{Testing Packages with Tinytest}}},
+      date={2013-05-24},
+      ISSN={},
+    publisher={},
+   journal={Eventedmind},
+     pages={},
+    url={https://www.eventedmind.com/feed/meteor-testing-packages-with-tinytest},
+}
+
+\end{biblist}
+\end{bibdiv}
+\end{document}
