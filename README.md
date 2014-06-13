@@ -4,10 +4,11 @@
 * [link do aktualnego PDF-a z treścią pracy mgr](https://github.com/Flover/praca_magisterska/raw/master/magisterka.pdf)
 
 #### *Wprowadzenie*
-Meteor jest dość nowym frameworkiem który bazuje na pakietach, więc jego podstawowa funkcjonalność nie jest kompletna.
-Można bardzo mocno zwiększyć jego możliwości dodając pakiety, które otrzymujemy od twórców Meteora lub od społeczności.
-Jedną z podstawowych funkcji jakiej meteor domyślnie nie posiada jest walidacja, ale powstał już pakiet, który doskonale radzi
-sobie z podstawową walidacją.
+Meteor jest frameworkiem który bazuje na pakietach. Pierwsza odsłona miała miejsce w grudniu 2011 roku pod nazwą Skybreak.
+W styczniu 2012 twórcy postanowili zmienić nazwe na Meteor. Obecnie ciągle znajduje się w wersji beta, więc jego
+podstawowa funkcjonalność nie jest kompletna. Można zwiększyć jego możliwości dodając pakiety, które otrzymujemy
+od twórców Meteora oraz od społeczności. Jedną z podstawowych funkcji jakiej Meteor domyślnie nie posiada jest walidacja,
+ale powstał już pakiet, który doskonale radzi sobie z podstawową walidacją.
 
 Jeszcze do niedawna na wszystkich uczelniach stosowano klasyczne indeksy
 papierowe, jednak w wyniku rozwoju technologii internetowych coraz częściej
