@@ -41,25 +41,28 @@
 % wstęp
 \introduction
 
-\textit{Meteor} jest frameworkiem który bazuje na pakietach. Pierwsza odsłona miała miejsce w grudniu 2011 roku pod nazwą \textit{Skybreak}.
-W styczniu 2012 twórcy postanowili zmienić nazwe na \textit{Meteor}. Obecnie ciągle znajduje się w wersji beta, więc jego
+\textit{Meteor} jest frameworkiem który bazuje na pakietach. Jego pierwsza odsłona miała miejsce w grudniu 2011 roku pod nazwą \textit{Skybreak}.
+Z kolei w styczniu 2012 roku twórcy postanowili zmienić nazwę na \textit{Meteor}. 
+\\
+\\
+Obecnie \textit{Meteor} jest dostępny w wersji beta, dlatego jego
 podstawowa funkcjonalność nie jest kompletna. Można zwiększyć jego możliwości dodając pakiety, które otrzymujemy
 od twórców Meteora oraz od społeczności.
 Jedną z podstawowych funkcji jakiej \textit{Meteor} domyślnie nie posiada jest walidacja, ale powstał już pakiet, który doskonale radzi
-sobie z podstawową walidacją.
+sobie z podstawową walidacją co ma zastosowanie między innymi w elektronicznym indeksie.
 \\
 \\
 Jeszcze do niedawna na wszystkich uczelniach stosowano klasyczne indeksy
 papierowe, jednak w wyniku rozwoju technologii internetowych coraz częściej
 rezygnuje się z klasycznych rozwiązań zastępując je ich elektronicznymi odpowiednikami.
-Korzystając z elektronicznego indeksu jedną z ważniejszych funkcji jest walidacja. Aplikacja nie może dopuścić do
-sytuacji gdzie nauczyciel wystawi studentowi ocenę spoza skali czy też wprowadzić niepełne dane, ale również
-poprawnie interpetować czy dany użytkownik może wykonać w danej konkretną akcję. O ile do tej prostszej części
-walidacji istnieje pakiet to do tej bardziej zaawansowanej już takiego nie znajdziemy więc będzie trzeba go stworzyć.
+Korzystając z elektronicznego indeksu jedną z ważniejszych funkcji jest właśnie walidacja. Aplikacja nie może dopuścić do
+sytuacji gdzie nauczyciel wystawi studentowi ocenę spoza skali czy też wprowadzi niepełne dane, ale również musi
+poprawnie interpetować czy dany użytkownik może wykonać w danej chwili konkretną akcję. O ile do tej pierwszej, a zarazem prostszej części
+walidacji istnieje pakiet to do tej drugiej, bardziej zaawansowanej już takiego nie znajdziemy więc będzie trzeba go stworzyć ułatwiając tym samym
+użytkowanie elektronicznego indeksu na uczelni.
 \\
 \\
-Na każdej uczelni znajduje się wielu studentów oraz wykładowców przez co trzeba zadbać. W momencie
-gdy wiele osób jednocześnie chce przejrzeć indeks lub wystawić oceny nie można dopuścić do sytuacji gdy nasza
+Na każdej uczelni znajduje się wielu studentów oraz wykładowców przez co nie można dopuścić do sytuacji gdy nasza
 aplikacja nie będzie w stanie obsłużyć wszystkich osób w jednym czasie. Z pomocą przychodzi nam javascriptowy
 framework \textit{MeteorJS} który w połączeniu z bazą danych \textit{MongoDB} zapewni nam wystarczającą skalowalność
 aplikacji oraz dostarczy nam sporą ilość gotowych pakietów, które uproszczą stworzenie nowego produktu.
