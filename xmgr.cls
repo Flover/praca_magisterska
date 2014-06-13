@@ -22,11 +22,9 @@
 %
 \RequirePackage{color}
 \definecolor{xmgrBrickRed}{cmyk}{0,0.89,0.94,0.28}
-\definecolor{xmgrBlue}{RGB}{0,0,255}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=xmgrBrickRed,bookmarks=true}
 %
-\def\mybibdoicolor{\color{xmgrBlue}}
 \RequirePackage{url}
 %\RequirePackage[polish]{polyglossia}
 % polyglossia >= v1.2.0 no longer supports loading language definition files
