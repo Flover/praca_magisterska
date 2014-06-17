@@ -29,5 +29,6 @@ aplikacji oraz dostarczy nam sporą ilość gotowych pakietów, które uproszcz�
 
 #### Bibliografia
 
-* [Mesosphere usage, 2014](https://github.com/copleykj/Mesosphere)
-* [MeteorJS. Meteor docs, 2014](http://docs.meteor.com/)
+* [Tom Coleman and Sacha Greif, Discover Meteor: Building Real-Time Javascript Web Apps, First edition, 2013.](http://pl.discovermeteor.com/)
+* [Test Driven Development with Meteor](http://www.sitepoint.com/test-driven-development-with-meteor/)
+* [Meteor Documentation](http://docs.meteor.com)
