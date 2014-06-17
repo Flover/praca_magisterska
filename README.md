@@ -1,4 +1,4 @@
-### Walidacja w MeteorJS na przykładzie elektronicznego indeksu
+### Walidacja w aplikacjach Meteor
 #### *Mateusz Kwiatkowski*
 
 * [link do aktualnego PDF-a z treścią pracy mgr](https://github.com/Flover/praca_magisterska/raw/master/magisterka.pdf)
