@@ -4,28 +4,24 @@
 * [link do aktualnego PDF-a z treścią pracy mgr](https://github.com/Flover/praca_magisterska/raw/master/magisterka.pdf)
 
 #### *Wprowadzenie*
-Meteor jest frameworkiem który bazuje na pakietach. Jego pierwsza odsłona miała miejsce w grudniu 2011 roku pod nazwą Skybreak.
-Z kolei w styczniu 2012 roku twórcy postanowili zmienić nazwę na Meteor.
+Walidacja jest działaniem mającym na celu potwierdzenie w sposób udokumento-
+wany i zgodny z założeniami, że procedury, procesy, urządzenia, materiały, czyn-
+ności i systemy rzeczywiście prowadzą do zaplanowanych wyników. Wykorzystuje
+się ją w naukach technicznych oraz informatyce. Przykładem wykorzystania tej
+techniki jest elektroniczny indeks.
 
-Obecnie Meteor jest dostępny w wersji beta, dlatego jego
-podstawowa funkcjonalność nie jest kompletna. Można zwiększyć jego możliwości dodając pakiety, które otrzymujemy
-od twórców Meteora oraz od społeczności.
-Jedną z podstawowych funkcji jakiej Meteor domyślnie nie posiada jest walidacja, ale powstał już pakiet, który doskonale radzi
-sobie z podstawową walidacją co ma zastosowanie między innymi w elektronicznym indeksie.
+Jeszcze do niedawna na wszystkich uczelniach stosowano klasyczne indeksy pa-
+pierowe, jednak w wyniku rozwoju technologii internetowych coraz częściej rezy-
+gnuje się z klasycznych rozwiązań zastępując je ich elektronicznymi odpowiedni-
+kami. Elektroniczne indeksy pozbawione walidacji pozwalają użytkownikowi na
+wprowadzenie irracjonalnych danych do systemu. Przykładem takiego działania
+jest wystawienie studentowi oceny spoza skali czy też wystawienie oceny końco-
+wej z egzaminu gdy student nie posiada pozytywnej oceny z danych zajęć.
 
-Jeszcze do niedawna na wszystkich uczelniach stosowano klasyczne indeksy
-papierowe, jednak w wyniku rozwoju technologii internetowych coraz częściej
-rezygnuje się z klasycznych rozwiązań zastępując je ich elektronicznymi odpowiednikami.
-Korzystając z elektronicznego indeksu jedną z ważniejszych funkcji jest właśnie walidacja. Aplikacja nie może dopuścić do
-sytuacji gdzie nauczyciel wystawi studentowi ocenę spoza skali czy też wprowadzi niepełne dane, ale również musi
-poprawnie interpetować czy dany użytkownik może wykonać w danej chwili konkretną akcję. O ile do tej pierwszej, a zarazem prostszej części
-walidacji istnieje pakiet to do tej drugiej, bardziej zaawansowanej już takiego nie znajdziemy więc będzie trzeba go stworzyć ułatwiając tym samym
-użytkowanie elektronicznego indeksu na uczelni.
-
-Na każdej uczelni znajduje się wielu studentów oraz wykładowców przez co nie można dopuścić do sytuacji gdy nasza
-aplikacja nie będzie w stanie obsłużyć wszystkich osób w jednym czasie. Z pomocą przychodzi nam javascriptowy
-framework MeteorJS który w połączeniu z bazą danych MongoDB zapewni nam wystarczającą skalowalność
-aplikacji oraz dostarczy nam sporą ilość gotowych pakietów, które uproszczą stworzenie nowego produktu.
+Zastosowanie walidacji w elektronicznym systemie wystawiania ocen udoskonali
+jego funkcjonalność, a także usprawni działanie danej aplikacji. Nie dopuści rów-
+nież do wprowadzenia błędnych danych do systemu oszczędzając tym samym czas
+użytkownika.
 
 #### Bibliografia
 
