@@ -30,7 +30,17 @@
 \begin{document}
 
 \begin{abstract}
-%STRESZCZENIE
+Jednym z założeń, które chcę osiągnąć  przy tworzeniu pakietu walidującego elektroniczny indeks jest
+wystawianie ocen z dostępnej skali.  Kolejnym problemem który należy rozwiązać jest brak weryfikacji
+dotychczasowych osiągnięć studenta przy wystawianiu ocen z egzaminu co pozwala na wystawienie oceny
+pozytywnej przy braku zaliczenia zajęć z danego przedmiotu. Następnym etapem będzie obliczanie średniej
+ocen na podstawie wyników jedynie z egzaminów. Podczas tworzenia aplikacji musi zostać spełniony
+warunek okresu zmian w systemie aby nie dopuszczać do sytuacji w której wystąpiłaby możliwość zmian
+ocen z poprzednich semestrów.
+\\
+Celem pracy jest stworzenie pakietu walidującego elektroniczny indeks w frameworku MeteorJS co pozwoli
+na usprawnienie funkcjonowania aplikacji.
+ 
 \end{abstract}
 %\keywords{SGML,
 % dokumenty strukturalne}
@@ -41,31 +51,23 @@
 % wstęp
 \introduction
 
- Jego pierwsza odsłona miała miejsce w grudniu 2011 roku pod nazwą \textit{Skybreak}.
-Z kolei w styczniu 2012 roku twórcy postanowili zmienić nazwę na \textit{Meteor}.
+Walidacja jest działaniem mającym na celu potwierdzenie w sposób udokumentowany i zgodny
+z założeniami, że procedury, procesy, urządzenia, materiały, czynności i systemy rzeczywiście
+prowadzą do zaplanowanych wyników. Wykorzystuje się ją w naukach technicznych oraz informatyce.
+Przykładem wykorzystania tej techniki jest elektroniczny indeks.
 \\
 \\
-\textit{Meteor} jest frameworkiem który bazuje na pakietach. Obecnie jest on dostępny w wersji beta, dlatego jego
-podstawowa funkcjonalność nie jest kompletna. Można zwiększyć jego możliwości dodając pakiety, które otrzymujemy
-od twórców Meteora oraz od społeczności.
-Jedną z podstawowych funkcji jakiej \textit{Meteor} domyślnie nie posiada jest walidacja, ale powstał już pakiet, który doskonale radzi
-sobie z podstawową walidacją co ma zastosowanie między innymi w elektronicznym indeksie.
+Jeszcze do niedawna na wszystkich uczelniach stosowano klasyczne indeksy papierowe,
+jednak w wyniku rozwoju technologii internetowych coraz częściej rezygnuje się z klasycznych
+rozwiązań zastępując je ich elektronicznymi odpowiednikami. Elektroniczne indeksy pozbawione
+walidacji pozwalają użytkownikowi na wprowadzenie irracjonalnych danych do systemu.
+Przykładem takiego działania jest wystawienie studentowi oceny spoza skali czy też wystawienie
+oceny końcowej z egzaminu gdy student nie posiada pozytywnej oceny z danych zajęć.
 \\
 \\
-Jeszcze do niedawna na wszystkich uczelniach stosowano klasyczne indeksy
-papierowe, jednak w wyniku rozwoju technologii internetowych coraz częściej
-rezygnuje się z klasycznych rozwiązań zastępując je ich elektronicznymi odpowiednikami.
-Korzystając z elektronicznego indeksu jedną z ważniejszych funkcji jest właśnie walidacja. Aplikacja nie może dopuścić do
-sytuacji gdzie nauczyciel wystawi studentowi ocenę spoza skali czy też wprowadzi niepełne dane, ale również musi
-poprawnie interpetować czy dany użytkownik może wykonać w danej chwili konkretną akcję. O ile do tej pierwszej, a zarazem prostszej części
-walidacji istnieje pakiet to do tej drugiej, bardziej zaawansowanej już takiego nie znajdziemy więc będzie trzeba go stworzyć ułatwiając tym samym
-użytkowanie elektronicznego indeksu na uczelni.
-\\
-\\
-Na każdej uczelni znajduje się wielu studentów oraz wykładowców przez co nie można dopuścić do sytuacji gdy nasza
-aplikacja nie będzie w stanie obsłużyć wszystkich osób w jednym czasie. Z pomocą przychodzi nam javascriptowy
-framework \textit{MeteorJS} który w połączeniu z bazą danych \textit{MongoDB} zapewni nam wystarczającą skalowalność
-aplikacji oraz dostarczy nam sporą ilość gotowych pakietów, które uproszczą stworzenie nowego produktu.
+Zastosowanie walidacji w elektronicznym systemie wystawiania ocen udoskonali jego funkcjonalność,
+a także usprawni działanie danej aplikacji. Nie dopuści również do wprowadzenia błędnych danych do systemu
+oszczędzając tym samym czas użytkownika.
 
 
 
@@ -121,7 +123,7 @@ aplikacji oraz dostarczy nam sporą ilość gotowych pakietów, które uproszcz�
 \cite{TinyTest}
 
 % literatura (obowiązkowo):
-\bibliographystyle{amsrefs}
+%\bibliographystyle{unsrt}
 %\bibliography{xml}
 
 \begin{bibdiv}
