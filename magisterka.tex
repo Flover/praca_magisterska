@@ -51,13 +51,11 @@ tez pracy magisterskiej, celów jakie autor sobie postawił}
 
 \textcolor{sa}{W pracy przedstawiony zostanie pakiet walidujący do frameworka \textit{Meteor}. Do zobrazowania
 jego działania zostanie również stworzona aplikacja Elektroniczny Indeks. Pakiet do walidacji ma na celu zapobiegać
-wprowadzaniu przez użytkownika błędnych danych do systemu. Chcąc to osiągnąć będzie
-on walidować operację wstawiania ocen w dostępnej skali, uniemożliwić zmianę ocen po
-upływie ostatecznego terminu czy też wystawienie oceny pozytywnej przy braku zaliczenia zajęć
-z danego przedmiotu, a także obliczanie średniej ocen jedynie z egzaminów.} \textcolor{sc}{Do stworzenia aplikacji zostanie użyty
-framework \textit{Meteor}, a dane wprowadzane do systemu będa przechowywane w bazie danych \textit{MongoDB}. Opiszę również
-dlaczego skorzystałem własnie z tych technologii.}
-\textcolor{sb}{Wszystkie te cele zostały zrealizowane, a pakiet do walidacji został udostępniony do pobrania.}
+wprowadzaniu przez użytkownika błędnych danych do systemu. Chcąc to osiągnąć pakiet ten będzie
+walidować operacje, które można wykonywać w aplikacji. Aplikacja ta ma być także prosta i intuicyjna w obsłudze.}
+\textcolor{sc}{Do stworzenia aplikacji zostanie użyty framework \textit{Meteor}, a dane wprowadzane do systemu
+będa przechowywane w bazie danych \textit{MongoDB}.} \textcolor{sb}{Wszystkie te cele zostały zrealizowane,
+a pakiet do walidacji został udostępniony do pobrania.}
 
 \end{abstract}
 %\keywords{SGML,
@@ -79,23 +77,38 @@ dlaczego skorzystałem własnie z tych technologii.}
 \item[wd] \textcolor{wd}{należy odnieść się do dorobku innych}
 \end{description}
 
-Walidacja jest działaniem mającym na celu potwierdzenie w sposób udokumentowany i zgodny
+\textcolor{wa}{Walidacja jest działaniem mającym na celu potwierdzenie w sposób udokumentowany i zgodny
 z założeniami, że procedury, procesy, urządzenia, materiały, czynności i systemy rzeczywiście
-prowadzą do zaplanowanych wyników. Wykorzystuje się ją w naukach technicznych oraz informatyce.
-Przykładem wykorzystania tej techniki jest elektroniczny indeks.
+prowadzą do zaplanowanych wyników. Znana jest także jako kontrola jakości oprogramowania.
+Wykorzystuje się ją w naukach technicznych oraz informatyce.}
 \\
+
+\textcolor{wa}{Aplikacje pozbawione walidacji pozwalają użytkownikowi na wprowadzenie
+irracjonalnych danych do systemu.} \textcolor{wb}{Przykładem takiej aplikacji jest elektroniczny indeks.
+Operacje takie jak wystawianie studentowi ocen z ćwiczeń czy też wystawienie
+oceny końcowej z egzaminu gdy student nie posiada pozytywnej oceny
 \\
-Jeszcze do niedawna na wszystkich uczelniach stosowano klasyczne indeksy papierowe,
+z danych zajęć powinny być odpowiednio
+walidowane i nie dopuszczać do sytuacji gdy student otrzymuje ocenę z poza skali lub od osoby do tego nieupoważnionej.}
+\textcolor{wb}{Jeszcze do niedawna na wszystkich uczelniach stosowano klasyczne indeksy papierowe,
 jednak w wyniku rozwoju technologii internetowych coraz częściej rezygnuje się z klasycznych
-rozwiązań zastępując je ich elektronicznymi odpowiednikami. Elektroniczne indeksy pozbawione
-walidacji pozwalają użytkownikowi na wprowadzenie irracjonalnych danych do systemu.
-Przykładem takiego działania jest wystawienie studentowi oceny spoza skali czy też wystawienie
-oceny końcowej z egzaminu gdy student nie posiada pozytywnej oceny z danych zajęć.
+rozwiązań zastępując je ich elektronicznymi odpowiednikami.}
 \\
+
+\textcolor{wc}{Zastosowanie walidacji w elektronicznym
+systemie wystawiania ocen udoskonali jego funkcjonalność, a także usprawni działanie danej aplikacji.
+Nie dopuści również do wprowadzenia błędnych danych do systemu oszczędzając tym samym czas użytkownika,
+a także zwiększy jego efektywność. Miałem kontakt z wieloma systemami zarządzania osiągnieciami studentów, ale w każdym można było doprowadzać
+do anomalii, a samo działanie takiej aplikacji również pozostawiało wiele do życzenia, dlatego postanowiłem zająć się tym tematem,
+aby usprawnić działanie takiego systemu oraz żeby praca na nim była przyjemna, prosta i intuicyjna. }
 \\
-Zastosowanie walidacji w elektronicznym systemie wystawiania ocen udoskonali jego funkcjonalność,
-a także usprawni działanie danej aplikacji. Nie dopuści również do wprowadzenia błędnych danych do systemu
-oszczędzając tym samym czas użytkownika.
+
+\textcolor{wa}{Postaram się udowodnić jak bardzo przydatna jest walidacja pokazując jej działanie w aplikacji
+stworzonej w frameworku \textit{Meteor}. Pokażę również na czym polega stworzenie pakietu i udostepnienie
+go w prosty sposób.} \textcolor{wd}{Opierając się na doświadczeniach innych badaczy takich jak Kelly Copley \cite{Mesosphere}
+czy Tom Coleman i Sacha Greif \cite{DiscoverMeteor2013} napiszę pakiet walidujący oraz aplikację Elektroniczny Indeks,
+która będzie korzystać ze stworzonego w ramach pracy pakietu.} \textcolor{wa}{Napiszę także dlaczego uważam \textit{Meteor} oraz \textit{MongoDB} jako 
+najlepszy wybór.}
 
 
 
@@ -103,13 +116,22 @@ oszczędzając tym samym czas użytkownika.
 \chapter{Walidacja oprogramowania}
 
 \section{Wstęp do walidacji}
+\cite{Validation}
 \section{Typy walidacji}
 
 \chapter{Aplikacja Elektroniczny indeks w Meteor}
 
 \section{Cele i funkcjonalność aplikacji}
 \section{Opis tworzenia aplikacji}
+\cite{Introduction}
+\cite{MeteorDocs}
+\cite{DiscoverMeteor2013}
+\cite{NodeDocs}
+\cite{MongoDocs}
+\cite{ScalingMongoDB2011}
+\cite{ScalingWithMongoDB}
 \section{Opis testowania aplikacji}
+\cite{Laika}
 \section{Opis własnych rozwiązań}
 
 
@@ -117,8 +139,12 @@ oszczędzając tym samym czas użytkownika.
 
 \section{Funkcjonalność pakietu}
 \section{Opis tworzenia pakietu}
+\cite{Packages}
+\cite{MeteorDocs}
+\cite{DiscoverMeteor2013}
 \section{Implementacja pakietu w aplikacji}
 \section{Przetestowanie pakietu}
+\cite{TinyTest}
 
 % zakończenie
 \summary
@@ -141,16 +167,7 @@ oszczędzając tym samym czas użytkownika.
 
 %Treść załącznika cztery.
 
-\cite{MeteorDocs}
-\cite{NodeDocs}
-\cite{MongoDocs}
-\cite{Mesosphere}
-\cite{DiscoverMeteor2013}
-\cite{ScalingMongoDB2011}
-\cite{ScalingWithMongoDB}
-\cite{Laika}
-\cite{TinyTest}
-\cite{Introduction}
+
 
 % literatura (obowiązkowo):
 \bibliographystyle{unsrt}
