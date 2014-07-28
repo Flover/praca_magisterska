@@ -16,9 +16,9 @@ indeks. Operacje takie jak wystawianie studentowi ocen z ćwiczeń czy też
 wystawienie oceny końcowej z egzaminu gdy student nie posiada pozytywnej oceny
 z danych zajęć powinny być odpowiednio walidowane i nie dopuszczać do sytuacji
 gdy student otrzymuje ocenę z poza skali lub od osoby do tego nieupoważnionej.
-Jeszcze do niedawna na wszystkich uczelniach stosowano klasyczne indeksy papie-
-rowe, jednak w wyniku rozwoju technologii internetowych coraz częściej rezygnu-
-je się z klasycznych rozwiązań zastępując je ich elektronicznymi odpowiednikami.
+Jeszcze do niedawna na wszystkich uczelniach stosowano klasyczne indeksy papierowe,
+jednak w wyniku rozwoju technologii internetowych coraz częściej rezygnuje
+się z klasycznych rozwiązań zastępując je ich elektronicznymi odpowiednikami.
 Zastosowanie walidacji w elektronicznym systemie wystawiania ocen udoskonali
 jego funkcjonalność, a także usprawni działanie danej aplikacji. Nie dopuści
 również do wprowadzenia błędnych danych do systemu oszczędzając tym samym
@@ -29,10 +29,10 @@ wiele do życzenia, dlatego postanowiłem zająć się tym tematem, aby usprawni
 działanie takiego systemu oraz żeby praca na nim była przyjemna,
 prosta i intuicyjna.
 
-Postaram się udowodnić jak bardzo przydatna jest walidacja pokazując jej dzia-
-łanie w aplikacji stworzonej w frameworku Meteor. Pokażę również na czym polega
-stworzenie pakietu i udostepnienie go w prosty sposób. Opierając się na doświad-
-czeniach innych badaczy takich jak Kelly Copleyczy Tom Coleman i Sacha Greif
+Postaram się udowodnić jak bardzo przydatna jest walidacja pokazując jej działanie
+w aplikacji stworzonej w frameworku Meteor. Pokażę również na czym polega
+stworzenie pakietu i udostepnienie go w prosty sposób. Opierając się na doświadczeniach
+innych badaczy takich jak Kelly Copleyczy Tom Coleman i Sacha Greif
 napiszę pakiet walidujący oraz aplikację Elektroniczny Indeks, która będzie
 korzystać ze stworzonego w ramach pracy pakietu. Napiszę także dlaczego uważam
 Meteor oraz MongoDB jako najlepszy wybór.
