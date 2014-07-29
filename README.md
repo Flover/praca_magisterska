@@ -4,8 +4,8 @@
 * [link do aktualnego PDF-a z treścią pracy mgr](https://github.com/Flover/praca_magisterska/raw/master/magisterka.pdf)
 
 #### *Wprowadzenie*
-Walidacja jest działaniem mającym na celu potwierdzenie w sposób udokumentowany
-i zgodny z założeniami, że procedury, procesy, urządzenia, materiały,
+Walidacja jest działaniem mającym na celu potwierdzenie w sposób
+udokumentowany i zgodny z założeniami, że procedury, procesy, urządzenia, materiały,
 czynności i systemy rzeczywiście prowadzą do zaplanowanych wyników. Znana
 jest także jako kontrola jakości oprogramowania. Wykorzystuje się ją w naukach
 technicznych oraz informatyce.
@@ -21,8 +21,8 @@ jednak w wyniku rozwoju technologii internetowych coraz częściej rezygnuje
 się z klasycznych rozwiązań zastępując je ich elektronicznymi odpowiednikami.
 
 Zastosowanie walidacji w elektronicznym systemie wystawiania ocen udoskonali
-jego funkcjonalność, a także usprawni działanie takiej aplikacji. Korzystając z
-aplikacji w której zaimplementowana jest walidacja nie dojdzie do sytuacji gdzie
+jego funkcjonalność, a także usprawni działanie takiej aplikacji. Korzystając
+z aplikacji w której zaimplementowana jest walidacja nie dojdzie do sytuacji gdzie
 użytkownik wprowadzi błędne dane do systemu oszczędzając tym samym jego
 czas, a także zwiększy jego efektywność. Miałem kontakt z wieloma
 systemami zarządzania osiągnieciami studentów, ale w każdym można było
@@ -32,8 +32,8 @@ działanie takiego systemu oraz żeby praca na nim była przyjemna,
 prosta i intuicyjna.
 
 Postaram się udowodnić jak bardzo przydatna jest walidacja pokazując jej działanie
-w aplikacji stworzonej w frameworku Meteor. Pokażę również na czym polega
-stworzenie pakietu i udostepnienie go w prosty sposób. Opierając się na doświadczeniach
+w aplikacji stworzonej w frameworku Meteor. Pokażę również na czym polega stworzenie
+pakietu i udostępnienie go w prosty sposób. Opierając się na doświadczeniach
 innych badaczy takich jak Kelly Copleyczy Tom Coleman i Sacha Greif
 napiszę pakiet walidujący oraz aplikację Elektroniczny Indeks, która będzie
 korzystać ze stworzonego w ramach pracy pakietu. Napiszę także dlaczego uważam
