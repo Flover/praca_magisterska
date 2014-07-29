@@ -19,10 +19,12 @@ gdy student otrzymuje ocenę z poza skali lub od osoby do tego nieupoważnionej.
 Jeszcze do niedawna na wszystkich uczelniach stosowano klasyczne indeksy papierowe,
 jednak w wyniku rozwoju technologii internetowych coraz częściej rezygnuje
 się z klasycznych rozwiązań zastępując je ich elektronicznymi odpowiednikami.
+
 Zastosowanie walidacji w elektronicznym systemie wystawiania ocen udoskonali
-jego funkcjonalność, a także usprawni działanie danej aplikacji. Nie dopuści
-również do wprowadzenia błędnych danych do systemu oszczędzając tym samym
-czas użytkownika, a także zwiększy jego efektywność. Miałem kontakt z wieloma
+jego funkcjonalność, a także usprawni działanie takiej aplikacji. Korzystając z
+aplikacji w której zaimplementowana jest walidacja nie dojdzie do sytuacji gdzie
+użytkownik wprowadzi błędne dane do systemu oszczędzając tym samym jego
+czas, a także zwiększy jego efektywność. Miałem kontakt z wieloma
 systemami zarządzania osiągnieciami studentów, ale w każdym można było
 doprowadzać do anomalii, a samo działanie takiej aplikacji również pozostawiało
 wiele do życzenia, dlatego postanowiłem zająć się tym tematem, aby usprawnić
