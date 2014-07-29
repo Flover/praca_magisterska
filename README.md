@@ -24,8 +24,8 @@ Zastosowanie walidacji w elektronicznym systemie wystawiania ocen udoskonali
 jego funkcjonalność, a także usprawni działanie takiej aplikacji. Korzystając
 z aplikacji w której zaimplementowana jest walidacja nie dojdzie do sytuacji gdzie
 użytkownik wprowadzi błędne dane do systemu oszczędzając tym samym jego
-czas, a także zwiększy jego efektywność. Miałem kontakt z wieloma
-systemami zarządzania osiągnieciami studentów, ale w każdym można było
+czas, a także zwiększy jego efektywność. Miałem kontakt
+z wieloma systemami zarządzania osiągnieciami studentów, ale w każdym można było
 doprowadzać do anomalii, a samo działanie takiej aplikacji również pozostawiało
 wiele do życzenia, dlatego postanowiłem zająć się tym tematem, aby usprawnić
 działanie takiego systemu oraz żeby praca na nim była przyjemna,
