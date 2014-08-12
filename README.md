@@ -1,4 +1,4 @@
-### Walidacja w aplikacjach Meteor
+### Walidacja w elektronicznym systemie zarządzania osiągnięciami studenta
 #### *Mateusz Kwiatkowski*
 
 * [link do aktualnego PDF-a z treścią pracy mgr](https://github.com/Flover/praca_magisterska/raw/master/magisterka.pdf)
