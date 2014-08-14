@@ -4,40 +4,102 @@
 * [link do aktualnego PDF-a z treścią pracy mgr](https://github.com/Flover/praca_magisterska/raw/master/magisterka.pdf)
 
 #### *Wprowadzenie*
-Walidacja jest działaniem mającym na celu potwierdzenie w sposób
-udokumentowany i zgodny z założeniami, że procedury, procesy, urządzenia, materiały,
-czynności i systemy rzeczywiście prowadzą do zaplanowanych wyników. Znana
-jest także jako kontrola jakości oprogramowania. Wykorzystuje się ją w naukach
-technicznych oraz informatyce.
+Najcenniejszym walorem komputera i internetu są przechowywane w nich dane - zarówno
+ich ilość, jak i jakość. Ze względu na to, z dnia na dzień, rośnie liczba
+użytkowników sieci. Jednocześnie zwiększa się liczebność i różnorodność usług
+sieciowych.
 
-Aplikacje pozbawione walidacji pozwalają użytkownikowi na wprowadzenie
-irracjonalnych danych do systemu. Przykładem takiej aplikacji jest elektroniczny
-indeks. Operacje takie jak wystawianie studentowi ocen z ćwiczeń czy też
-wystawienie oceny końcowej z egzaminu gdy student nie posiada pozytywnej oceny
-z danych zajęć powinny być odpowiednio walidowane i nie dopuszczać do sytuacji
-gdy student otrzymuje ocenę z poza skali lub od osoby do tego nieupoważnionej.
-Jeszcze do niedawna na wszystkich uczelniach stosowano klasyczne indeksy papierowe,
-jednak w wyniku rozwoju technologii internetowych coraz częściej rezygnuje
-się z klasycznych rozwiązań zastępując je ich elektronicznymi odpowiednikami.
+Komputer i internet zmienił i wciąż zmienia naszą codzienność. To prawda oczywista.
+Usługi internetowe nie są już domeną urzędów, firm czy handlu. Chcemy za ich pomocą
+robić zakupy, obsługiwać konto w banku, a także załatwiać wszelkie formalności w
+urzędach. Jest to po prostu wymóg rozwoju cywilizacji, techniki oraz oszczędności
+czasu.
 
-Zastosowanie walidacji w elektronicznym systemie wystawiania ocen udoskonali
-jego funkcjonalność, a także usprawni działanie takiej aplikacji. Korzystając
-z aplikacji w której zaimplementowana jest walidacja nie dojdzie do sytuacji gdzie
-użytkownik wprowadzi błędne dane do systemu oszczędzając tym samym jego
-czas, a także zwiększy jego efektywność. Miałem kontakt <br>
-z wieloma systemami zarządzania osiągnieciami studentów, ale w każdym można było
-doprowadzać do anomalii, a samo działanie takiej aplikacji również pozostawiało
-wiele do życzenia, dlatego postanowiłem zająć się tym tematem, aby usprawnić
-działanie takiego systemu oraz żeby praca na nim była przyjemna,
-prosta i intuicyjna.
+Coraz częściej systemy informatyczne wykorzystywane są w edukacji społeczeństwa.
+Jeszcze do niedawna na wszystkich uczelniach wyższych stosowano klasyczne indeksy
+papierowe, aby zarchiwizować osiągnięcia studentów podczas całego cyklu kształcenia.
+Jednak w wyniku rozwoju technologii internetowych coraz częściej rezygnuje się
+z klasycznych rozwiązań, zastępując je ich elektronicznymi odpowiednikami.
 
-Postaram się udowodnić jak bardzo przydatna jest walidacja pokazując jej działanie
-w aplikacji stworzonej w frameworku Meteor. Pokażę również na czym polega stworzenie
-pakietu i udostępnienie go w prosty sposób. Opierając się na doświadczeniach
-innych badaczy takich jak Kelly Copleyczy Tom Coleman i Sacha Greif
-napiszę pakiet walidujący oraz aplikację Elektroniczny Indeks, która będzie
-korzystać ze stworzonego w ramach pracy pakietu. Napiszę także dlaczego uważam
-Meteor oraz MongoDB jako najlepszy wybór.
+Dziś wiele szkół i uczelni wprowadziło do obszaru swego funkcjonowania nowoczesny
+system ewidencji osiągnięć ucznia czy studenta. W szkołach podstwowych, gimnazjach,
+liceach, technikach czy zasadniczych szkołąch zawodowych jest nim tzw. dziennik
+elektroniczny. <br>
+W uczelniach wyższych  nazwano go elektronicznym indeksem. Zjawisko to stanowi
+nie lada wyzwanie, ponieważ wiąże się z problemem niezawodnego świadczenia
+usług w sieci komputerowej. Odbiorca, w tym przypadku uczeń lub student, musi mieć
+pewność, że dane są stałe, prawdziwe, odpowiednio zabezpieczone przed ich utratą
+czy nieuprawnionym dostepem. Należy nadmienić, że taki poziom zaufania i poczucia
+bezpieczeństwa funkcjonowania systemu, powinna mieć również druga strona - nadawca,
+ten który wprowadza owe dane. Jest o tym bardziej ważną kwestią, gdyż coraz częściej
+mamy do czynienia ze zdarzeniami, wskazującymi na nieprawidłowe stosowanie sieci
+komputerowej lub jej nadużycie.
+
+Rozwiązaniem, które zapewniłoby wzrost poziomu zaufania do korzystnia <br> z sieci,
+w tym również z elektronicznego systemu zarządzania osiagnieciami ucznia lub studenta
+jest, według autora niniejszej pracy, odpowiednie i odpowiedzialne zarządzanie jej
+jakością, czemu służy walidacja systemu.
+
+Zjawisko to jest szeroko stosowane w technice i informatyce. Internetowy Słownik
+Języka Polskiego wyjaśnia hasło "walidacja" w następujacy sposób: "walidacja
+(technika) - badanie odpowiedności, trafnośc lub dokładności czegoś".
+
+Sam termin - "walidacja" pochodzi od angielskiego słowa "validate" i oznacza -
+w kontekście informatycznym - sprawdzanie poprawności i zgodności z zadanymi
+kryteriami. Jest on stosowany w odniesieniu do danych pochodzących od użytkownika,
+jak również w stosunku do zmiennych, obiektów, typów i klas w różnych językach
+programowania.
+
+Walidacja jest działaniem, mającym na celu potwierdzenie w sposób udokumentowany
+i zgodny <br> z założeniami, że procedury, procesy, urządzenia, materiały, czynności
+i systemy, rzeczywiście prowadzą do zaplanowanych wyników. Znana jest także jako
+kontrola jakości oprogramowania.
+
+Wprowadzając dane do systemu, użytkownik może - świadomie lub nie - popełnić
+pomyłkę. Jeżeli dane odebrane przez użytkownika poddamy przetworzeniu bez weryfikacji,
+wówczas, w zależności od odporności aplikacji, możemy mieć do czynienia z różnymi
+rodzajami błędów, od drukowania <br> w przeglądarce klienta komunikatów diagnostycznych,
+poprzez utratę spójności bazy danych, aż po ujawnienie niepowołanym użytkownikom
+informacji poufnych. Z tego powodu nie wolno ignorować wagi problemu.
+
+Aplikacje pozbawione walidacji pozwalają użytkownikowi na wprowadzenie irracjonalnych
+danych do systemu. Przykładem takiej aplikacji jest wspomiany prez autora pracy
+elektroniczny indeks. Operacje, takie jak: wystawianie studentowi ocen z ćwiczeń
+czy też oecny z egzaminu kończącej edukację z danego przedmiotu, powinny być
+odpowiednio walidowane. Dzięki temu nie dojdzie do niepożądanych zjawisk typu:
+- student nie uzyskał pozytywnej oceny z ćwiczeń, a otrzymuje ocenę z egzaminu
+kończącego przedmiot,
+- student otrzymuje ocenę spoza skali oceniania systemu danej uczelni,
+- student uzyskuje ocenę od osoby nieuprawnionej do jej wystawienia.
+
+Dlatego też autor pracy chce zwrócić uwagę na rodzący się problem związany
+z wprowadzeniem przez uczelnie elektronicznego indeksu oraz jego odpowiednim
+funkcjonowaniem. Zaproponowanie zastosowania walidacji w elektronicznym systemie
+wystawiania ocen usprawni działanie oraz udoskonali jego funkcjonalność.
+Korzystając z aplikacji, w której zaimplementowana jest walidacja możemy mieć pewność,
+że nie dojdzie do sytuacji, by użytkownik wprowadził błędne dane do systemu.
+Należy również zwrócić uwagę na ekonomiczny aspekt walidacji. Mianowicie oszczędność
+czasu użytkownika czy zwiększenie efektywności jego pracy.
+
+W celu ukazania i udowodnienia przydatności walidacji podczas korzystania
+z elektronicznego systemu zarządzania osiągnięciami studenta, pokazano w pracy
+działanie tego tego zjawiska <br> w aplikacji stworzonej w frameworku Meteor oraz
+zaprezentowano ułożony pakiet oraz wyjaśniono, jak udostępnić go w prosty, jasny
+i zrozumiały sposób.
+
+Tworzenie pakietu walidującego oraz aplikacji - elektroniczny indeks, która korzysta
+ze stworzonego w ramach pracy pakietu, oparto na doświadczeniu innych badaczy,
+zajmujących się oprogramowaniami komputerowymi, takich jak: Kelly Copley, Tom
+Coleman czy Sacha Greif. <br> W pracy umieszczono ponadto uzasadnienie, dlaczego wybrane
+technologie, takie jak - Meteor oraz MongoDB to najbardziej trafny wybór do generowania
+pakietu walidacyjnego elektronicznego zarządzania osiągnięciami studenta.
+
+Autor niniejszej pracy miał kontakt z wieloma systemami zarządzania osiągnieciami
+studentów, ale w każdym mozna było doprowadzać do anomalii. Zajęcie się rozwiązaniem
+tego problemu jest, <br>z punktu widzenia informatyka interesujące. Efektem pracy może być
+nie tylko usprawnienie działania systemu, ale również poczucie, że praca z nim jest
+prosta, przyjemna i wręcz intuicyjna.
+
 
 #### Bibliografia
 
