@@ -24,8 +24,7 @@ z klasycznych rozwiązań, zastępując je ich elektronicznymi odpowiednikami.
 Dziś wiele szkół i uczelni wprowadziło do obszaru swego funkcjonowania nowoczesny
 system ewidencji osiągnięć ucznia czy studenta. W szkołach podstwowych, gimnazjach,
 liceach, technikach czy zasadniczych szkołąch zawodowych jest nim tzw. dziennik
-elektroniczny. <br>
-W uczelniach wyższych  nazwano go elektronicznym indeksem. Zjawisko to stanowi
+elektroniczny. W uczelniach wyższych  nazwano go elektronicznym indeksem. Zjawisko to stanowi
 nie lada wyzwanie, ponieważ wiąże się z problemem niezawodnego świadczenia
 usług w sieci komputerowej. Odbiorca, w tym przypadku uczeń lub student, musi mieć
 pewność, że dane są stałe, prawdziwe, odpowiednio zabezpieczone przed ich utratą
@@ -35,7 +34,7 @@ ten który wprowadza owe dane. Jest o tym bardziej ważną kwestią, gdyż coraz
 mamy do czynienia ze zdarzeniami, wskazującymi na nieprawidłowe stosowanie sieci
 komputerowej lub jej nadużycie.
 
-Rozwiązaniem, które zapewniłoby wzrost poziomu zaufania do korzystnia <br> z sieci,
+Rozwiązaniem, które zapewniłoby wzrost poziomu zaufania do korzystnia z sieci,
 w tym również z elektronicznego systemu zarządzania osiagnieciami ucznia lub studenta
 jest, według autora niniejszej pracy, odpowiednie i odpowiedzialne zarządzanie jej
 jakością, czemu służy walidacja systemu.
@@ -51,7 +50,7 @@ jak również w stosunku do zmiennych, obiektów, typów i klas w różnych jęz
 programowania.
 
 Walidacja jest działaniem, mającym na celu potwierdzenie w sposób udokumentowany
-i zgodny <br> z założeniami, że procedury, procesy, urządzenia, materiały, czynności
+i zgodny z założeniami, że procedury, procesy, urządzenia, materiały, czynności
 i systemy, rzeczywiście prowadzą do zaplanowanych wyników. Znana jest także jako
 kontrola jakości oprogramowania.
 
@@ -74,7 +73,7 @@ kończącego przedmiot,
 
 Dlatego też autor pracy chce zwrócić uwagę na rodzący się problem związany
 z wprowadzeniem przez uczelnie elektronicznego indeksu oraz jego odpowiednim
-funkcjonowaniem. Zaproponowanie zastosowania walidacji w elektronicznym systemie
+funkcjonowaniem. Zaproponowanie zastosowania walidacji <br> w elektronicznym systemie
 wystawiania ocen usprawni działanie oraz udoskonali jego funkcjonalność.
 Korzystając <br> z aplikacji, w której zaimplementowana jest walidacja możemy mieć pewność,
 że nie dojdzie do sytuacji, by użytkownik wprowadził błędne dane do systemu.
