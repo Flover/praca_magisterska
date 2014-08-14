@@ -36,7 +36,7 @@ komputerowej lub jej nadużycie.
 
 Rozwiązaniem, które zapewniłoby wzrost poziomu zaufania do korzystnia z sieci,
 w tym również z elektronicznego systemu zarządzania osiagnieciami ucznia lub studenta
-jest, według autora niniejszej pracy, odpowiednie i odpowiedzialne zarządzanie jej
+jest, według autora niniejszej pracy, odpowiednie <br> i odpowiedzialne zarządzanie jej
 jakością, czemu służy walidacja systemu.
 
 Zjawisko to jest szeroko stosowane w technice i informatyce. Internetowy Słownik
