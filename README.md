@@ -18,7 +18,7 @@ czasu.
 Coraz częściej systemy informatyczne wykorzystywane są w edukacji społeczeństwa.
 Jeszcze do niedawna na wszystkich uczelniach wyższych stosowano klasyczne indeksy
 papierowe, aby zarchiwizować osiągnięcia studentów podczas całego cyklu kształcenia.
-Jednak w wyniku rozwoju technologii internetowych coraz częściej rezygnuje się
+Jednak w wyniku rozwoju technologii internetowych coraz częściej rezygnuje się <br>
 z klasycznych rozwiązań, zastępując je ich elektronicznymi odpowiednikami.
 
 Dziś wiele szkół i uczelni wprowadziło do obszaru swego funkcjonowania nowoczesny
@@ -58,7 +58,7 @@ kontrola jakości oprogramowania.
 Wprowadzając dane do systemu, użytkownik może - świadomie lub nie - popełnić
 pomyłkę. Jeżeli dane odebrane przez użytkownika poddamy przetworzeniu bez weryfikacji,
 wówczas, w zależności od odporności aplikacji, możemy mieć do czynienia z różnymi
-rodzajami błędów, od drukowania <br> w przeglądarce klienta komunikatów diagnostycznych,
+rodzajami błędów, od drukowania w przeglądarce klienta komunikatów diagnostycznych,
 poprzez utratę spójności bazy danych, aż po ujawnienie niepowołanym użytkownikom
 informacji poufnych. Z tego powodu nie wolno ignorować wagi problemu.
 
@@ -76,27 +76,27 @@ Dlatego też autor pracy chce zwrócić uwagę na rodzący się problem związan
 z wprowadzeniem przez uczelnie elektronicznego indeksu oraz jego odpowiednim
 funkcjonowaniem. Zaproponowanie zastosowania walidacji w elektronicznym systemie
 wystawiania ocen usprawni działanie oraz udoskonali jego funkcjonalność.
-Korzystając z aplikacji, w której zaimplementowana jest walidacja możemy mieć pewność,
+Korzystając <br> z aplikacji, w której zaimplementowana jest walidacja możemy mieć pewność,
 że nie dojdzie do sytuacji, by użytkownik wprowadził błędne dane do systemu.
 Należy również zwrócić uwagę na ekonomiczny aspekt walidacji. Mianowicie oszczędność
 czasu użytkownika czy zwiększenie efektywności jego pracy.
 
 W celu ukazania i udowodnienia przydatności walidacji podczas korzystania
 z elektronicznego systemu zarządzania osiągnięciami studenta, pokazano w pracy
-działanie tego tego zjawiska <br> w aplikacji stworzonej w frameworku Meteor oraz
+działanie tego tego zjawiska w aplikacji stworzonej w frameworku Meteor oraz
 zaprezentowano ułożony pakiet oraz wyjaśniono, jak udostępnić go w prosty, jasny
 i zrozumiały sposób.
 
 Tworzenie pakietu walidującego oraz aplikacji - elektroniczny indeks, która korzysta
 ze stworzonego w ramach pracy pakietu, oparto na doświadczeniu innych badaczy,
 zajmujących się oprogramowaniami komputerowymi, takich jak: Kelly Copley, Tom
-Coleman czy Sacha Greif. <br> W pracy umieszczono ponadto uzasadnienie, dlaczego wybrane
+Coleman czy Sacha Greif. W pracy umieszczono ponadto uzasadnienie, dlaczego wybrane
 technologie, takie jak - Meteor oraz MongoDB to najbardziej trafny wybór do generowania
 pakietu walidacyjnego elektronicznego zarządzania osiągnięciami studenta.
 
 Autor niniejszej pracy miał kontakt z wieloma systemami zarządzania osiągnieciami
 studentów, ale w każdym mozna było doprowadzać do anomalii. Zajęcie się rozwiązaniem
-tego problemu jest, <br>z punktu widzenia informatyka interesujące. Efektem pracy może być
+tego problemu jest, z punktu widzenia informatyka interesujące. Efektem pracy może być
 nie tylko usprawnienie działania systemu, ale również poczucie, że praca z nim jest
 prosta, przyjemna i wręcz intuicyjna.
 
