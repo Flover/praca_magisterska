@@ -4,15 +4,16 @@
 * [link do aktualnego PDF-a z treścią pracy mgr](https://github.com/Flover/praca_magisterska/raw/master/magisterka.pdf)
 
 #### *Wprowadzenie*
-Najcenniejszym walorem komputera i Internetu są przechowywane w nich dane - zarówno
-ich ilość, jak i jakość. Ze względu na to, z dnia na dzień, rośnie liczba
+
+Najcenniejszym walorem komputera i Internetu są przechowywane w nich dane – zarówno
+ich ilość, jak i jakość. Ze względu na to, z dnia na dzień, rośnie liczba
 użytkowników sieci. Jednocześnie zwiększa się liczebność i różnorodność usług
 sieciowych.
 
-Komputer i Internet zmienił, wciąż zmienia naszą codzienność. To prawda oczywista.
+Komputer i Internet zmienił, wciąż zmienia naszą codzienność. To prawda oczywista.
 Usługi internetowe nie są już domeną urzędów, firm czy handlu. Chcemy za ich pomocą
-robić zakupy, obsługiwać konto w banku, a także załatwiać wszelkie formalności w
-urzędach. Jest to po prostu wymóg rozwoju cywilizacji, techniki oraz oszczędności
+robić zakupy, obsługiwać konto w banku, a także załatwiać wszelkie formalności
+w urzędach. Jest to po prostu wymóg rozwoju cywilizacji, techniki oraz oszczędności
 czasu.
 
 Coraz częściej systemy informatyczne wykorzystywane są w edukacji społeczeństwa.
