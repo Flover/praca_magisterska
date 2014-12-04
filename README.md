@@ -23,9 +23,9 @@ Jednak w wyniku rozwoju technologii internetowych coraz częściej rezygnuje si
 z klasycznych rozwiązań, zastępując je ich elektronicznymi odpowiednikami.
 
 Dziś wiele szkół i uczelni wprowadziło do obszaru swego funkcjonowania nowoczesny
-system ewidencji osiągnięć ucznia czy studenta. w szkołach podstwowych, gimnazjach,
+system ewidencji osiągnięć ucznia czy studenta. W szkołach podstwowych, gimnazjach,
 liceach, technikach czy zasadniczych szkołąch zawodowych jest nim tzw. dziennik
-elektroniczny. w uczelniach wyższych  nazwano go elektronicznym indeksem. Zjawisko
+elektroniczny. W uczelniach wyższych  nazwano go elektronicznym indeksem. Zjawisko
 to stanowi nie lada wyzwanie, ponieważ wiąże się z problemem niezawodnego świadczenia
 usług w sieci komputerowej. Odbiorca, w tym przypadku uczeń lub student, musi mieć
 pewność, że dane są stałe, prawdziwe, odpowiednio zabezpieczone przed ich utratą
@@ -60,7 +60,7 @@ pomyłkę. Jeżeli dane odebrane przez użytkownika poddamy przetworzeniu bez we
 wówczas, w zależności od odporności aplikacji, możemy mieć do czynienia z różnymi
 rodzajami błędów, od drukowania w przeglądarce klienta komunikatów diagnostycznych,
 poprzez utratę spójności bazy danych, aż po ujawnienie niepowołanym użytkownikom
-informacji poufnych. z tego powodu nie wolno ignorować wagi problemu.
+informacji poufnych. Z tego powodu nie wolno ignorować wagi problemu.
 
 Aplikacje pozbawione walidacji pozwalają użytkownikowi na wprowadzenie irracjonalnych
 danych do systemu. Przykładem takiej aplikacji jest wspomiany przez autora pracy,
@@ -90,7 +90,7 @@ i zrozumiały sposób.
 Tworzenie pakietu walidującego oraz aplikacji - elektroniczny indeks, która korzysta
 ze stworzonego w ramach pracy pakietu, oparto na doświadczeniu innych badaczy,
 zajmujących się oprogramowaniami komputerowymi, takich jak: Kelly Copley, Tom
-Coleman czy Sacha Greif. w pracy umieszczono ponadto uzasadnienie, dlaczego wybrane
+Coleman czy Sacha Greif. W pracy umieszczono ponadto uzasadnienie, dlaczego wybrane
 technologie, takie jak - Meteor oraz MongoDB, to najbardziej trafny wybór do generowania
 pakietu walidacyjnego elektronicznego zarządzania osiągnięciami studenta.
 
