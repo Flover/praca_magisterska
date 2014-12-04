@@ -19,7 +19,7 @@ czasu.
 Coraz częściej systemy informatyczne wykorzystywane są w edukacji społeczeństwa.
 Jeszcze do niedawna na wszystkich uczelniach wyższych stosowano klasyczne indeksy
 papierowe, aby zarchiwizować osiągnięcia studentów podczas całego cyklu kształcenia.
-Jednak w wyniku rozwoju technologii internetowych coraz częściej rezygnuje się <br>
+Jednak w wyniku rozwoju technologii internetowych coraz częściej rezygnuje się
 z klasycznych rozwiązań, zastępując je ich elektronicznymi odpowiednikami.
 
 Dziś wiele szkół i uczelni wprowadziło do obszaru swego funkcjonowania nowoczesny
@@ -37,7 +37,7 @@ komputerowej lub jej nadużycie.
 
 Rozwiązaniem, które zapewniłoby wzrost poziomu zaufania do korzystania z sieci,
 w tym również z elektronicznego systemu zarządzania osiagnieciami ucznia lub studenta
-jest, według autora niniejszej pracy, odpowiednie <br> i odpowiedzialne zarządzanie jej
+jest, według autora niniejszej pracy, odpowiednie i odpowiedzialne zarządzanie jej
 jakością, czemu służy walidacja systemu.
 
 Zjawisko to jest szeroko stosowane w technice i informatyce. Internetowy Słownik
@@ -74,9 +74,9 @@ kończącego przedmiot,
 
 Dlatego też, autor pracy chce zwrócić uwagę na rodzący się problem, związany
 z wprowadzeniem przez uczelnie elektronicznego indeksu oraz jego odpowiednim
-funkcjonowaniem. Zaproponowanie zastosowania walidacji <br> w elektronicznym systemie
+funkcjonowaniem. Zaproponowanie zastosowania walidacji w elektronicznym systemie
 wystawiania ocen usprawni działanie oraz udoskonali jego funkcjonalność.
-Korzystając <br> z aplikacji, w której zaimplementowana jest walidacja możemy mieć pewność,
+Korzystając z aplikacji, w której zaimplementowana jest walidacja możemy mieć pewność,
 że nie dojdzie do sytuacji, by użytkownik wprowadził błędne dane do systemu.
 Należy również zwrócić uwagę na ekonomiczny aspekt walidacji. Mianowicie oszczędność
 czasu użytkownika czy zwiększenie efektywności jego pracy.
