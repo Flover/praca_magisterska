@@ -1,0 +1,8 @@
+.subjectInfo{
+  width: 600px;
+  border: solid black;
+}
+td{
+  width: 200px;
+  text-align: center;
+}

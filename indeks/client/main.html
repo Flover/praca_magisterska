@@ -1,0 +1,17 @@
+<head>
+  <title>Elektroniczny indeks</title>
+</head>
+
+<body>
+  <h1>Elektroniczny indeks</h1>
+  {{#if currentUser}}
+  {{> logout}}
+  {{else}}
+  <p>Rejestracja: {{> register}}</p>
+  {{> login}}
+  {{/if}}
+
+  {{> subjectList}}
+  {{> addSubject}}
+  {{> subjectDetails}}
+</body>

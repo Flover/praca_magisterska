@@ -1,0 +1,24 @@
+<template name="login">
+  
+  <form id="login-form">
+          {{#if errorMessages}}
+            <div class="list-errors">
+              {{#each errorMessages}}
+                <div class="list-item">{{this}}</div>
+              {{/each}}
+            </div>
+          {{/if}}
+
+          <div class="input-symbol {{errorClass 'number'}}">
+            <input type="text" id="login-text" name="number" placeholder="Twój numer albumu" />
+            <span class="icon-share" title="Your Number"></span>
+          </div>
+
+          <div class="input-symbol {{errorClass 'password'}}">
+            <input type="password" id="login-password" name="password" placeholder="Hasło" />
+            <span class="icon-lock" title="Password"></span>
+          </div>
+
+          <button type="submit" id="login-button" class="btn-primary">Zaloguj Się</button>
+        </form>
+</template>
