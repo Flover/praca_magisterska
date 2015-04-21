@@ -2,24 +2,24 @@
 Router.route('/', {
   loadingTemplate: 'loading',
   waitOn: function () {
-    console.log('wating');
+  //  console.log('wating');
     return [ Meteor.subscribe('theSubjects'),
       Meteor.subscribe('theGrades') ];
   },
   onBeforeAction: function () {
-    console.log('onBefore');
+//    console.log('onBefore');
     if(!Meteor.user()){
-      console.log('not logged in');
+  //    console.log('not logged in');
       this.layout('appLayout');
       this.render('login');
     }
     else {
-      console.log('logged in');
+    //  console.log('logged in');
       this.next();
     }
   },
   action: function () {
-    console.log('action');
+  //  console.log('action');
     this.layout('appLayout');
     this.render('subjectList', {
       'data': {

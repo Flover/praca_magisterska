@@ -10,16 +10,3 @@ Template.subjectList.helpers({
     }
 }
 });
-/*
-Template.subjectList.events({
-  'click .subject': function(){
-    var subjectId = this._id;
-    Session.set('selectedSubject', subjectId);
-    //console.log("you touched me!")
-  },
-  'dblclick .subject': function(){
-    var subjectId = undefined;
-    Session.set('selectedSubject', subjectId);
-    //console.log("you touched me!")
-  }
-});*/

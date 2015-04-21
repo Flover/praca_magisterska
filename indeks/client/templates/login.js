@@ -45,11 +45,11 @@ Template.login.events({
           // The user might not have been found, or their passwword
           // could be incorrect. Inform the user that their
           // login attempt has failed.
-          console.log("Go away! You don't exist!");
+          //console.log("Go away! You don't exist!");
           return Session.set(ERRORS_KEY, {'none': err.reason});
         } else {
           // The user has been logged in.
-          console.log("everything is ok :)");
+      //    console.log("everything is ok :)");
         }
       });
          return false;
