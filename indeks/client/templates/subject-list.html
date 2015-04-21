@@ -1,9 +1,19 @@
 <template name="subjectList">
-<div class="subject-list">
-  <ul>
-  {{#each subject}}
-    <li class="subject {{selectedClass}}">{{Subject}}</li>
-  {{/each}}
-  </ul>
+<div class="container">
+  <div class="subject-list">
+    <div class="list-group">
+      <a class="list-group-item active">
+        Przedmioty
+      </a>
+      {{#each mySubjects}}
+      <a href="/subjects/{{_id}}" class="list-group-item">{{subject}}</a>
+      {{/each}}
+    </div>
+    <!-- <ul>
+    {{#each mySubjects}}
+      <li class="subject {{selectedClass}}"><a href="/subjects/{{_id}}">{{subject}}</a></li>
+    {{/each}}
+    </ul> -->
+  </div>
 </div>
 </template>

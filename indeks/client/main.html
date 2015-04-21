@@ -1,17 +1,45 @@
 <head>
   <title>Elektroniczny indeks</title>
+
+  <link rel="stylesheet" type="text/css" href="http://localhost:3000/bower_components/bootstrap/dist/css/bootstrap.css">
+  <script src="http://localhost:3000/bower_components/jquery/dist/jquery.js"></script>
+  <script src="http://localhost:3000/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 
-<body>
-  <h1>Elektroniczny indeks</h1>
-  {{#if currentUser}}
-  {{> logout}}
-  {{else}}
-  <p>Rejestracja: {{> register}}</p>
-  {{> login}}
-  {{/if}}
+<body></body>
 
-  {{> subjectList}}
-  {{> addSubject}}
-  {{> subjectDetails}}
-</body>
+<template name="loading">
+  {{> header}}
+  {{> menu}}
+  <p>Loading...</p>
+</template>
+
+
+<template name="menu">
+  <div class="container">
+    <ul class="nav nav-pills nav-justified">
+      <li role="presentation"><a href="/">Start</a></li>
+      {{#if currentUser}}
+      <li role="presentation"><a href="/subjects/add">Dodaj przedmiot</a></li>
+      <li role="presentation"><a href="#">Soon...</a></li>
+      <li role="presentation"><a>Zalogowany jako {{currentUser.username}}</a></li>
+      <li role="presentation"><a href="#" class="logOut">Wyloguj się</a></li>
+      <li role="presentation"><a href="/register">Rejestracja</a></li>
+      {{else}}
+      <li role="presentation"><a href="/login">Zaloguj się</a></li>
+      {{/if}}
+    </ul>
+  </div>
+</template>
+
+<template name="header">
+  <div class="container">
+    <h1>Elektroniczny indeks</h1>
+  </div>
+</template>
+
+<template name="appLayout">
+  {{> header}}
+  {{> menu}}
+  {{> yield}}
+</template>

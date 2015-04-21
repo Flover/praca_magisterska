@@ -2,20 +2,25 @@ var ERRORS_KEY = 'loginErrors';
 
 Template.login.helpers({
   errorMessages: function() {
-    return _.values(Session.get(ERRORS_KEY));
+    return _.values(Session.get(ERRORS_KEY) || {});
   },
   errorClass: function(key) {
-    return Session.get(ERRORS_KEY)[key] && 'error';
+    if(Session.get(ERRORS_KEY) && Session.get(ERRORS_KEY)[key]){
+      return 'error';
+    }
+    else {
+      return '';
+    }
   }
 });
 
 Template.login.events({
-
     'submit #login-form' : function(event, template){
       event.preventDefault();
+
       // retrieve the input field values
-      var username = template.find('#login-text').value
-        , password = template.find('#login-password').value;
+      var username = template.find('#login-text').value;
+      var password = template.find('#login-password').value;
 
       var errors = {};
 
@@ -44,7 +49,7 @@ Template.login.events({
           return Session.set(ERRORS_KEY, {'none': err.reason});
         } else {
           // The user has been logged in.
-          console.log("everything is ok :)")
+          console.log("everything is ok :)");
         }
       });
          return false;

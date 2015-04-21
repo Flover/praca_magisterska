@@ -1,18 +1,61 @@
 <template name="subjectDetails">
-  <div class="subject-details">
-    <table class="subjectInfo">
-      <tr>
-        <th>Subject</th>
-        <th>Leading</th>
-        <th>Grade</th>
-      </tr>
-      <tr>
-        <td>{{showSelectedSubject.Subject}}</td>
-        <td>{{showSelectedSubject.Leading}}</td>
-        <td>{{showSelectedSubject.Grade}}</td>
-        <td><input type="button" class="deleteSubject" value="Delete Subject"></td>
-      </tr>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Przedmiot</th>
+          <th>Prowadzący</th>
+          <th>Ocena</th>
+          <th>&nbsp;</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{subject.subject}}</td>
+          <td>{{subject.leading}}</td>
+          <td>{{grade.grade}}</td>
+          <td><input type="button" class="assignSubject" value="Zapisz studenta"></td>
+          <td><input type="button" class="deleteSubject" value="Delete Subject"></td>
+        </tr>
+      </tbody>
     </table>
 
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Indeks</th>
+          <th>Imię</th>
+          <th>Nazwisko</th>
+          <th>Ocena</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each students}}
+        <tr>
+          <td>{{username}}</td>
+          <td>{{profile.firstName}}</td>
+          <td>{{profile.lastName}}</td>
+          <td>
+            <select id="subjectGrade_{{username}}" class="form-control input-md">
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="3.5">3.5</option>
+              <option value="4">4</option>
+              <option value="4.5">4.5</option>
+              <option value="5">5</option>
+            </select>
+          </td>
+          <td>
+            <button class="btn btn-primary">
+              <span class="glyphicon glyphicon-pencil updateGrade"></span>
+            </button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
   </div>
 </template>

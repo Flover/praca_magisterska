@@ -1,6 +1,6 @@
 Template.subjectList.helpers({
-  'subject': function(){
-    return Subjects.find({},{sort: {Subject: 1}})
+  'Subject': function(){
+    return Subjects.find({},{sort: {subject: 1}})
   },
   'selectedClass': function(){
     var subjectId = this._id;

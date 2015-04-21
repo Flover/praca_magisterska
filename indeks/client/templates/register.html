@@ -1,30 +1,42 @@
 <template name="register">
+        <div class="container">
+          <form id="register-form" action="action">
+            {{#if errorMessages}}
+              <div class="list-errors">
+                {{#each errorMessages}}
+                  <div class="list-item">{{this}}</div>
+                {{/each}}
+                  </div>
+            {{/if}}
+              <div class="form-group {{errorClass 'number'}}">
+                <label for="account-text">Numer albumu</label>
+                <input type="text" class="form-control" id="account-text" placeholder="Twój numer albumu">
+              </div>
+              <div class="form-group {{errorClass 'password'}}">
+                <label for="account-firstName">Imię</label>
+                <input type="text" class="form-control" id="account-firstName" placeholder="Imię">
+              </div>
 
- <form id="register-form" action="action">
-          {{#if errorMessages}}
-            <div class="list-errors">
-              {{#each errorMessages}}
-                <div class="list-item">{{this}}</div>
-              {{/each}}
-            </div>
-          {{/if}}
+              <div class="form-group {{errorClass 'password'}}">
+                <label for="account-lastName">Nazwisko</label>
+                <input type="text" class="form-control" id="account-lastName" placeholder="Nazwisko">
+              </div>
 
-          <div class="input-symbol {{errorClass 'username'}}">
-            <input type="text" id="account-text" name="username" placeholder="Your album number" />
-            <span class="icon-lock" title="Your Number"></span>
-          </div>
+              <div class="form-group {{errorClass 'password'}}">
+                <label for="account-role">Grupa</label>
+                <input type="text" class="form-control" id="account-role" placeholder="Grupa">
+              </div>
 
-          <div class="input-symbol  {{errorClass 'email'}}">
-            <input type="email" id="account-email" name="email" placeholder="Your Email" />
-            <span class="icon-email" title="Your Email"></span>
-          </div>
+              <div class="form-group {{errorClass 'password'}}">
+                <label for="account-email">email</label>
+                <input type="email" class="form-control" id="account-email" placeholder="email">
+              </div>
 
-          <div class="input-symbol  {{errorClass 'password'}}">
-            <input type="password" id="account-password" name="password" placeholder="Password" />
-            <span class="icon-lock" title="Password"></span>
-          </div>
-
-          <button type="submit" id="create-account" class="btn-primary">Zarejestruj się</button>
-
-        </form>
+              <div class="form-group {{errorClass 'password'}}">
+                <label for="account-password">Hasło</label>
+                <input type="password" class="form-control" id="account-password" placeholder="Hasło">
+              </div>
+            <button type="submit" id="create-account" class="btn btn-default">Zarejestruj się</button>
+          </form>
+        </div>
 </template>

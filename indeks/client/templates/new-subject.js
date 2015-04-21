@@ -1,13 +1,15 @@
 Template.addSubject.events({
-  'submit form': function(event){
+  'submit form': function (event, template) {
     event.preventDefault();
-    var subjectNameVar = event.target.subjectName.value;
-    var subjectLeadingVar = event.target.subjectLeading.value;
-    var subjectGradeVar = event.target.subjectGrade.value;
+    var subjectNameVar = template.find('#subjectName').value;
+    var subjectLeadingVar = template.find('#subjectLeading').value;
+    var subjectSemesterVar = parseInt( template.find('#subjectSemester').value );
+
     Subjects.insert({
-      Subject: subjectNameVar,
-      Leading: subjectLeadingVar,
-      Grade: subjectGradeVar
+      subject: subjectNameVar,
+      leading: subjectLeadingVar,
+      semester: subjectSemesterVar
     });
+    Router.go('/');
   }
-})
+});

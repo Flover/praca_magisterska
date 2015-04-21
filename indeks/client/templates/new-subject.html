@@ -1,17 +1,30 @@
 <template name="addSubject">
+  <div class="container">
     <form>
-      <table class="addSubjectHolder">
-        <tr>
-          <th>Subject Name</th>
-          <th>Subject Leading</th>
-          <th>Subject Grade</th>
-        </tr>
-        <tr>
-          <td><input type="text" name="subjectName"></td>
-          <td><input type="text" name="subjectLeading"></td>
-          <td><input type="text" name="subjectGrade"></td>
-          <input type="submit" value="Add new subject">
-        </tr>
-      </table>
+      <div class="form-group">
+        <label for="subjectName">Przedmiot</label>
+        <input type="text" class="form-control input-md" id="subjectName" placeholder="Name">
+      </div>
+      <div class="form-group">
+        <label for="subjectLeading">Prowadzący</label>
+        <input type="text" class="form-control input-md" id="subjectLeading" placeholder="Leading">
+      </div>
+      <!-- <div class="form-group">
+        <label for="subjectGrade">Ocena</label>
+        <select id="subjectGrade" class="form-control input-md">
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="3.5">3.5</option>
+          <option value="4">4</option>
+          <option value="4.5">4.5</option>
+          <option value="5">5</option>
+        </select>
+      </div> -->
+      <div class="form-group">
+        <label for="subjectSemester">Semestr</label>
+        <input type="text" class="form-control input-md" id="subjectSemester" placeholder="Semestr">
+      </div>
+      <button type="submit" class="btn btn-default">Dodaj przedmiot</button>
     </form>
+  </div>
 </template>
