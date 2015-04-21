@@ -1,4 +1,6 @@
 Subjects = new Mongo.Collection('subjects');
+Grades = new Mongo.Collection('grades');
+
 
 //Set default album number for new student
 /*Subjects.defaultStudentNumber = function(){
