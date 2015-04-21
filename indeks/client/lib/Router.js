@@ -24,8 +24,8 @@ Router.route('/', {
     this.render('subjectList', {
       'data': {
         'User': Meteor.user(),
-        'mySubjects': Subjects.find(),
-        'myGrades': Grades.find()
+        'mySubjects': Subjects.find()
+      //  'myGrades': Grades.find()
       }
     });
   }

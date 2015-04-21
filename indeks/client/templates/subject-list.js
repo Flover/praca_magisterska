@@ -1,16 +1,16 @@
 Template.subjectList.helpers({
   'Subject': function(){
-    return Subjects.find({},{sort: {subject: 1}})
+    return Subjects.find({},{sort: {subject: 1}});
   },
   'selectedClass': function(){
     var subjectId = this._id;
-    var selectedSubject = Session.get('selectedSubject')
+    var selectedSubject = Session.get('selectedSubject');
     if(subjectId === selectedSubject){
       return "selected";
     }
 }
 });
-
+/*
 Template.subjectList.events({
   'click .subject': function(){
     var subjectId = this._id;
@@ -22,4 +22,4 @@ Template.subjectList.events({
     Session.set('selectedSubject', subjectId);
     //console.log("you touched me!")
   }
-});
+});*/

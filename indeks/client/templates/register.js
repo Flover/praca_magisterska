@@ -70,7 +70,7 @@ Template.register.events({
            console.log('something goes wrong :(');
            return Session.set(ERRORS_KEY, {'none': err.reason});
          } else {
-           console.log('Hurray!')
+           console.log('Hurray!');
            Router.go('/');
            // Success. Account has been created and the user
            // has logged in successfully.
