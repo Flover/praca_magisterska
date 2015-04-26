@@ -23,9 +23,16 @@
               </div>
 
               <div class="form-group ">
-                <label for="account-role">Grupa</label>
-                <input type="text" class="form-control" id="account-role" placeholder="Grupa">
+              <!--   <label for="account-role">Grupa</label>
+              <input type="text" class="form-control" id="account-role" placeholder="Grupa">-->
+                <select id="accountRole" class="form-control input-md">
+                  <option selected value="student">student</option>
+                  <option value="admin">admin</option>
+                  <option value="wykładowca">wykładowca</option>
+                  <option value="dziekanat">dziekanat</option>
+                </select>
               </div>
+
 
               <div class="form-group {{errorClass 'password'}}">
                 <label for="account-email">email</label>

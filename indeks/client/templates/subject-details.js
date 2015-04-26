@@ -1,19 +1,15 @@
 Template.subjectDetails.events({
-  'click .deleteSubject': function(){
+  'click .deleteSubject': function(event){
     var selectedSubject = Router.current().params.subjectId;
-    Subjects.remove(selectedSubject);
+    Meteor.call('removeSubject', selectedSubject);
     Router.go('/');
   },
   'click .assignSubject': function(event){
     event.preventDefault();
     var selectedSubject = Router.current().params.subjectId;
     var selectedUser = Meteor.user().username;
+    Meteor.call('addStudentToSubject', selectedSubject, selectedUser);
 
-    Grades.insert({
-      studentId: selectedUser,
-      subjectId: selectedSubject,
-      grade: null
-    });
   },
   'click .updateGrade': function (event, template) {
     var grade = template.find('#subjectGrade_'+this.username).value;
