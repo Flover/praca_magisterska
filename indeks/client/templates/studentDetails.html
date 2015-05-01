@@ -1,0 +1,22 @@
+<template name="studentDetails">
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Przedmiot</th>
+          <th>Prowadzący</th>
+          <th>Ocena</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each subjects}}
+        <tr>
+          <td>{{subject}}</td>
+          <td>{{leading}}</td>
+          <td>{{grade.grade}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>

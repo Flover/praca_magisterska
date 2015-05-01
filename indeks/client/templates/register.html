@@ -13,6 +13,15 @@
                 <input type="text" class="form-control" id="account-text" placeholder="Twój numer albumu">
               </div>
               <div class="form-group ">
+                <label for="accountRole">Grupa</label>
+                <select id="accountRole" class="form-control input-md">
+                  <option selected value="student">student</option>
+                  <option value="admin">admin</option>
+                  <option value="wykładowca">wykładowca</option>
+                  <option value="dziekanat">dziekanat</option>
+                </select>
+            </div>
+              <div class="form-group ">
                 <label for="account-firstName">Imię</label>
                 <input type="text" class="form-control" id="account-firstName" placeholder="Imię">
               </div>
@@ -22,27 +31,16 @@
                 <input type="text" class="form-control" id="account-lastName" placeholder="Nazwisko">
               </div>
 
-              <div class="form-group ">
-              <!--   <label for="account-role">Grupa</label>
-              <input type="text" class="form-control" id="account-role" placeholder="Grupa">-->
-                <select id="accountRole" class="form-control input-md">
-                  <option selected value="student">student</option>
-                  <option value="admin">admin</option>
-                  <option value="wykładowca">wykładowca</option>
-                  <option value="dziekanat">dziekanat</option>
-                </select>
-              </div>
-
-
-              <div class="form-group {{errorClass 'password'}}">
-                <label for="account-email">email</label>
-                <input type="email" class="form-control" id="account-email" placeholder="email">
-              </div>
+<!--               <div class="form-group {{errorClass 'password'}}">
+  <label for="account-email">email</label>
+  <input type="email" class="form-control" id="account-email" placeholder="email">
+</div> -->
 
               <div class="form-group {{errorClass 'password'}}">
                 <label for="account-password">Hasło</label>
                 <input type="password" class="form-control" id="account-password" placeholder="Hasło">
               </div>
+
             <button type="submit" id="create-account" class="btn btn-default">Zarejestruj się</button>
           </form>
         </div>

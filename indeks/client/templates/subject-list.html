@@ -2,12 +2,36 @@
 <div class="container">
   <div class="subject-list">
     <div class="list-group">
+      {{#if isInRole 'admin, wykładowca, student'}}
       <a class="list-group-item active">
         Przedmioty
       </a>
+
       {{#each mySubjects}}
       <a href="/subjects/{{_id}}" class="list-group-item">{{subject}}</a>
       {{/each}}
+      {{/if}}
+
+      {{#if isInRole 'dziekanat, admin'}}
+      <a class="list-group-item active">
+        Studenci
+      </a>
+
+      {{#each myStudents}}
+      <a href="/students/{{username}}" class="list-group-item">{{profile.firstName}} {{profile.lastName}} {{username}}</a>
+      {{/each}}
+      {{/if}}
+
+      {{#if isInRole 'dziekanat, admin'}}
+      <a class="list-group-item active">
+        Wykładowcy
+      </a>
+
+      {{#each myLeaders}}
+      <a href="/subjects/{{_id}}" class="list-group-item">{{profile.firstName}} {{profile.lastName}}</a>
+      {{/each}}
+      {{/if}}
+
     </div>
   </div>
 </div>

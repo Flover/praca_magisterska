@@ -1,13 +1,12 @@
 <template name="subjectDetails">
   <div class="container">
+    {{#if isInRole 'student'}}
     <table class="table table-striped">
       <thead>
         <tr>
           <th>Przedmiot</th>
           <th>Prowadzący</th>
           <th>Ocena</th>
-          <th>&nbsp;</th>
-          <th>&nbsp;</th>
         </tr>
       </thead>
       <tbody>
@@ -15,12 +14,30 @@
           <td>{{subject.subject}}</td>
           <td>{{subject.leading}}</td>
           <td>{{grade.grade}}</td>
-          <td><input type="button" class="assignSubject" value="Zapisz studenta"></td>
-          <td><input type="button" class="deleteSubject" value="Delete Subject"></td>
         </tr>
       </tbody>
     </table>
+    {{/if}}
 
+    {{#if isInRole 'admin, dziekanat'}}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Przedmiot</th>
+          <th>Prowadzący</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{subject.subject}}</td>
+          <td>{{subject.leading}}</td>
+        </tr>
+      </tbody>
+    </table>
+    {{/if}}
+
+    {{#if isInRole 'admin, wykładowca, dziekanat'}}
+    <h3>Uczestnicy</h3>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -32,13 +49,13 @@
         </tr>
       </thead>
       <tbody>
-        {{#each students}}
+        {{#each student}}
         <tr>
           <td>{{username}}</td>
           <td>{{profile.firstName}}</td>
           <td>{{profile.lastName}}</td>
           <td>
-            <select id="subjectGrade_{{username}}" class="form-control input-md">
+            <select id="subjectGrade" class="form-control input-md">
               <option value="">-</option>
               <option selected value="2">2</option>
               <option value="3">3</option>
@@ -49,13 +66,41 @@
             </select>
           </td>
           <td>
-            <button class="btn btn-primary">
-              <span class="glyphicon glyphicon-pencil updateGrade"></span>
+            <button class="btn btn-primary updateGrade">
+              <span class="glyphicon glyphicon-pencil"></span>
             </button>
           </td>
         </tr>
         {{/each}}
       </tbody>
     </table>
+    {{/if}}
+    {{#if isInRole 'admin, wykładowca, dziekanat'}}
+    <h3>Zapisz na przedmiot</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Indeks</th>
+          <th>Imię</th>
+          <th>Nazwisko</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each students}}
+        <tr>
+          <td>{{username}}</td>
+          <td>{{profile.firstName}}</td>
+          <td>{{profile.lastName}}</td>
+          <td>
+            <button class="btn btn-primary assignSubject">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{/if}}
   </div>
 </template>

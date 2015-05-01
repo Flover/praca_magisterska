@@ -20,11 +20,15 @@
     <ul class="nav nav-pills nav-justified">
       <li role="presentation"><a href="/">Start</a></li>
       {{#if currentUser}}
+      {{#if isInRole 'admin'}}
       <li role="presentation"><a href="/subjects/add">Dodaj przedmiot</a></li>
-      <li role="presentation"><a href="#">Soon...</a></li>
+      {{/if}}
+      <li role="presentation"><a class="btnRawCSV">Download the CSV</a></li>
       <li role="presentation"><a>Zalogowany jako {{currentUser.username}}</a></li>
       <li role="presentation"><a href="#" class="logOut">Wyloguj się</a></li>
+      {{#if isInRole 'admin'}}
       <li role="presentation"><a href="/register">Rejestracja</a></li>
+      {{/if}}
       {{else}}
       <li role="presentation"><a href="/login">Zaloguj się</a></li>
       {{/if}}

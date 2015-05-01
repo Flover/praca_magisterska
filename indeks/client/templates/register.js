@@ -18,11 +18,11 @@ Template.register.events({
    'submit #register-form' : function(event, template) {
      event.preventDefault();
      var username = template.find('#account-text').value;
-     var email = template.find('#account-email').value;
      var password = template.find('#account-password').value;
      var role = template.find('#accountRole').value;
      var firstName = template.find('#account-firstName').value;
      var lastName = template.find('#account-lastName').value;
+     var email = (firstName.substring(0,1)+lastName+'@sigma.ug.edu.pl').toLowerCase();
 
 
        // trim helper
@@ -32,9 +32,6 @@ Template.register.events({
 
      var errors = {};
 
-       if (! email) {
-         errors.email = 'Email required';
-       }
 
        if (! password) {
          errors.password = 'Password required';
@@ -52,7 +49,7 @@ Template.register.events({
        // email = trimInput(email);
 
        // Trim and validate the input
-
+        //Meteor.users.update
         Accounts.createUser({
           username: username,
           email: email,
