@@ -1,29 +1,31 @@
 Meteor.methods({
-  'updateGrade': function (studentId, subjectId, grade) {
-    Grades.update({'studentId': studentId, 'subjectId': subjectId },
-      {$set: {'grade': grade } });
+  'updateGrade': function (studentName, subjectId, grade) {
+    Grades.update({'studentName': studentName, 'subjectId': subjectId }, {$set: {'grade': grade } });
   },
   'removeSubject': function(selectedSubject){
     Subjects.remove(selectedSubject);
   },
-  'addStudentToSubject': function(selectedSubject, selectedUser){
+  'addStudentToSubject': function(selectedSubject, selectedSubjectId, selectedUser, selectedUserId){
     Grades.insert({
-      studentId: selectedUser,
-      subjectId: selectedSubject,
+      studentId: selectedUserId,
+      subjectId: selectedSubjectId,
+      studentName: selectedUser,
+      subjectName: selectedSubject,
       grade: null
     });
+    Meteor.users.update({'_id': selectedUserId}, {$addToSet: {'profile.subjects': selectedSubject}});
+    Subjects.update({'_id': selectedSubjectId}, {$addToSet: {'students': selectedUser}});
   },
   'addSubject': function(subjectNameVar, subjectLeadingVar, subjectSemesterVar){
 
     Subjects.insert({
       subject: subjectNameVar,
       leading: subjectLeadingVar,
-      semester: subjectSemesterVar
+      semester: subjectSemesterVar,
+      students: []
     });
   },
   'assignRole': function(user, role){
-    console.log(user._id);
-    console.log(role);
     Roles.setUserRoles(user, role);
   }
 });
