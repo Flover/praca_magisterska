@@ -1,15 +1,17 @@
 Meteor.startup(function (){
   ar = Roles.getAllRoles().count();
   if(ar === 0){
-    console.log("Dodaje role");
+    console.log("Dodaje role 'admin'");
     Roles.createRole('admin');
+    console.log("Dodaje role 'student'");
     Roles.createRole('student');
+    console.log("Dodaje role 'dziekanat'");
     Roles.createRole('dziekanat');
+    console.log("Dodaje role 'wykładowca'");
     Roles.createRole('wykładowca');
     console.log("koniec");
     console.log(ar);
   }
-  console.log(ar);
 /*        // store the default createUser method handler
         var default_create_user = Meteor.server.method_handlers.createUser;
 
@@ -46,12 +48,21 @@ Meteor.startup(function (){
 
 Meteor.publish('theSubjects', function () {
   if(this.userId){
-    var sem = Meteor.users.findOne({'_id': this.userId}).profile.semester;
-    return Subjects.find({'semester': {$lte: sem }});
-  }
-  else {
-    this.ready();
-  }
+    if (Roles.userIsInRole(this.userId, 'admin')) {
+      //return Subjects.find({});
+      return [Meteor.users.find({}), Subjects.find({})];
+    } else if(Roles.userIsInRole(this.userId, 'dziekanat')){
+        return [Meteor.users.find({}), Subjects.find({})];
+    } else if(Roles.userIsInRole(this.userId, 'student')){
+        var user = Meteor.users.findOne({'_id': this.userId}).username;
+        return Subjects.find({"students": user});
+    } else if(Roles.userIsInRole(this.userId, 'wykładowca')){
+        return Subjects.find({"_id": this.userId});
+      }
+    }
+    else {
+      this.ready();
+    }
 });
 
 Meteor.publish('theGrades', function () {
@@ -59,7 +70,7 @@ Meteor.publish('theGrades', function () {
   if(this.userId){
     var currentUserId = this.userId;
     var userName = Meteor.users.findOne({'_id': currentUserId}).username;
-    return Grades.find({'studentId': userName});
+    return Grades.find();
   }
   else {
     this.ready();
@@ -70,7 +81,7 @@ Meteor.publish('TheSubjectStudents', function (subjectId) {
   var grades = Grades.find({'subjectId': subjectId}).fetch();
   var usersIds = [];
   for(var i = 0; i < grades.length; i+=1){
-    usersIds.push(grades[i].studentId);
+    usersIds.push(grades[i].studentName);
   }
   return Meteor.users.find({'username': {$in: usersIds }});
 });
