@@ -70,7 +70,7 @@ Meteor.publish('theGrades', function () {
   if(this.userId){
     var currentUserId = this.userId;
     var userName = Meteor.users.findOne({'_id': currentUserId}).username;
-    return Grades.find();
+    return Grades.find({"studentName": userName});
   }
   else {
     this.ready();

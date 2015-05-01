@@ -19,7 +19,12 @@ Template.subjectDetails.events({
 
   },
   'click .updateGrade': function (event, template) {
-    var grade = template.find('#subjectGrade').value;
+    var grade = template.find('#subjectGrade_'+this.username).value;
+    //console.log(this.username);
+    //console.log(this._id);
+  //  username = Meteor.users.findOne({'_id': this._id}).username;
+  //  console.log(username);
+  console.log(grade)
     Meteor.call('updateGrade', this.username, Router.current().params.subjectId, grade);
   }
 });

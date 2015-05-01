@@ -85,7 +85,7 @@ Router.route('/subjects/:subjectId', {
       'data': {
         'User': Meteor.user(),
         'subject': Subjects.findOne({'_id': this.params.subjectId}),
-        'grade': Grades.findOne({'subjectId': this.params.subjectId}, {$in: {'studentName': Meteor.user().username}}),
+        'grade': Grades.findOne({'subjectId': this.params.subjectId}, {$in: {'studentName': Meteor.users.find({'_id': this._id}).username}}),
         'student': Meteor.users.find({'profile.subjects': subjectName}),
         'students': Meteor.users.find({'roles': 'student'})
       }
@@ -123,8 +123,8 @@ Router.route('/students/:studentUsername', {
     this.render('studentDetails', {
       'data': {
          'User': Meteor.users.findOne({"username": this.params.studentUsername}).username,
-         'subjects': Subjects.find({"students": this.params.studentUsername})
-  //       'grade': Grades.findOne({}, {$in: {'studentName': Meteor.user().username}}),'students': Meteor.users.find()
+         'subjects': Subjects.find({"students": this.params.studentUsername}),
+         'grade': Grades.findOne({}, {$in: {'studentName': Meteor.user().username}}),'students': Meteor.users.find()
       }
     });
   }
