@@ -25,7 +25,7 @@ Router.route('/', {
       'data': {
         'User': Meteor.user(),
         'mySubjects': Subjects.find(),
-        'myStudents': Meteor.users.find(/*{'roles': 'student'}*/),
+        'myStudents': Meteor.users.find({'roles': 'student'}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1}}),
         'myLeaders': Meteor.users.find({'roles': 'wykładowca'}),
         'myGrades': Grades.find()
       }
@@ -87,7 +87,7 @@ Router.route('/subjects/:subjectId', {
         'subject': Subjects.findOne({'_id': this.params.subjectId}),
         'grade': Grades.findOne({'subjectId': this.params.subjectId}, {$in: {'studentName': Meteor.users.find({'_id': this._id}).username}}),
         'student': Meteor.users.find({'profile.subjects': subjectName}),
-        'students': Meteor.users.find({'roles': 'student'})
+        'students': Meteor.users.find({'profile.subjects': {$nin: [subjectName]}, 'roles': 'student'})
       }
     });
   }
