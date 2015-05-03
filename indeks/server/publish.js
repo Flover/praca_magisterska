@@ -57,7 +57,7 @@ Meteor.publish('theSubjects', function () {
         var user = Meteor.users.findOne({'_id': this.userId}).username;
         return Subjects.find({"students": user});
     } else if(Roles.userIsInRole(this.userId, 'wykładowca')){
-        return Subjects.find({"_id": this.userId});
+        return Subjects.find({});
       }
     }
     else {

@@ -1,0 +1,10 @@
+<template name="teacherDetails">
+  <div class="container">
+    <div class="list-group">
+      <a href="#" class="list-group-item active">Przedmiot</a>
+      {{#each subjects}}
+      <a href="/subjects/{{_id}}" class="list-group-item">{{subject}}</a>
+      {{/each}}
+    </div>
+  </div>
+</template>

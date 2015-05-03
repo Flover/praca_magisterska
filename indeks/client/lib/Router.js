@@ -113,12 +113,6 @@ Router.route('/students/:studentUsername', {
     }
   },
   action: function () {
-  //  console.log(Meteor.users.find({"profile.subjects": this.params.subjectId}).fetch());
-  //  console.log(this.params.studentUsername);
-  //  subjectName = Subjects.findOne({"subjects": this.params.studentUsername}).subject;
-
-  console.log("action");
-  console.log(Meteor.users.findOne({"username": this.params.studentUsername}).username);
     this.layout('appLayout');
     this.render('studentDetails', {
       'data': {
@@ -131,15 +125,41 @@ Router.route('/students/:studentUsername', {
 
 });
 
+// /teachers/:teacherUsername
+Router.route('/teachers/:teacherUsername', {
+  loadingTemplate: 'loading',
+  waitOn: function () {
+    return [ Meteor.subscribe('theSubjects') ];
+  },
+  onBeforeAction: function () {
+    if(!Meteor.user()){
+      this.layout('appLayout');
+      this.render('login');
+    }
+    else {
+      this.next();
+    }
+  },
+  action: function () {
+    this.layout('appLayout');
+    this.render('teacherDetails', {
+      'data': {
+         //'User': Meteor.users.findOne({"username": this.params.studentUsername}).username,
+         'subjects': Subjects.find({}),
+         //'grade': Grades.findOne({}, {$in: {'studentName': Meteor.user().username}}),'students': Meteor.users.find()
+      }
+    });
+  }
 
+});
 
 // /login
 Router.route('/login', {
   loadingTemplate: 'loading',
-  // waitOn: function () {
-  //   return [ Meteor.subscribe('theSubjects'),
-  //     Meteor.subscribe('theGrades') ];
-  // },
+  waitOn: function () {
+    return [ Meteor.subscribe('theSubjects'),
+      Meteor.subscribe('theGrades') ];
+   },
   onBeforeAction: function () {
     if(Meteor.user()){
       Router.go('/');
@@ -181,30 +201,3 @@ Router.map(function() {
     }
   })
 });
-
-
-// /register
-/*Router.route('/register', {
-  loadingTemplate: 'loading',
-  // waitOn: function () {
-  //   return [ Meteor.subscribe('theSubjects'),
-  //     Meteor.subscribe('theGrades') ];
-  // },
-  onBeforeAction: function () {
-    if(!Meteor.user()){
-      this.layout('appLayout');
-      this.render('login');
-    }
-    else {
-      this.next();
-    }
-  },
-  action: function () {
-    this.layout('appLayout');
-    this.render('register', {
-      'data': {
-        'User': Meteor.user()
-        }
-    });
-  }
-});*/
