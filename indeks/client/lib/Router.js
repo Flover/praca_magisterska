@@ -11,7 +11,7 @@ Router.route('/', {
     if(!Meteor.user()){
   //    console.log('not logged in');
       this.layout('appLayout');
-      this.render('login');
+      this.render('registerAdmin');
     }
     else {
     //  console.log('logged in');
@@ -179,8 +179,8 @@ Router.route('/login', {
 });
 
 Router.map(function() {
-  this.route('register', {
-    path: '/register',
+  this.route('registerSudent', {
+    path: '/registerStudent',
 
     onBeforeAction: function() {
       user = Meteor.user();
@@ -193,7 +193,77 @@ Router.map(function() {
     },
     action: function () {
       this.layout('appLayout');
-      this.render('register', {
+      this.render('registerStudent', {
+        'data': {
+          'User': Meteor.user()
+          }
+      });
+    }
+  })
+});
+
+Router.map(function() {
+  this.route('registerTeacher', {
+    path: '/registerTeacher',
+
+    onBeforeAction: function() {
+      user = Meteor.user();
+      if(!Roles.userIsInRole(user, ['admin'])) {
+        this.layout('appLayout');
+        this.redirect('/');
+        this.stop();
+      }
+      this.next();
+    },
+    action: function () {
+      this.layout('appLayout');
+      this.render('registerTeacher', {
+        'data': {
+          'User': Meteor.user()
+          }
+      });
+    }
+  })
+});
+Router.map(function() {
+  this.route('registerAdmin', {
+    path: '/registerAdmin',
+
+    onBeforeAction: function() {
+      user = Meteor.user();
+      if(!Roles.userIsInRole(user, ['admin'])) {
+        this.layout('appLayout');
+        this.redirect('/');
+        this.stop();
+      }
+      this.next();
+    },
+    action: function () {
+      this.layout('appLayout');
+      this.render('registerAdmin', {
+        'data': {
+          'User': Meteor.user()
+          }
+      });
+    }
+  })
+});
+Router.map(function() {
+  this.route('registerDeanery', {
+    path: '/registerDeanery',
+
+    onBeforeAction: function() {
+      user = Meteor.user();
+      if(!Roles.userIsInRole(user, ['admin'])) {
+        this.layout('appLayout');
+        this.redirect('/');
+        this.stop();
+      }
+      this.next();
+    },
+    action: function () {
+      this.layout('appLayout');
+      this.render('registerDeanery', {
         'data': {
           'User': Meteor.user()
           }

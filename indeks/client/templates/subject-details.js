@@ -14,8 +14,12 @@ Template.subjectDetails.events({
     Meteor.call('addStudentToSubject', selectedSubject, selectedSubjectId, selectedUser, selectedUserId);
 
   },
-  'click .updateGrade': function (event, template) {
-    var grade = template.find('#subjectGrade_'+this.username).value;
-    Meteor.call('updateGrade', this.username, Router.current().params.subjectId, grade);
+  'click .updateExamGrade': function (event, template) {
+    var examGrade = template.find('#subjectExamGrade_'+this.username).value;
+    Meteor.call('updateExamGrade', this.username, Router.current().params.subjectId, examGrade);
+  },
+  'click .updateExerciseGrade': function (event, template) {
+    var exerciseGrade = template.find('#subjectExerciseGrade_'+this.username).value;
+    Meteor.call('updateExerciseGrade', this.username, Router.current().params.subjectId, exerciseGrade);
   }
 });

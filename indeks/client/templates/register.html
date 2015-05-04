@@ -1,4 +1,4 @@
-<template name="register">
+<template name="registerStudent">
         <div class="container">
           <form id="register-form" action="action">
             {{#if errorMessages}}
@@ -12,15 +12,7 @@
                 <label for="account-text">Numer albumu</label>
                 <input type="text" class="form-control" id="account-text" placeholder="Twój numer albumu">
               </div>
-              <div class="form-group ">
-                <label for="accountRole">Grupa</label>
-                <select id="accountRole" class="form-control input-md">
-                  <option selected value="student">student</option>
-                  <option value="admin">admin</option>
-                  <option value="wykładowca">wykładowca</option>
-                  <option value="dziekanat">dziekanat</option>
-                </select>
-            </div>
+
               <div class="form-group ">
                 <label for="account-firstName">Imię</label>
                 <input type="text" class="form-control" id="account-firstName" placeholder="Imię">
@@ -31,10 +23,110 @@
                 <input type="text" class="form-control" id="account-lastName" placeholder="Nazwisko">
               </div>
 
-<!--               <div class="form-group {{errorClass 'password'}}">
-  <label for="account-email">email</label>
-  <input type="email" class="form-control" id="account-email" placeholder="email">
-</div> -->
+              <div class="form-group {{errorClass 'password'}}">
+                <label for="account-password">Hasło</label>
+                <input type="password" class="form-control" id="account-password" placeholder="Hasło">
+              </div>
+
+            <button type="submit" id="create-account" class="btn btn-default">Zarejestruj się</button>
+          </form>
+        </div>
+</template>
+
+<template name="registerTeacher">
+        <div class="container">
+          <form id="register-form" action="action">
+            {{#if errorMessages}}
+              <div class="list-errors">
+                {{#each errorMessages}}
+                  <div class="list-item">{{this}}</div>
+                {{/each}}
+                  </div>
+            {{/if}}
+              <div class="form-group {{errorClass 'number'}}">
+                <label for="account-text">Nazwa użytkownika</label>
+                <input type="text" class="form-control" id="account-text" placeholder="Twój numer albumu">
+              </div>
+
+              <div class="form-group ">
+                <label for="account-firstName">Imię</label>
+                <input type="text" class="form-control" id="account-firstName" placeholder="Imię">
+              </div>
+
+              <div class="form-group ">
+                <label for="account-lastName">Nazwisko</label>
+                <input type="text" class="form-control" id="account-lastName" placeholder="Nazwisko">
+              </div>
+
+              <div class="form-group {{errorClass 'password'}}">
+                <label for="account-password">Hasło</label>
+                <input type="password" class="form-control" id="account-password" placeholder="Hasło">
+              </div>
+
+            <button type="submit" id="create-account" class="btn btn-default">Zarejestruj się</button>
+          </form>
+        </div>
+</template>
+
+<template name="registerAdmin">
+        <div class="container">
+          <form id="register-form" action="action">
+            {{#if errorMessages}}
+              <div class="list-errors">
+                {{#each errorMessages}}
+                  <div class="list-item">{{this}}</div>
+                {{/each}}
+                  </div>
+            {{/if}}
+              <div class="form-group {{errorClass 'number'}}">
+                <label for="account-text">Nazwa użytkownika</label>
+                <input type="text" class="form-control" id="account-text" placeholder="Twój numer albumu">
+              </div>
+
+              <div class="form-group ">
+                <label for="account-firstName">Imię</label>
+                <input type="text" class="form-control" id="account-firstName" placeholder="Imię">
+              </div>
+
+              <div class="form-group ">
+                <label for="account-lastName">Nazwisko</label>
+                <input type="text" class="form-control" id="account-lastName" placeholder="Nazwisko">
+              </div>
+
+              <div class="form-group {{errorClass 'password'}}">
+                <label for="account-password">Hasło</label>
+                <input type="password" class="form-control" id="account-password" placeholder="Hasło">
+              </div>
+
+            <button type="submit" id="create-account" class="btn btn-default">Zarejestruj się</button>
+          </form>
+        </div>
+</template>
+
+<template name="registerDeanery">
+        <div class="container">
+          <form id="register-form" action="action">
+            {{#if errorMessages}}
+              <div class="list-errors">
+                {{#each errorMessages}}
+                  <div class="list-item">{{this}}</div>
+                {{/each}}
+                  </div>
+            {{/if}}
+              <div class="form-group {{errorClass 'number'}}">
+                <label for="account-text">Nazwa użytkownika</label>
+                <input type="text" class="form-control" id="account-text" placeholder="Twój numer albumu">
+              </div>
+
+              <div class="form-group ">
+                <label for="account-firstName">Imię</label>
+                <input type="text" class="form-control" id="account-firstName" placeholder="Imię">
+              </div>
+
+              <div class="form-group ">
+                <label for="account-lastName">Nazwisko</label>
+                <input type="text" class="form-control" id="account-lastName" placeholder="Nazwisko">
+              </div>
 
               <div class="form-group {{errorClass 'password'}}">
                 <label for="account-password">Hasło</label>

@@ -1,6 +1,9 @@
 Meteor.methods({
-  'updateGrade': function (studentName, subjectId, grade) {
-    Grades.update({'studentName': studentName, 'subjectId': subjectId }, {$set: {'grade': grade } });
+  'updateExamGrade': function (studentName, subjectId, grade) {
+    Grades.update({'studentName': studentName, 'subjectId': subjectId }, {$set: {'examGrade': grade } });
+  },
+  'updateExerciseGrade': function (studentName, subjectId, grade) {
+    Grades.update({'studentName': studentName, 'subjectId': subjectId }, {$set: {'exerciseGrade': grade } });
   },
   'removeSubject': function(selectedSubject){
     Subjects.remove(selectedSubject);
@@ -11,7 +14,8 @@ Meteor.methods({
       subjectId: selectedSubjectId,
       studentName: selectedUser,
       subjectName: selectedSubject,
-      grade: null
+      exerciseGrade: null,
+      examGrade: null
     });
     Meteor.users.update({'_id': selectedUserId}, {$addToSet: {'profile.subjects': selectedSubject}});
     Subjects.update({'_id': selectedSubjectId}, {$addToSet: {'students': selectedUser}});
