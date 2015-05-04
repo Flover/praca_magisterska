@@ -11,7 +11,7 @@ Router.route('/', {
     if(!Meteor.user()){
   //    console.log('not logged in');
       this.layout('appLayout');
-      this.render('registerAdmin');
+      this.render('login');
     }
     else {
     //  console.log('logged in');
@@ -26,7 +26,7 @@ Router.route('/', {
         'User': Meteor.user(),
         'mySubjects': Subjects.find(),
         'myStudents': Meteor.users.find({'roles': 'student'}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1}}),
-        'myLeaders': Meteor.users.find({'roles': 'wykładowca'}),
+        'myLeaders': Meteor.users.find({'roles': 'wykładowca'}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1}}),
         'myGrades': Grades.find()
       }
     });
@@ -55,7 +55,8 @@ Router.route('/subjects/add', {
       'data': {
         'User': Meteor.user(),
         'mySubjects': Subjects.find(),
-        'myGrades': Grades.find()
+        'myGrades': Grades.find(),
+        'teachers': Meteor.users.find({'roles': 'wykładowca'}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1}})
       }
     });
   }
@@ -179,7 +180,7 @@ Router.route('/login', {
 });
 
 Router.map(function() {
-  this.route('registerSudent', {
+  this.route('registerStudent', {
     path: '/registerStudent',
 
     onBeforeAction: function() {

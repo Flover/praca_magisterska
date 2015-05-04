@@ -3,7 +3,7 @@ Template.addSubject.events({
     event.preventDefault();
     var subjectNameVar = template.find('#subjectName').value;
     var subjectLeadingVar = template.find('#subjectLeading').value;
-    var subjectSemesterVar = template.find('#subjectSemester').value;
+    var subjectSemesterVar = parseInt(template.find('#subjectSemester').value);
 
     Meteor.call('addSubject',subjectNameVar, subjectLeadingVar, subjectSemesterVar);
     Router.go('/');

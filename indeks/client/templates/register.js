@@ -70,6 +70,7 @@ Template.registerStudent.events({
 
               Meteor.call('assignRole', user, 'student');
               Router.go('/');
+            //  Subjects.update({'semester': 1}, {$addToSet: {'students': username}});
               // Success. Account has been created and the user
               // has logged in successfully.
             }
