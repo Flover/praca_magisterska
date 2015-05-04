@@ -100,6 +100,7 @@ Template.registerStudent.events({
       event.preventDefault();
       var username = template.find('#account-text').value;
       var password = template.find('#account-password').value;
+      var academicTitle = template.find('#account-title').value;
       var firstName = template.find('#account-firstName').value;
       var lastName = template.find('#account-lastName').value;
       var email = (firstName.substring(0,1)+lastName+'@sigma.ug.edu.pl').toLowerCase();
@@ -137,6 +138,7 @@ Template.registerStudent.events({
            password: password,
            profile:{
              name: 'wykładowca',
+             title: academicTitle,
              firstName: firstName,
              lastName: lastName,
              subjects:[]
