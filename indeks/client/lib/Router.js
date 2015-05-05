@@ -2,29 +2,25 @@
 Router.route('/', {
   loadingTemplate: 'loading',
   waitOn: function () {
-  //  console.log('wating');
     return [ Meteor.subscribe('theSubjects'),
       Meteor.subscribe('theGrades') ];
   },
   onBeforeAction: function () {
-//    console.log('onBefore');
     if(!Meteor.user()){
-  //    console.log('not logged in');
       this.layout('appLayout');
       this.render('login');
     }
     else {
-    //  console.log('logged in');
       this.next();
     }
   },
   action: function () {
-  //  console.log('action');
     this.layout('appLayout');
     this.render('subjectList', {
       'data': {
         'User': Meteor.user(),
         'mySubjects': Subjects.find(),
+        'teacherSubjects': Subjects.find({'leading': Meteor.user().profile.title + " " + Meteor.user().profile.firstName + " " + Meteor.user().profile.lastName}),
         'myStudents': Meteor.users.find({'roles': 'student'}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1}}),
         'myLeaders': Meteor.users.find({'roles': 'wykładowca'}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1}}),
         'myGrades': Grades.find()
@@ -98,13 +94,9 @@ Router.route('/subjects/:subjectId', {
 Router.route('/students/:studentUsername', {
   loadingTemplate: 'loading',
   waitOn: function () {
-    console.log("waitON");
     return [ Meteor.subscribe('theSubjects') ];
   },
   onBeforeAction: function () {
-  //  subjectId = Subjects.find({"students": this.param.studentUsername})
-  console.log("before");
-  console.log(Subjects.find({}).count());
     if(!Meteor.user()){
       this.layout('appLayout');
       this.render('login');
@@ -142,11 +134,12 @@ Router.route('/teachers/:teacherUsername', {
     }
   },
   action: function () {
+    var leading = s.join(" ", Meteor.users.findOne({'username': this.params.teacherUsername}).profile.title, Meteor.users.findOne({'username': this.params.teacherUsername}).profile.firstName, Meteor.users.findOne({'username': this.params.teacherUsername}).profile.lastName);
     this.layout('appLayout');
     this.render('teacherDetails', {
       'data': {
          //'User': Meteor.users.findOne({"username": this.params.studentUsername}).username,
-         'subjects': Subjects.find({}),
+         'subjects': Subjects.find({'leading': leading}),
          //'grade': Grades.findOne({}, {$in: {'studentName': Meteor.user().username}}),'students': Meteor.users.find()
       }
     });

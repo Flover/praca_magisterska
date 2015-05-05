@@ -6,10 +6,24 @@
       <a class="list-group-item active">
         Przedmioty
       </a>
-
+      {{#if isInRole 'student'}}
       {{#each mySubjects}}
       <a href="/subjects/{{_id}}" class="list-group-item">{{subject}}</a>
       {{/each}}
+      {{/if}}
+
+      {{#if isInRole 'wykładowca'}}
+      {{#each teacherSubjects}}
+      <a href="/subjects/{{_id}}" class="list-group-item">{{subject}}</a>
+      {{/each}}
+      {{/if}}
+
+      {{#if isInRole 'admin'}}
+      {{#each mySubjects}}
+      <a href="/subjects/{{_id}}" class="list-group-item">{{subject}}</a>
+      {{/each}}
+      {{/if}}
+
       {{/if}}
 
       {{#if isInRole 'dziekanat, admin'}}

@@ -9,7 +9,7 @@
         <label for="subjectLeading">Prowadzący</label>
         <select id="subjectLeading" class="form-control input-md">
           {{#each teachers}}
-          <option value="">{{profile.title}} {{profile.firstName}} {{profile.lastName}}</option>
+          <option value='{{profile.title}} {{profile.firstName}} {{profile.lastName}}'>{{profile.title}} {{profile.firstName}} {{profile.lastName}}</option>
           {{/each}}
         </select>
 
