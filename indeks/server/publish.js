@@ -49,7 +49,6 @@ Meteor.startup(function (){
 Meteor.publish('theSubjects', function () {
   if(this.userId){
     if (Roles.userIsInRole(this.userId, 'admin')) {
-      //return Subjects.find({});
       return [Meteor.users.find({}), Subjects.find({})];
     } else if(Roles.userIsInRole(this.userId, 'dziekanat')){
         return [Meteor.users.find({}), Subjects.find({})];
@@ -66,11 +65,14 @@ Meteor.publish('theSubjects', function () {
 });
 
 Meteor.publish('theGrades', function () {
-  //var subjectId = Session.get('selectedSubject');
   if(this.userId){
     var currentUserId = this.userId;
     var userName = Meteor.users.findOne({'_id': currentUserId}).username;
-    return Grades.find({"studentName": userName});
+    if(Roles.userIsInRole(this.userId, 'student')){
+      return Grades.find({"studentName": userName});
+    } else if(Roles.userIsInRole(this.userId, 'dziekanat')){
+      return Grades.find({});
+    }
   }
   else {
     this.ready();

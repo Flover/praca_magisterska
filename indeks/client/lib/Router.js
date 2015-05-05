@@ -94,7 +94,7 @@ Router.route('/subjects/:subjectId', {
 Router.route('/students/:studentUsername', {
   loadingTemplate: 'loading',
   waitOn: function () {
-    return [ Meteor.subscribe('theSubjects') ];
+    return [ Meteor.subscribe('theSubjects'), Meteor.subscribe('theGrades') ];
   },
   onBeforeAction: function () {
     if(!Meteor.user()){
@@ -106,12 +106,13 @@ Router.route('/students/:studentUsername', {
     }
   },
   action: function () {
+    console.log(Grades.findOne({'studentName': this.params.studentUsername}).exerciseGrade);
     this.layout('appLayout');
     this.render('studentDetails', {
       'data': {
          'User': Meteor.users.findOne({"username": this.params.studentUsername}).username,
          'subjects': Subjects.find({"students": this.params.studentUsername}),
-         'grade': Grades.findOne({}, {$in: {'studentName': Meteor.user().username}}),'students': Meteor.users.find()
+         'grade': Grades.find({'studentName': this.params.studentUsername})
       }
     });
   }

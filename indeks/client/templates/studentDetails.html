@@ -5,15 +5,17 @@
         <tr>
           <th>Przedmiot</th>
           <th>Prowadzący</th>
-          <th>Ocena</th>
+          <th>Ocena z ćwiczeń</th>
+          <th>Ocena z egzaminu</th>
         </tr>
       </thead>
-      <tbody>
+       <tbody>
         {{#each subjects}}
         <tr>
           <td>{{subject}}</td>
           <td>{{leading}}</td>
-          <td>{{grade.grade}}</td>
+          <td>{{grade.exerciseGrade}}</td>
+          <td>{{grade.examGrade}}</td>
         </tr>
         {{/each}}
       </tbody>

@@ -17,8 +17,8 @@ Meteor.methods({
       exerciseGrade: null,
       examGrade: null
     });
-//    Meteor.users.update({'_id': selectedUserId}, {$addToSet: {'profile.subjects': selectedSubject}});
-//    Subjects.update({'_id': selectedSubjectId}, {$addToSet: {'students': selectedUser}});
+    Meteor.users.update({'_id': selectedUserId}, {$addToSet: {'profile.subjects': selectedSubject}});
+    Subjects.update({'_id': selectedSubjectId}, {$addToSet: {'students': selectedUser}});
   },
   'addSubject': function(subjectNameVar, subjectLeadingVar, subjectSemesterVar){
 
