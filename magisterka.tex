@@ -10,6 +10,14 @@
 \definecolor{stressp}{cmyk}{0,1,0.13,0}
 \definecolor{topicp}{cmyk}{0.98,0.13,0,0.43}
 
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue}
+}
+
 %\defaultfontfeatures{Scale=MatchLowercase}
 %\setmainfont[Numbers=OldStyle,Ligatures=TeX]{Minion Pro}
 %\setsansfont[Numbers=OldStyle,Ligatures=TeX]{Myriad Pro}
@@ -301,12 +309,46 @@ i znaczne ograniczenie kosztów w~późniejszej eksploatacji systemu i~urządzen
 \end{enumerate}
 
 \chapter{Elektroniczny indeks}
-Elektroniczny indeks jest to elektroniczna platforma, która służy do do wystawiania ocen studentom przez prowadzących zajęcia w czasie rzeczywistym, a także do podglądu tych ocen przez studentów. Dzięki wdrożeniu do użytku wspomnianej platformy, zarówno studenci jak i prowadzący mogą zaoszczędzić mnóstwo czasu oraz nerwów związanych z próbą zdobycia wpisu czy staniem w kolejce do dziekanatu. Dodatkowo znacznie ułatwiona zostanie biurokracja na lini dziekanat -- wykładowca, a samo zaliczenie semestru studentowi przez osoby do tego uprawnione również staję się dużo prostsze i szybsze.
-\section{Zalety elektronicznego indeksu} 
+Elektroniczny indeks jest to elektroniczna platforma, która służy do do wystawiania ocen studentom przez prowadzących zajęcia w czasie rzeczywistym, a także do podglądu tych ocen przez studentów. Dzięki wdrożeniu do użytku wspomnianej platformy, zarówno studenci jak i prowadzący mogą zaoszczędzić mnóstwo czasu oraz nerwów związanych z próbą zdobycia wpisu, próbą odtworzenia indeksu gdy zostanie on zgubiony lub staniem w kolejce do dziekanatu. Dodatkowo znacznie ułatwiona zostanie biurokracja na lini dziekanat -- wykładowca, a samo zaliczenie semestru studentowi przez osoby do tego uprawnione również staję się dużo prostsze i szybsze.
 
 \section{Filtrowanie danych}
 
+Filtrowanie danych w elektronicznym indeksie jest jego ważną częścią. Dzięki temu można uniknąć sytuacji w której nieautoryzowany użytkownik uzyska dostęp do danych do których nie powinien miec dostępu. \textit{Meteor} nie ma domyślnie zaimplementowanego pakietu, który pozwoliłby na sprawne zarządzanie dostępnością treści w aplikacji.  Dzięki rosnącej popularności frameworku \textit{Meteor} oraz coraz szerszej grupie deweloperów z każdym dniem pojawiają się nowe pakiety, które ułatwiają i zwiększają funkcjonalność tworzonych aplikacji. Do efektywnego przekazywania danych poszczególnym użytkownikom wykorzystano pakiet \textit{meteor-roles}, który pozwala zarządzać rozsyłanymi danymi oraz jest kompatybilny z wbudowanym w pakietem do zarządzania kontami. Instalacja pakietu do zarządzania rolami wymaga dołączenia do projektu pakietu \textit{accounts-password} co można zrobić nastepującym poleceniem w konsoli
+\newpage
+\begin{lstlisting}[language=bash,caption={Instalacja accounts-password}]
+	meteor add accounts-password
+\end{lstlisting}
+
+Nastepnie możemy dodać właściwy pakiet
+
+\begin{lstlisting}[language=bash,caption={Instalacja pakietu roles}]
+	meteor add alanning:roles
+\end{lstlisting}
+
+
 \section{Zarządzanie elektronicznym indeksem przez administratora}
+
+Administrator jest osobą która nad wszystkim czuwa, musi mieć dostep do wszystkich danych i wszystkich funkcjonalności programu, aby móc kontrolować poprawność działania programu. Będąc głównym zarządcą platformy, administrator jako jedyny ma prawo dodać nowego studenta, nowego pracownika czy też nowy przedmiot, który będzie realizowany w toku nauczania.
+
+\begin{figure}[th!]
+\centering
+\includegraphics[scale=0.7]{images/menu.png} 
+\caption{Menu dodawania\label{RYS.4}}
+\source{Własne}
+\end{figure}
+
+Jako główny zarządca, administrator ma za zadanie przypisywać studentów do przedmiotów na które są zobowiązani uczęszczać, a także na przedmioty, które sami wybiorą w trakcie toku nauczania. Dzięki temu, że najważniejsze dane wyświetlają się administratorowi od razu po zalogowaniu do systemu jest on w stanie szybko wykonać powierzone mu zlecenie.
+
+\begin{figure}[th!]
+\centering
+\includegraphics[width=1.1\hsize]{images/addStudent} 
+\caption{Fragment listy studentów do zapisu na zajęcia\label{RYS.5}}
+\source{Własne}
+\end{figure}
+
+Student, który jest zapisany na dany przedmiot nie pojawi się więcej na liście dzięki czemu nie ma możliwości zapisania danego użytkownika dwa razy na te same zajęcia.
+
+
 
 \section{Fukcjonalność dla prowadzącego zajęcia}
 
