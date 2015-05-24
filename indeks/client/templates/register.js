@@ -99,11 +99,11 @@ Template.registerStudent.events({
  Template.registerTeacher.events({
     'submit #register-form' : function(event, template) {
       event.preventDefault();
-      var username = template.find('#account-text').value;
       var password = template.find('#account-password').value;
       var academicTitle = template.find('#account-title').value;
       var firstName = template.find('#account-firstName').value;
       var lastName = template.find('#account-lastName').value;
+      var username = (firstName.substring(0,1)+lastName).toLowerCase();
       var email = (firstName.substring(0,1)+lastName+'@sigma.ug.edu.pl').toLowerCase();
 
       email = s.replaceAll(email, 'ą', 'a');
@@ -115,6 +115,16 @@ Template.registerStudent.events({
       email = s.replaceAll(email, 'ó', 'o');
       email = s.replaceAll(email, 'ł', 'l');
       email = s.replaceAll(email, 'ć', 'c');
+
+      username = s.replaceAll(email, 'ą', 'a');
+      username = s.replaceAll(email, 'ń', 'n');
+      username = s.replaceAll(email, 'ę', 'e');
+      username = s.replaceAll(email, 'ć', 'c');
+      username = s.replaceAll(email, 'ż', 'z');
+      username = s.replaceAll(email, 'ź', 'z');
+      username = s.replaceAll(email, 'ó', 'o');
+      username = s.replaceAll(email, 'ł', 'l');
+      username = s.replaceAll(email, 'ć', 'c');
 
       var errors = {};
 
@@ -261,10 +271,10 @@ Template.registerStudent.events({
    Template.registerDeanery.events({
       'submit #register-form' : function(event, template) {
         event.preventDefault();
-        var username = template.find('#account-text').value;
         var password = template.find('#account-password').value;
         var firstName = template.find('#account-firstName').value;
         var lastName = template.find('#account-lastName').value;
+        var username = (firstName.substring(0,1)+lastName).toLowerCase();
         var email = (firstName.substring(0,1)+lastName+'@sigma.ug.edu.pl').toLowerCase();
 
         email = s.replaceAll(email, 'ą', 'a');
@@ -276,6 +286,16 @@ Template.registerStudent.events({
         email = s.replaceAll(email, 'ó', 'o');
         email = s.replaceAll(email, 'ł', 'l');
         email = s.replaceAll(email, 'ć', 'c');
+
+        username = s.replaceAll(email, 'ą', 'a');
+        username = s.replaceAll(email, 'ń', 'n');
+        username = s.replaceAll(email, 'ę', 'e');
+        username = s.replaceAll(email, 'ć', 'c');
+        username = s.replaceAll(email, 'ż', 'z');
+        username = s.replaceAll(email, 'ź', 'z');
+        username = s.replaceAll(email, 'ó', 'o');
+        username = s.replaceAll(email, 'ł', 'l');
+        username = s.replaceAll(email, 'ć', 'c');
 
 
         var errors = {};
