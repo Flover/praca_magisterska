@@ -104,7 +104,7 @@ Template.registerStudent.events({
       var firstName = template.find('#account-firstName').value;
       var lastName = template.find('#account-lastName').value;
       var username = (firstName.substring(0,1)+lastName).toLowerCase();
-      var email = (firstName.substring(0,1)+lastName).toLowerCase();
+      var email = (firstName.substring(0,1)+lastName+'@sigma.ug.edu.pl').toLowerCase();
 
       email = s.replaceAll(email, 'ą', 'a');
       email = s.replaceAll(email, 'ń', 'n');

@@ -130,7 +130,7 @@ Router.route('/teachers/:teacherUsername', {
     }
   },
   action: function () {
-    var leading = s.join(" ", Meteor.users.findOne({'username': this.params.teacherUsername}).profile.title, Meteor.users.findOne({'username': this.params.teacherUsername}).profile.firstName, Meteor.users.findOne({'username': this.params.teacherUsername}).profile.lastName);
+    leading = s.join(" ",Meteor.users.findOne({'_id': this.params.teacherUsername}).profile.title, Meteor.users.findOne({'_id': this.params.teacherUsername}).profile.firstName, Meteor.users.findOne({'_id': this.params.teacherUsername}).profile.lastName);
     this.layout('appLayout');
     this.render('teacherDetails', {
       'data': {
