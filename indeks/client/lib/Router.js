@@ -60,36 +60,6 @@ Router.route('/subjects/add', {
 Router.route('/subjects/:subjectId', {
   loadingTemplate: 'loading',
   waitOn: function () {
-    return [ Meteor.subscribe('theSubjects') ];
-  },
-  onBeforeAction: function () {
-    if(!Meteor.user()){
-      this.layout('appLayout');
-      this.render('login');
-    }
-    else {
-      this.next();
-    }
-  },
-  action: function () {
-    subjectName = Subjects.findOne({"_id": this.params.subjectId}).subject;
-    this.layout('appLayout');
-    this.render('subjectDetails', {
-      'data': {
-        'User': Meteor.user(),
-        'subject': Subjects.findOne({'_id': this.params.subjectId}),
-        'grade': Grades.findOne({'subjectId': this.params.subjectId}, {$in: {'studentName': Meteor.users.find({'_id': this._id}).username}}),
-        'student': Meteor.users.find({'profile.subjects': subjectName}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1 }}),
-        'students': Meteor.users.find({'profile.subjects': {$nin: [subjectName]}, 'roles': 'student'}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1 }})
-      }
-    });
-  }
-
-});
-// /students/:studentUsername
-Router.route('/students/:studentUsername', {
-  loadingTemplate: 'loading',
-  waitOn: function () {
     return [ Meteor.subscribe('theSubjects'), Meteor.subscribe('theGrades') ];
   },
   onBeforeAction: function () {
@@ -102,13 +72,42 @@ Router.route('/students/:studentUsername', {
     }
   },
   action: function () {
-    console.log(Grades.findOne({'studentName': this.params.studentUsername}).exerciseGrade);
+    subjectName = Subjects.findOne({"_id": this.params.subjectId})._id;
+    this.layout('appLayout');
+    this.render('subjectDetails', {
+      'data': {
+        'User': Meteor.user(),
+        'subject': Subjects.findOne({'_id': this.params.subjectId}),
+        'grade': Grades.findOne({'subjectId': this.params.subjectId, 'studentId': Meteor.user()._id}),
+        'student': Meteor.users.find({'profile.subjects': this.params.subjectId}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1 }}),
+        'students': Meteor.users.find({'profile.subjects': {$nin: [this.params.subjectId]}, 'roles': 'student'}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1 }})
+      }
+    });
+  }
+
+});
+// /students/:studentId
+Router.route('/students/:studentId', {
+  loadingTemplate: 'loading',
+  waitOn: function () {
+    return [ Meteor.subscribe('theSubjects'), Meteor.subscribe('theGrades'), Meteor.subscribe('TheSubjectStudents') ];
+  },
+  onBeforeAction: function () {
+    if(!Meteor.user()){
+      this.layout('appLayout');
+      this.render('login');
+    }
+    else {
+      this.next();
+    }
+  },
+  action: function () {
     this.layout('appLayout');
     this.render('studentDetails', {
       'data': {
-         'User': Meteor.users.findOne({"username": this.params.studentUsername}).username,
-         'subjects': Subjects.find({"students": this.params.studentUsername}),
-         'grade': Grades.find({'studentName': this.params.studentUsername})
+         'User': Meteor.users.findOne({"_id": this.params.studentId}),
+         'subjects': Subjects.find({"students": this.params.studentId}),
+         'grade': Grades.find({'studentId': this.params.studentId}),
       }
     });
   }

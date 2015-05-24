@@ -32,7 +32,7 @@
       </a>
 
       {{#each myStudents}}
-      <a href="/students/{{username}}" class="list-group-item">{{profile.lastName}} {{profile.firstName}} {{username}}</a>
+      <a href="/students/{{_id}}" class="list-group-item">{{profile.lastName}} {{profile.firstName}} {{username}}</a>
       {{/each}}
       {{/if}}
 
@@ -42,7 +42,7 @@
       </a>
 
       {{#each myLeaders}}
-      <a href="/teachers/{{username}}" class="list-group-item">{{profile.title}} {{profile.lastName}} {{profile.firstName}}</a>
+      <a href="/teachers/{{_id}}" class="list-group-item">{{profile.title}} {{profile.lastName}} {{profile.firstName}}</a>
       {{/each}}
       {{/if}}
 

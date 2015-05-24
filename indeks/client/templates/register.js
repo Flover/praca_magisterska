@@ -99,12 +99,12 @@ Template.registerStudent.events({
  Template.registerTeacher.events({
     'submit #register-form' : function(event, template) {
       event.preventDefault();
-      var password = template.find('#account-password').value;
+       var password = template.find('#account-password').value;
       var academicTitle = template.find('#account-title').value;
       var firstName = template.find('#account-firstName').value;
       var lastName = template.find('#account-lastName').value;
       var username = (firstName.substring(0,1)+lastName).toLowerCase();
-      var email = (firstName.substring(0,1)+lastName+'@sigma.ug.edu.pl').toLowerCase();
+      var email = (firstName.substring(0,1)+lastName).toLowerCase();
 
       email = s.replaceAll(email, 'ą', 'a');
       email = s.replaceAll(email, 'ń', 'n');
@@ -116,15 +116,15 @@ Template.registerStudent.events({
       email = s.replaceAll(email, 'ł', 'l');
       email = s.replaceAll(email, 'ć', 'c');
 
-      username = s.replaceAll(email, 'ą', 'a');
-      username = s.replaceAll(email, 'ń', 'n');
-      username = s.replaceAll(email, 'ę', 'e');
-      username = s.replaceAll(email, 'ć', 'c');
-      username = s.replaceAll(email, 'ż', 'z');
-      username = s.replaceAll(email, 'ź', 'z');
-      username = s.replaceAll(email, 'ó', 'o');
-      username = s.replaceAll(email, 'ł', 'l');
-      username = s.replaceAll(email, 'ć', 'c');
+      username = s.replaceAll(username, 'ą', 'a');
+      username = s.replaceAll(username, 'ń', 'n');
+      username = s.replaceAll(username, 'ę', 'e');
+      username = s.replaceAll(username, 'ć', 'c');
+      username = s.replaceAll(username, 'ż', 'z');
+      username = s.replaceAll(username, 'ź', 'z');
+      username = s.replaceAll(username, 'ó', 'o');
+      username = s.replaceAll(username, 'ł', 'l');
+      username = s.replaceAll(username, 'ć', 'c');
 
       var errors = {};
 
@@ -287,15 +287,15 @@ Template.registerStudent.events({
         email = s.replaceAll(email, 'ł', 'l');
         email = s.replaceAll(email, 'ć', 'c');
 
-        username = s.replaceAll(email, 'ą', 'a');
-        username = s.replaceAll(email, 'ń', 'n');
-        username = s.replaceAll(email, 'ę', 'e');
-        username = s.replaceAll(email, 'ć', 'c');
-        username = s.replaceAll(email, 'ż', 'z');
-        username = s.replaceAll(email, 'ź', 'z');
-        username = s.replaceAll(email, 'ó', 'o');
-        username = s.replaceAll(email, 'ł', 'l');
-        username = s.replaceAll(email, 'ć', 'c');
+        username = s.replaceAll(username, 'ą', 'a');
+        username = s.replaceAll(username, 'ń', 'n');
+        username = s.replaceAll(username, 'ę', 'e');
+        username = s.replaceAll(username, 'ć', 'c');
+        username = s.replaceAll(username, 'ż', 'z');
+        username = s.replaceAll(username, 'ź', 'z');
+        username = s.replaceAll(username, 'ó', 'o');
+        username = s.replaceAll(username, 'ł', 'l');
+        username = s.replaceAll(username, 'ć', 'c');
 
 
         var errors = {};

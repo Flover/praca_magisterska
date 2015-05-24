@@ -53,7 +53,7 @@ Meteor.publish('theSubjects', function () {
     } else if(Roles.userIsInRole(this.userId, 'dziekanat')){
         return [Meteor.users.find({}), Subjects.find({})];
     } else if(Roles.userIsInRole(this.userId, 'student')){
-        var user = Meteor.users.findOne({'_id': this.userId}).username;
+        var user = Meteor.users.findOne({'_id': this.userId})._id;
         return Subjects.find({"students": user});
     } else if(Roles.userIsInRole(this.userId, 'wykładowca')){
         return [Subjects.find({}), Meteor.users.find({})];
@@ -67,10 +67,12 @@ Meteor.publish('theSubjects', function () {
 Meteor.publish('theGrades', function () {
   if(this.userId){
     var currentUserId = this.userId;
-    var userName = Meteor.users.findOne({'_id': currentUserId}).username;
+    var userId = Meteor.users.findOne({'_id': currentUserId})._id;
     if(Roles.userIsInRole(this.userId, 'student')){
-      return Grades.find({"studentName": userName});
+      return Grades.find({"studentId": userId});
     } else if(Roles.userIsInRole(this.userId, 'dziekanat')){
+      return Grades.find({});
+    } else {
       return Grades.find({});
     }
   }

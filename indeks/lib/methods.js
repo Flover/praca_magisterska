@@ -1,24 +1,29 @@
 Meteor.methods({
-  'updateExamGrade': function (studentName, subjectId, grade) {
-    Grades.update({'studentName': studentName, 'subjectId': subjectId }, {$set: {'examGrade': grade } });
+  'updateExamGrade': function (studentId, subjectId, grade) {
+    console.log(studentId);
+    console.log(subjectId);
+    console.log(grade);
+    Grades.update({'studentId': studentId, 'subjectId': subjectId }, {$set: {'examGrade': grade } });
   },
-  'updateExerciseGrade': function (studentName, subjectId, grade) {
-    Grades.update({'studentName': studentName, 'subjectId': subjectId }, {$set: {'exerciseGrade': grade } });
+  'updateExerciseGrade': function (studentId, subjectId, grade) {
+    Grades.update({'studentId': studentId, 'subjectId': subjectId }, {$set: {'exerciseGrade': grade } });
   },
   'removeSubject': function(selectedSubject){
     Subjects.remove(selectedSubject);
   },
-  'addStudentToSubject': function(selectedSubject, selectedSubjectId, selectedUser, selectedUserId){
+  'addStudentToSubject': function(selectedSubject, selectedSubjectId, selectedUser, selectedUserId, selectedLeading){
     Grades.insert({
       studentId: selectedUserId,
       subjectId: selectedSubjectId,
       studentName: selectedUser,
       subjectName: selectedSubject,
+      subjectLeading: selectedLeading,
       exerciseGrade: null,
       examGrade: null
     });
-    Meteor.users.update({'_id': selectedUserId}, {$addToSet: {'profile.subjects': selectedSubject}});
-    Subjects.update({'_id': selectedSubjectId}, {$addToSet: {'students': selectedUser}});
+    Meteor.users.update({'_id': selectedUserId}, {$addToSet: {'profile.subjects': selectedSubjectId}});
+    Subjects.update({'_id': selectedSubjectId}, {$addToSet: {'students': selectedUserId}});
+    //console.log(Meteor.users.findOne({$query:{'roles': 'student'},$orderby:{'username':-1}}).username);
   },
   'addSubject': function(subjectNameVar, subjectLeadingVar, subjectSemesterVar){
 
