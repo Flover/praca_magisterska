@@ -19,7 +19,7 @@ Router.route('/', {
       'data': {
         'User': Meteor.user(),
         'mySubjects': Subjects.find(),
-        'teacherSubjects': Subjects.find({'leading': Meteor.user().profile.title + " " + Meteor.user().profile.firstName + " " + Meteor.user().profile.lastName}),
+        'teacherSubjects': Subjects.find({'leading': Meteor.user().profile.title + " " + Meteor.user().profile.firstName + " " + Meteor.user().profile.lastName}, {sort: {'subject': 1}}),
         'myStudents': Meteor.users.find({'roles': 'student'}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1}}),
         'myLeaders': Meteor.users.find({'roles': 'wykładowca'}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1}}),
         'myGrades': Grades.find()
@@ -60,9 +60,7 @@ Router.route('/subjects/add', {
 Router.route('/subjects/:subjectId', {
   loadingTemplate: 'loading',
   waitOn: function () {
-    return [ Meteor.subscribe('theSubjects'),
-      Meteor.subscribe('theGrades'),
-      Meteor.subscribe('TheSubjectStudents', this.params.subjectId) ];
+    return [ Meteor.subscribe('theSubjects') ];
   },
   onBeforeAction: function () {
     if(!Meteor.user()){
@@ -81,8 +79,8 @@ Router.route('/subjects/:subjectId', {
         'User': Meteor.user(),
         'subject': Subjects.findOne({'_id': this.params.subjectId}),
         'grade': Grades.findOne({'subjectId': this.params.subjectId}, {$in: {'studentName': Meteor.users.find({'_id': this._id}).username}}),
-        'student': Meteor.users.find({'profile.subjects': subjectName}),
-        'students': Meteor.users.find({'profile.subjects': {$nin: [subjectName]}, 'roles': 'student'})
+        'student': Meteor.users.find({'profile.subjects': subjectName}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1 }}),
+        'students': Meteor.users.find({'profile.subjects': {$nin: [subjectName]}, 'roles': 'student'}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1 }})
       }
     });
   }
