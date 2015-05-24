@@ -2,8 +2,7 @@
 Router.route('/', {
   loadingTemplate: 'loading',
   waitOn: function () {
-    return [ Meteor.subscribe('theSubjects'),
-      Meteor.subscribe('theGrades') ];
+    return [ Meteor.subscribe('theSubjects') ];
   },
   onBeforeAction: function () {
     if(!Meteor.user()){
@@ -33,8 +32,7 @@ Router.route('/', {
 Router.route('/subjects/add', {
   loadingTemplate: 'loading',
   waitOn: function () {
-    return [ Meteor.subscribe('theSubjects'),
-      Meteor.subscribe('theGrades') ];
+    return [ Meteor.subscribe('theSubjects') ];
   },
   onBeforeAction: function () {
     if(!Meteor.user()){
