@@ -328,16 +328,17 @@ Nastepnie możemy dodać właściwy pakiet
 
 \section{Zarządzanie elektronicznym indeksem przez administratora}
 
-Administrator jest osobą która nad wszystkim czuwa, musi mieć dostep do wszystkich danych i wszystkich funkcjonalności programu, aby móc kontrolować poprawność działania programu. Będąc głównym zarządcą platformy, administrator jako jedyny ma prawo dodać nowego studenta, nowego pracownika czy też nowy przedmiot, który będzie realizowany w toku nauczania.
+Administrator jest osobą która nad wszystkim czuwa, musi mieć dostep do wszystkich danych i wszystkich funkcjonalności programu, aby móc kontrolować poprawność działania programu. Będąc głównym zarządcą platformy, administrator jako jedyny ma prawo dodawać do systemu nowe dane. Dzięki temu, że najważniejsze dane wyświetlają się administratorowi od razu po zalogowaniu do systemu jest on w stanie szybko wykonać powierzone mu zadanie.
 
 \begin{figure}[th!]
 \centering
-\includegraphics[scale=0.7]{images/menu.png} 
+\includegraphics[scale=0.6]{images/menu.png} 
 \caption{Menu dodawania\label{RYS.4}}
 \source{Własne}
 \end{figure}
 
-Jako główny zarządca, administrator ma za zadanie przypisywać studentów do przedmiotów na które są zobowiązani uczęszczać, a także na przedmioty, które sami wybiorą w trakcie toku nauczania. Dzięki temu, że najważniejsze dane wyświetlają się administratorowi od razu po zalogowaniu do systemu jest on w stanie szybko wykonać powierzone mu zlecenie.
+\begin{itemize}
+\item Jako główny zarządca, administrator ma za zadanie przypisywać studentów do przedmiotów na które są zobowiązani uczęszczać, a także na przedmioty, które sami wybiorą w trakcie toku nauczania. Student, który został zapisany na dany przedmiot nie pojawi się więcej na liście dzięki czemu nie ma możliwości zapisania danego użytkownika dwa razy na te same zajęcia.
 
 \begin{figure}[th!]
 \centering
@@ -346,13 +347,99 @@ Jako główny zarządca, administrator ma za zadanie przypisywać studentów do 
 \source{Własne}
 \end{figure}
 
-Student, który jest zapisany na dany przedmiot nie pojawi się więcej na liście dzięki czemu nie ma możliwości zapisania danego użytkownika dwa razy na te same zajęcia.
+\item Kolejnym zadaniem jest dodawanie przedmiotów, które odbywają się na uczelni. Administrator podaje nazwę przedmiotu, wybiera semestr na którym dane zajęcia się odbywają i z rozwijanej listy wybiera prowadzącego dane zajęcia.
 
+\begin{figure}[th!]
+\centering
+\includegraphics[width=1.1\hsize]{images/addSubject} 
+\caption{Formularz dodawania przedmiotu\label{RYS.6}}
+\source{Własne}
+\end{figure}
 
+\item Następną równie ważną funkcją jest dodawanie studentów, prowadzących zajęcia, adminów oraz pracownków dziekanatu. Z menu dodawania admin wybiera do jakiej grupy chce dodać użytkownika.
 
-\section{Fukcjonalność dla prowadzącego zajęcia}
+\begin{enumerate}
+\item Dodawanie studenta
+
+\begin{figure}[th!]
+\centering
+\includegraphics[width=1.1\hsize]{images/addNewStudent} 
+\caption{Formularz dodawania studenta\label{RYS.7}}
+\source{Własne}
+\end{figure}
+
+\item Dodawanie wykładowcy
+
+\begin{figure}[th!]
+\centering
+\includegraphics[width=1.1\hsize]{images/addTeacher} 
+\caption{Formularz dodawania wykładowcy\label{RYS.8}}
+\source{Własne}
+\end{figure}
+\newpage
+\item dodawanie biurokraty
+
+\begin{figure}[th!]
+\centering
+\includegraphics[width=0.7\hsize]{images/addBiurokrata} 
+\caption{Formularz dodawania pracownika dziekanatu\label{RYS.9}}
+\source{Własne}
+\end{figure}
+
+\end{enumerate}
+\end{itemize}
+
+Jako login dla studenta posłuży jego numer albumu natomiast wykładowca oraz pracownik dziekanatu logował się bedzie do systemu  dzięki loginowi składającemu się z pierwszej litery imienia oraz nazwiska bez używania polskich znaków.
+
+\section{Funkcjonalność dla prowadzącego zajęcia}
+
+Użytkownicy należący do grupy wykładowców muszą mieć możliwość do zarządzania studentami, którzy sa przypisani do przedmiotów jakie prowadzą. Wykładowca ma dostęp wyłącznie do przedmiotów które prowadzi. Dzięki temu, że tak samo jak w przypadku administratorów, do interesujących wykładowce danych można się w prosty sposób od razu po zalogowaniu, prowadzący jest w stanie efektywnie zarządzać swoimi podopiecznymi. Na stronie głównej wykładowca znajdzie listę przedmiotów, które wykłada.
+
+\begin{figure}[th!]
+\centering
+\includegraphics[width=0.7\hsize]{images/subjectList} 
+\caption{Lista przedmiotów wykładowcy\label{RYS.10}}
+\source{Własne}
+\end{figure}
+
+Po wybraniu przez użytkownika interesującego go przedmiotu na ekranie pojawi się lista studentów,  którzy są zapisani na dane zajęcia. Przy każdym uczestniku znajdują się jego imie i nazwisko, numer indeksu oraz rozwijane listy z wyborem oceny za zaliczenie ćwiczeń, a także ocena za egzamin końcowy.
+
+\begin{figure}[th!]
+\centering
+\includegraphics[width=0.7\hsize]{images/studentList} 
+\caption{Fragment listy studentów zapisanych na przedmiot\label{RYS.11}}
+\source{Własne}
+\end{figure}
 
 \section{Funkcjonalność dla studenta}
+Studenci sa grupą, która ma najmniej do powiedzenia w działaniu aplikacji, ale to studenci najbardziej oczekują szybkiego umieszczenia danych w indeksie. Jedyną funkcjonalnością z której mogą korzystać studenci jest przegląd własnych osiągnieć w nauce. Po zalogowaniu do systemu student otrzymuje listę przedmiotów w których uczestniczy. Po wejściu w interesujacy użytkownika przedmiot, pojawią się informacje o prowadzącym zajęcia, oraz oceny z ćwiczeń i egzaminu.
+
+\begin{figure}[th!]
+\centering
+\includegraphics[width=0.7\hsize]{images/studentGrade} 
+\caption{Oceny studenta z wybranego przedmiotu\label{RYS.12}}
+\source{Własne}
+\end{figure}
+
+\section{Funkcjonalność dla pracownika dziekanatu}
+
+Kiedy już wykładowca wystawi zaliczenia w elektronicznym indeksie, nadchodzi czas gdy zarówno wykładowca jak i student muszą rozliczyć się z tych danych z dziekanatem. Zadaniem pracownika dziekanatu jest utrzymanie porządku oraz spójności danych pomiędzy tymi które znajdują się w elektronicznej platformie oraz jej papierowym odpowiedniku. Po zalogowaniu do systemu, użytkownikowi pojawi się lista studentów oraz lista wykładowców. Gdy pracownik dziekanatu  wybierze z listy interesującego go studenta na ekranie pojawi się lista przedmiotów danego ucznia wraz z jego osiągnieciami w nauce co pozwoli na szybką weryfikację czy dane które dostarczył student zgadzają się z tymi w aplikacji.
+
+\begin{figure}[th!]
+\centering
+\includegraphics[width=0.7\hsize]{images/studentGrades} 
+\caption{Oceny studenta\label{RYS.13}}
+\source{Własne}
+\end{figure}
+ 
+Jeśli wybrany zostanie z listy wykładowca, pojawi się na ekranie lista przedmiotów, które dany pracownik prowadzi. Z nowo wyświetlonej listy pracownik dziekanatu może wybrać interesujący go przedmiot po czym na ekranie pojawią się wszyscy studenci zapisani na wybrany przedmiot razem ze swoimi osiągnieciami co pozwoli na szybką weryfikację czy dane dostarczone przez wykładowce zgadzają się z tymi w elektronicznej platformie
+
+ \begin{figure}[th!]
+\centering
+\includegraphics[width=0.61\hsize]{images/deaneryList} 
+\caption{Fragment listy uczestników zajęć\label{RYS.14}}
+\source{Własne}
+\end{figure}
 
 \chapter{Aplikacja Elektroniczny indeks w~Meteor}
 
