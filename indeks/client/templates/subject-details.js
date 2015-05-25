@@ -13,11 +13,9 @@ Template.subjectDetails.events({
     var subjectLeading = Subjects.findOne({"_id": selectedSubjectId}).leading;
 
     Meteor.call('addStudentToSubject', selectedSubject, selectedSubjectId, selectedUser, selectedUserId, subjectLeading);
-
   },
   'click .updateExamGrade': function (event, template) {
     var examGrade = template.find('#subjectExamGrade_'+this._id).value;
-    //console.log(examGrade);
     Meteor.call('updateExamGrade', this._id, Router.current().params.subjectId, examGrade);
   },
   'click .updateExerciseGrade': function (event, template) {

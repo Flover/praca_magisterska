@@ -45,16 +45,20 @@
       <thead>
         <tr>
           <th>Indeks</th>
+          {{#if isInRole 'wykładowca'}}
           <th>Imię</th>
           <th>Nazwisko</th>
+          {{/if}}
           <th>Ocena z ćwiczeń</th>
           <th>Ocena z egzaminu</th>
         </tr>
       </thead>
       <tbody>
+        {{#if isInRole 'wykładowca'}}
         {{#each student}}
         <tr>
           <td>{{username}}</td>
+
           <td>{{profile.firstName}}</td>
           <td>{{profile.lastName}}</td>
           <td>
@@ -89,8 +93,21 @@
               <span class="glyphicon glyphicon-pencil"></span>
             </button>
           </td>
+
         </tr>
         {{/each}}
+        {{/if}}
+
+        {{#if isInRole 'dziekanat'}}
+        {{#each grade}}
+        <tr>
+          <td>{{studentName}}</td>
+          <td>{{exerciseGrade}}</td>
+          <td>{{examGrade}}</td>
+        </tr>
+        {{/each}}
+        {{/if}}
+
       </tbody>
     </table>
     {{/if}}

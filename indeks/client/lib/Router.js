@@ -72,13 +72,12 @@ Router.route('/subjects/:subjectId', {
     }
   },
   action: function () {
-    subjectName = Subjects.findOne({"_id": this.params.subjectId})._id;
     this.layout('appLayout');
     this.render('subjectDetails', {
       'data': {
         'User': Meteor.user(),
         'subject': Subjects.findOne({'_id': this.params.subjectId}),
-        'grade': Grades.findOne({'subjectId': this.params.subjectId, 'studentId': Meteor.user()._id}),
+        'grade': Grades.find({'subjectId': this.params.subjectId}, {sort:{ 'studentName': 1 }}),
         'student': Meteor.users.find({'profile.subjects': this.params.subjectId}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1 }}),
         'students': Meteor.users.find({'profile.subjects': {$nin: [this.params.subjectId]}, 'roles': 'student'}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1 }})
       }
@@ -107,7 +106,7 @@ Router.route('/students/:studentId', {
       'data': {
          'User': Meteor.users.findOne({"_id": this.params.studentId}),
          'subjects': Subjects.find({"students": this.params.studentId}),
-         'grade': Grades.find({'studentId': this.params.studentId}),
+         'grade': Grades.find({'studentId': this.params.studentId}, {sort:{ 'subjectName': 1 }}),
       }
     });
   }
