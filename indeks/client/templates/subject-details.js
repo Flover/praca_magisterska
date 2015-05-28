@@ -1,9 +1,4 @@
 Template.subjectDetails.events({
-  'click .deleteSubject': function(event){
-    var selectedSubject = Router.current().params.subjectId;
-    Meteor.call('removeSubject', selectedSubject);
-    Router.go('/');
-  },
   'click .assignSubject': function(event){
     event.preventDefault();
     var selectedSubjectId = Router.current().params.subjectId;

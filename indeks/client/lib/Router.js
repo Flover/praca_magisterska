@@ -78,6 +78,7 @@ Router.route('/subjects/:subjectId', {
         'User': Meteor.user(),
         'subject': Subjects.findOne({'_id': this.params.subjectId}),
         'grade': Grades.find({'subjectId': this.params.subjectId}, {sort:{ 'studentName': 1 }}),
+        'grades': Grades.findOne({'subjectId': this.params.subjectId, 'studentId': Meteor.user()._id}),
         'student': Meteor.users.find({'profile.subjects': this.params.subjectId}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1 }}),
         'students': Meteor.users.find({'profile.subjects': {$nin: [this.params.subjectId]}, 'roles': 'student'}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1 }})
       }

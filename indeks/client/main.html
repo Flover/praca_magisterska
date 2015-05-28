@@ -21,7 +21,7 @@
       <li role="presentation"><a href="/">Start</a></li>
       {{#if currentUser}}
       <li role="presentation"><a>Zalogowany jako {{currentUser.username}}</a></li>
-      
+
       {{#if isInRole 'admin'}}
       <li role="presentation" class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Dodaj<span class="caret"></span></a>
@@ -48,7 +48,7 @@
 
 <template name="header">
   <div class="container">
-    <h1>Elektroniczny indeks</h1>
+    <h1><img src="http://localhost:3000/img/UG_logo_short.png"> Elektroniczny indeks</h1>
   </div>
 </template>
 

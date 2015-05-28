@@ -5,9 +5,6 @@ Meteor.methods({
   'updateExerciseGrade': function (studentId, subjectId, grade) {
     Grades.update({'studentId': studentId, 'subjectId': subjectId }, {$set: {'exerciseGrade': grade } });
   },
-  'removeSubject': function(selectedSubject){
-    Subjects.remove(selectedSubject);
-  },
   'addStudentToSubject': function(selectedSubject, selectedSubjectId, selectedUser, selectedUserId, selectedLeading){
     Grades.insert({
       studentId: selectedUserId,
