@@ -1,4 +1,6 @@
-\documentclass[brudnopis]{xmgr}
+\documentclass{xmgr}
+
+% arara: xelatex: {shell: true}
 
 \definecolor{sa}{cmyk}{0,1,0.13,0}
 \definecolor{sb}{cmyk}{0.99,0,0.52,0}
@@ -10,6 +12,7 @@
 \definecolor{stressp}{cmyk}{0,1,0.13,0}
 \definecolor{topicp}{cmyk}{0.98,0.13,0,0.43}
 
+\usepackage{minted}
 \usepackage{xcolor}
 \usepackage{listings}
 \lstset{basicstyle=\ttfamily,
@@ -37,7 +40,7 @@
 \kierunek{\textbf{INFORMATYKA}}
 
 \title    {Walidacja w~elektronicznym systemie zarządzania osiągnięciami studenta}
-\date     {2014}
+\date     {2015}
 \miejsce  {Gdańsk}
 
 \opiekun  {dr Włodzimierz Bzyl}
@@ -287,7 +290,7 @@ i znaczne ograniczenie kosztów w~późniejszej eksploatacji systemu i~urządzen
 \end{enumerate}
 
 \section{Etapy walidacji}
-\indent \indent \indent \textcolor{sb}{Zakres walidacji powinien uwzględniać wiele czynników systemu,} \textcolor{sa}{w tym jego zamierzone zastosowanie i~rodzaj walidacji oraz czy mają być dołączane nowe elementy systemu.} \textcolor{sb}{Walidacja powinna być uznawana za część całego cyklu użytkowania systemu komputerowego.} \textcolor{sa}{Cykl ten obejmuje planowanie, specyfikację, programowanie, badanie, odbiór techniczny, dokumentację, działanie, monitorowanie i~modyfikowanie.}
+\indent \indent \indent \textcolor{sb}{Zakres walidacji powinien uwzględniać wiele czynników systemu,} \textcolor{sa}{w tym jego zamierzone zastosowanie i~rodzaj walidacji oraz czy mają być dołączane nowe elementy systemu.} \textcolor{sb}{Walidacja powinna być uznawana za część całego cyklu użytkowania systemu komputerowego.} \textcolor{sa}{Obejmuje on planowanie, specyfikację, programowanie, badanie, odbiór techniczny, dokumentację, działanie, monitorowanie i~modyfikowanie.}
 
 \begin{figure}[th!]
 \centering
@@ -304,16 +307,16 @@ i znaczne ograniczenie kosztów w~późniejszej eksploatacji systemu i~urządzen
   \item \textbf{\textit{Wykonanie}} – \textcolor{sa}{utworzenie hardwaru, połączeń elektrycznych modułów systemu, oprogramowanie modułów, montaż całego urządzenia, wykonanie sieci informatycznej. Walidacja obejmuje przeglądy wykonania poszczególnych czynności oraz przegląd kodów źródłowych oprogramowania.}
 \item \textbf{\textit{Testowanie}} – \textcolor{sa}{testowanie hardwaru, poszczególnych modułów oprogramowania,  integracji oprogramowania oraz testy funkcjonalne kompletnego urządzenia. Walidacja obejmuje nadzór nad dostawcą poszczególnych elementów systemu.}
 \item \textbf{\textit{Instalacja}} – \textcolor{sa}{instalacja hardwaru, softwaru, urządzeń, sieci informatycznej, testy instalacyjne hardwaru oraz sieci informatycznej. Walidacja tego etapu projektowania systemu skomputeryzowanego dotyczy pełnej kwalifikacji instalacyjnej\footnote{ang. Installation Qualification - IQ}}
-\item \textbf{\textit{Odbiór}} – \textcolor{sa}{testy akceptacji systemu, w~tym kompletności dokumentacji. Na tym etapie realizacji, walidacja dotyczy kwalifikacji operacyjnej\footnote{ang. Operational Qualification - OQ} oraz procesowej\footnote{ang. Performance Qualification - PQ}. Zakończenie walidacji uwieńczone jest raportem, który powinien określać przykładowo urządzenia produkcyjne, krytyczne parametry procesu i~krytyczne zakresy operacyjne, charakterystykę produktu, sposób pobierania próbek koniecznych do zebrania danych z~badań, ilość przebiegów procesu walidacyjnego i~akceptowalne wyniki badań.}
+\item \textbf{\textit{Odbiór}} – \textcolor{sa}{testy akceptacji systemu, w~tym kompletności dokumentacji. Na tym etapie realizacji, walidacja dotyczy kwalifikacji operacyjnej\footnote{ang. Operational Qualification - OQ} oraz procesowej\footnote{ang. Performance Qualification - PQ}. Zakończenie jej uwieńczone jest raportem, który powinien określać przykładowo urządzenia produkcyjne, krytyczne parametry procesu i~krytyczne zakresy operacyjne, charakterystykę produktu, sposób pobierania próbek koniecznych do zebrania danych z~badań, ilość przebiegów procesu walidacyjnego i~akceptowalne wyniki badań.}
 \item \textbf{\textit{Użytkowanie systemu}} – \textcolor{sa}{konserwacja i~utrzymanie sprawności systemu, nadzór nad zmianami. W~okresie użytkowania systemu przeprowadzane są okresowe, planowane rewalidacje, a~system jest monitorowany.\cite{LAB-EL2}}
 \end{enumerate}
 
 \chapter{Elektroniczny indeks}
-Elektroniczny indeks jest to elektroniczna platforma, która służy do do wystawiania ocen studentom przez prowadzących zajęcia w czasie rzeczywistym, a także do podglądu tych ocen przez studentów. Dzięki wdrożeniu do użytku wspomnianej platformy, zarówno studenci jak i prowadzący mogą zaoszczędzić mnóstwo czasu oraz nerwów związanych z próbą zdobycia wpisu, próbą odtworzenia indeksu gdy zostanie on zgubiony lub staniem w kolejce do dziekanatu. Dodatkowo znacznie ułatwiona zostanie biurokracja na lini dziekanat -- wykładowca, a samo zaliczenie semestru studentowi przez osoby do tego uprawnione również staję się dużo prostsze i szybsze.
+Elektroniczny indeks jest to elektroniczna platforma, która służy do wystawiania ocen studentom przez prowadzących zajęcia w czasie rzeczywistym, a także do wglądu do tych ocen przez studentów. Dzięki wdrożeniu do użytku wspomnianej platformy, zarówno studenci jak i prowadzący, mogą zaoszczędzić mnóstwo czasu oraz nerwów związanych z próbą zdobycia wpisu, odtworzenia indeksu, gdy zostanie on zgubiony lub uniknięcia długiego stania w kolejce do dziekanatu. Dodatkowo znacznie ułatwiona zostanie biurokracja na lini dziekanat -- wykładowca, a samo zaliczenie semestru studentowi przez osoby do tego uprawnione staję się dużo prostsze i szybsze.
 
 \section{Filtrowanie danych}
 
-Filtrowanie danych w elektronicznym indeksie jest jego ważną częścią. Dzięki temu można uniknąć sytuacji w której nieautoryzowany użytkownik uzyska dostęp do danych do których nie powinien miec dostępu. \textit{Meteor} nie ma domyślnie zaimplementowanego pakietu, który pozwoliłby na sprawne zarządzanie dostępnością treści w aplikacji.  Dzięki rosnącej popularności frameworku \textit{Meteor} oraz coraz szerszej grupie deweloperów z każdym dniem pojawiają się nowe pakiety, które ułatwiają i zwiększają funkcjonalność tworzonych aplikacji. Do efektywnego przekazywania danych poszczególnym użytkownikom wykorzystano pakiet \textit{meteor-roles}, który pozwala zarządzać rozsyłanymi danymi oraz jest kompatybilny z wbudowanym w pakietem do zarządzania kontami. Instalacja pakietu do zarządzania rolami wymaga dołączenia do projektu pakietu \textit{accounts-password} co można zrobić nastepującym poleceniem w konsoli
+Filtrowanie danych w elektronicznym indeksie jest jego ważną częścią. Dzięki temu można uniknąć sytuacji, w której nieautoryzowany użytkownik uzyska dostęp do danych, do których nie powinien miec dostępu. \textit{Meteor} nie ma domyślnie zaimplementowanego pakietu, który pozwoliłby na sprawne zarządzanie dostępnością treści w aplikacji.  Dzięki rosnącej popularności frameworku \textit{Meteor} oraz coraz szerszej grupie deweloperów z każdym dniem pojawiają się nowe pakiety, które ułatwiają i zwiększają funkcjonalność tworzonych aplikacji. Do efektywnego przekazywania danych poszczególnym użytkownikom wykorzystano pakiet \textit{meteor-roles}, który pozwala zarządzać rozsyłanymi danymi oraz jest kompatybilny z wbudowanym pakietem do zarządzania kontami. Instalacja pakietu do zarządzania rolami wymaga dołączenia do projektu pakietu \textit{accounts-password}, co można zrobić nastepującym poleceniem w konsoli:
 \newpage
 \begin{lstlisting}[language=bash,caption={Instalacja accounts-password}]
 	meteor add accounts-password
@@ -328,7 +331,7 @@ Nastepnie możemy dodać właściwy pakiet
 
 \section{Zarządzanie elektronicznym indeksem przez administratora}
 
-Administrator jest osobą która nad wszystkim czuwa, musi mieć dostep do wszystkich danych i wszystkich funkcjonalności programu, aby móc kontrolować poprawność działania programu. Będąc głównym zarządcą platformy, administrator jako jedyny ma prawo dodawać do systemu nowe dane. Dzięki temu, że najważniejsze dane wyświetlają się administratorowi od razu po zalogowaniu do systemu jest on w stanie szybko wykonać powierzone mu zadanie.
+Administrator jest osobą, która nad wszystkim czuwa, dlatego musi mieć dostęp do wszystkich danych i wszystkich funkcjonalności programu, aby móc kontrolować jego poprawność działania. Będąc głównym zarządcą platformy, administrator jako jedyny ma prawo dodawać do systemu nowe dane. Dzięki temu, że najważniejsze dane wyświetlają się administratorowi od razu po zalogowaniu do systemu, jest on w stanie szybko wykonać powierzone mu zadanie.
 
 \begin{figure}[th!]
 \centering
@@ -337,8 +340,8 @@ Administrator jest osobą która nad wszystkim czuwa, musi mieć dostep do wszys
 \source{Własne}
 \end{figure}
 
-\begin{itemize}
-\item Jako główny zarządca, administrator ma za zadanie przypisywać studentów do przedmiotów na które są zobowiązani uczęszczać, a także na przedmioty, które sami wybiorą w trakcie toku nauczania. Student, który został zapisany na dany przedmiot nie pojawi się więcej na liście dzięki czemu nie ma możliwości zapisania danego użytkownika dwa razy na te same zajęcia.
+
+Jako główny zarządca, administrator ma za zadanie przypisywać studentów do przedmiotów, na które są zobowiązani uczęszczać, a także do przedmiotów, które sami wybiorą w trakcie toku nauczania. Student, który został zapisany na dany przedmiot, nie pojawi się ponownie na liście, dzięki czemu nie ma możliwości zapisania danego użytkownika dwa razy na te same zajęcia.
 
 \begin{figure}[th!]
 \centering
@@ -347,7 +350,7 @@ Administrator jest osobą która nad wszystkim czuwa, musi mieć dostep do wszys
 \source{Własne}
 \end{figure}
 
-\item Kolejnym zadaniem jest dodawanie przedmiotów, które odbywają się na uczelni. Administrator podaje nazwę przedmiotu, wybiera semestr na którym dane zajęcia się odbywają i z rozwijanej listy wybiera prowadzącego dane zajęcia.
+Kolejnym zadaniem jest dodawanie przedmiotów, które odbywają się na uczelni. Administrator podaje jego nazwę, wybiera semestr, na którym dane zajęcia się odbywają i z rozwijanej listy wybiera prowadzącego dane wykłady czy ćwiczenia.
 
 \begin{figure}[th!]
 \centering
@@ -356,7 +359,7 @@ Administrator jest osobą która nad wszystkim czuwa, musi mieć dostep do wszys
 \source{Własne}
 \end{figure}
 
-\item Następną równie ważną funkcją jest dodawanie studentów, prowadzących zajęcia, adminów oraz pracownków dziekanatu. Z menu dodawania admin wybiera do jakiej grupy chce dodać użytkownika.
+Następną równie ważną funkcją jest dodawanie studentów, prowadzących zajęcia, adminów oraz pracownków dziekanatu. Z menu dodawania admin wybiera, do jakiej grupy chce dodać użytkownika.
 
 \begin{enumerate}
 \item Dodawanie studenta
@@ -372,7 +375,7 @@ Administrator jest osobą która nad wszystkim czuwa, musi mieć dostep do wszys
 
 \begin{figure}[th!]
 \centering
-\includegraphics[width=1.1\hsize]{images/addTeacher} 
+\includegraphics[width=0.9\hsize]{images/addTeacher} 
 \caption{Formularz dodawania wykładowcy\label{RYS.8}}
 \source{Własne}
 \end{figure}
@@ -387,13 +390,12 @@ Administrator jest osobą która nad wszystkim czuwa, musi mieć dostep do wszys
 \end{figure}
 
 \end{enumerate}
-\end{itemize}
 
-Jako login dla studenta posłuży jego numer albumu natomiast wykładowca oraz pracownik dziekanatu logował się bedzie do systemu  dzięki loginowi składającemu się z pierwszej litery imienia oraz nazwiska bez używania polskich znaków.
+Jako login dla studenta posłuży jego numer albumu, natomiast wykładowca oraz pracownik dziekanatu logować się bedzie do systemu  dzięki loginowi składającemu się z pierwszej litery imienia oraz nazwiska bez używania polskich znaków.
 
 \section{Funkcjonalność dla prowadzącego zajęcia}
 
-Użytkownicy należący do grupy wykładowców muszą mieć możliwość do zarządzania studentami, którzy sa przypisani do przedmiotów jakie prowadzą. Wykładowca ma dostęp wyłącznie do przedmiotów które prowadzi. Dzięki temu, że tak samo jak w przypadku administratorów, do interesujących wykładowce danych można się w prosty sposób od razu po zalogowaniu, prowadzący jest w stanie efektywnie zarządzać swoimi podopiecznymi. Na stronie głównej wykładowca znajdzie listę przedmiotów, które wykłada.
+Użytkownicy należący do grupy wykładowców muszą mieć możliwość do zarządzania listą studentów, na której widnieją ich nazwiska przypisane do przedmiotów, które prowadzą. Wykładowca ma dostęp wyłącznie do przedmiotów przez siebie prowadzonych. Dzięki temu, podobnie jak w przypadku administratorów, do interesujące wykładowcę dane, można uzyskać w prosty sposób, od razu po zalogowaniu. A prowadzący jest w stanie efektywnie zarządzać swoimi podopiecznymi. Na stronie głównej wykładowca znajdzie listę przedmiotów, które wykłada.
 
 \begin{figure}[th!]
 \centering
@@ -402,7 +404,7 @@ Użytkownicy należący do grupy wykładowców muszą mieć możliwość do zarz
 \source{Własne}
 \end{figure}
 
-Po wybraniu przez użytkownika interesującego go przedmiotu na ekranie pojawi się lista studentów,  którzy są zapisani na dane zajęcia. Przy każdym uczestniku znajdują się jego imie i nazwisko, numer indeksu oraz rozwijane listy z wyborem oceny za zaliczenie ćwiczeń, a także ocena za egzamin końcowy.
+Po wybraniu przez użytkownika interesującego go przedmiotu na ekranie pojawi się lista studentów,  zapisanych na dane zajęcia. Przy każdym uczestniku znajdują się jego imię i nazwisko, numer indeksu oraz rozwijane listy z wyborem oceny za zaliczenie ćwiczeń, a także ocena za egzamin końcowy.
 
 \begin{figure}[th!]
 \centering
@@ -412,7 +414,7 @@ Po wybraniu przez użytkownika interesującego go przedmiotu na ekranie pojawi s
 \end{figure}
 
 \section{Funkcjonalność dla studenta}
-Studenci sa grupą, która ma najmniej do powiedzenia w działaniu aplikacji, ale to studenci najbardziej oczekują szybkiego umieszczenia danych w indeksie. Jedyną funkcjonalnością z której mogą korzystać studenci jest przegląd własnych osiągnieć w nauce. Po zalogowaniu do systemu student otrzymuje listę przedmiotów w których uczestniczy. Po wejściu w interesujacy użytkownika przedmiot, pojawią się informacje o prowadzącym zajęcia, oraz oceny z ćwiczeń i egzaminu.
+Studenci sa grupą, która ma najmniej do powiedzenia w działaniu aplikacji, ale to studenci najbardziej oczekują szybkiego umieszczenia danych w indeksie. Jedyną funkcjonalnością, z której mogą korzystać studenci, jest przegląd własnych osiągnieć w nauce. Po zalogowaniu do systemu student otrzymuje listę przedmiotów, w których uczestniczy. Po wejściu w interesujacy użytkownika przedmiot, pojawią się informacje o prowadzącym zajęcia, oraz oceny z ćwiczeń i egzaminu.
 
 \begin{figure}[th!]
 \centering
@@ -423,7 +425,7 @@ Studenci sa grupą, która ma najmniej do powiedzenia w działaniu aplikacji, al
 
 \section{Funkcjonalność dla pracownika dziekanatu}
 
-Kiedy już wykładowca wystawi zaliczenia w elektronicznym indeksie, nadchodzi czas gdy zarówno wykładowca jak i student muszą rozliczyć się z tych danych z dziekanatem. Zadaniem pracownika dziekanatu jest utrzymanie porządku oraz spójności danych pomiędzy tymi które znajdują się w elektronicznej platformie oraz jej papierowym odpowiedniku. Po zalogowaniu do systemu, użytkownikowi pojawi się lista studentów oraz lista wykładowców. Gdy pracownik dziekanatu  wybierze z listy interesującego go studenta na ekranie pojawi się lista przedmiotów danego ucznia wraz z jego osiągnieciami w nauce co pozwoli na szybką weryfikację czy dane które dostarczył student zgadzają się z tymi w aplikacji.
+Kiedy już wykładowca wystawi zaliczenia w elektronicznym indeksie, nadchodzi czas, gdy zarówno wykładowca jak i student, muszą rozliczyć się z tych danych w~dziekanacie. Zadaniem jego pracownika jest utrzymanie porządku oraz spójności danych pomiędzy tymi, które znajdują się w elektronicznej platformie oraz jej papierowym odpowiedniku. Po zalogowaniu do systemu, użytkownikowi pojawi się lista studentów oraz lista wykładowców. Gdy pracownik dziekanatu  wybierze z listy interesującego go studenta, na ekranie pojawi się lista przedmiotów danego ucznia wraz z jego osiągnieciami w nauce, co pozwoli na szybką weryfikację czy dane, które dostarczył student zgadzają się z tymi w aplikacji.
 
 \begin{figure}[th!]
 \centering
@@ -432,7 +434,7 @@ Kiedy już wykładowca wystawi zaliczenia w elektronicznym indeksie, nadchodzi c
 \source{Własne}
 \end{figure}
  
-Jeśli wybrany zostanie z listy wykładowca, pojawi się na ekranie lista przedmiotów, które dany pracownik prowadzi. Z nowo wyświetlonej listy pracownik dziekanatu może wybrać interesujący go przedmiot po czym na ekranie pojawią się wszyscy studenci zapisani na wybrany przedmiot razem ze swoimi osiągnieciami co pozwoli na szybką weryfikację czy dane dostarczone przez wykładowce zgadzają się z tymi w elektronicznej platformie
+Jeśli wybrany zostanie z listy wykładowca, pojawi się na ekranie lista przedmiotów, które dany pracownik prowadzi. Z nowo wyświetlonej listy pracownik dziekanatu może wybrać interesujący go przedmiot, po czym na ekranie pojawią się wszyscy studenci, zapisani na wybrany przedmiot razem ze swoimi osiągnieciami, co pozwoli na szybką weryfikację czy dane dostarczone przez wykładowcę zgadzają się z tymi w elektronicznej platformie.
 
  \begin{figure}[th!]
 \centering
@@ -442,21 +444,242 @@ Jeśli wybrany zostanie z listy wykładowca, pojawi się na ekranie lista przedm
 \end{figure}
 
 \chapter{Aplikacja Elektroniczny indeks w~Meteor}
-
 \section{Opis wybranych technologii użytych w pracy}
+Zanim rozpocznie się proces tworzenia aplikacji, programista musi zdecydować jakich technologii chce użyc do tego celu oraz jakie technologie będą do danego programu najodpowiedniejsze.
+\subsection{Javascript}
+Do stworzenia aplikacji elektroniczny indeks wykorzystano język javascript, którego zaletami są niewielkie rozmiary skryptów dzięki czemu krótszy jest czas ładowania z serwera, a co za tym idzie mniejsze obciążenie sieci, jest niezależny od systemu, a także nie wymaga kompilatora.
+\subsection{Meteor}
+W pracy użyto framework \textit{Meteor} w wersji 1.1.0.2. Jest to framework javascriptowy, który zapewnia aplikacji działanie w czasie rzeczywistym / w skrócie RTA / \footnote{ang. Real-Time Application - RTA}, dzięki czemu użytkownikom korzystającym z aplikacji, widoki aktualizują się natychmiast gdy w bazie danych zachodzą zmiany. Dodatkową zaletą tej technologii jest fakt, że wszystko , zarówno back-end jak i front-end piszemy w taki sam sposób, korzystając jedynie z javascriptu. \textit{Meteor} pozwala również zaoszczędzić czas dostarczając deweloperom gotowe rozwiązania w postaci pakietów. Część pakietów jest wbudowana w framework i wystarcy dodac je do projektu: 
+\begin{lstlisting}[language=bash,caption={Dodanie standardowego pakietu do projektu}]
+	meteor add nazwa_pakietu
+\end{lstlisting}
+Istnieją również pakiety stworzone przez społeczność które można przeglądać na atmosphere.com. Instalujemy je w bardzo podobny sposób jak pakiety dostarczone w standardzie:
+\begin{lstlisting}[language=bash,caption={Dodanie zewnętrznego pakietu do projektu}]
+	meteor add autor:nazwa_pakietu
+\end{lstlisting}
 
+\subsection{MongoDB}
+\textit{MongoDB} jest najpopularniejszą nierelacyjną bazą danych. Charakteryzuje się dużą skalowalnością, wydajnością oraz brakiem ściśle zdefiniowanej struktury obsługiwanych baz danych. Zamiast tego dane składowane są jako dokumenty w stylu JSON, co umożliwia aplikacjom bardziej naturalne ich przetwarzanie, przy zachowaniu możliwości tworzenia hierarchii oraz indeksowania. Jest to także obecnie jedyna oficjalnie wspierana baza przez twórców \textit{Meteor}.  W pracy wykorzystana została w wersji 3.0.2.
+\subsection{Velocity}
+\textit{Velocity} jest oficjalnym narzędziem do testowania aplikacji napisanych w \textit{Meteor} w~wersji 1.0+. \textit{Velocity} pozwala tworzyć testy w popluranych bibliotekach takich jak \textit{mocha}, \textit{jasmine}, \textit{cucumber} czy \textit{selenium}. W pracy wykorzystana została biblioteka \textit{jasmine}
+\subsection{Distributed Data Protocol}
+\textit{Distributed Data Protocol} jest to prosty protokół oparty o format tekstowy \textit{JSON}. Służy on do pobierania danych z~serwera oraz aktualizacji pobranych danych gdy tylko dane na serwerze ulegną zmianie.
+\subsection{Roles}
+\textit{Meteor-roles} jest to pakiet autoryzujący do frameworka \textit{Meteor}, który pozwala zarządzać jakie dane zostaną wysłane do konkretnych grup użytkowników.
+\subsection{Iron router}
+\textit{Iron router} jest to pakiet, którym definiujemy jak ma wyglądać mapa strony. Pakiet ten działa zarówno po stronie serwera i klienta. Routing po stronie klienta sprawia, że aplikacja jest naprawde szybka gdy już jest załadowana, ponieważ przy każdej zmianie podstrony nie trzeba generować całej podstrony.
+\subsection{Accounts}
+\textit{Meteor account} jest to kompletny pakiet zarządzania kontami użytkowników. Jedną linią kodu można  zapewnić aplikacji możliwość logowania, tworzenia kont, walidacji email, przywracania hasła czy logowania się przez zewnętrzne serwisy jak \textit{facebook} czy \textit{twitter}. Dodatkowo pakiet daje możliwość dostosowania go pod własne potrzeby.
+\subsection{Underscore string}
+\textit{Underscore.string} jest to pakiet służący do manipulacji stringami. Pierwotnie był rozszerzeniem \textit{Underscore.js}, obecnie jest niezależną biblioteką.
 \section{Opis tworzenia aplikacji}
+Tworzenie aplikacji we frameworku \textit{Meteor} zaczyna się od utworzenia nowego projektu poleceniem w konsoli:
+\begin{lstlisting}[language=bash,caption={Tworzenie projektu}]
+	meteor create nazwa_projektu
+\end{lstlisting}
+
+Po wykokaniu tej komendy zostanie utworzony folder z projektem, w którym znajdują się trzy pliki.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\hsize]{images/newProject} 
+\caption{Nowy projekt\label{RYS.15}}
+\source{Własne}
+\end{figure}
+
+Aby uruchomić aplikację musimy uruchomić lokalny serwer, który pozwoli zobaczyć przetworzony javascript w przeglądarce oraz uruchomić bazę na lokalnym komputerze. W konsoli zmieniamy lokalzację na folder z projektem, a następnie wprowadzamy następującą komendę:
+
+\begin{lstlisting}[language=bash,caption={Uruchomienie aplikacji}]
+	meteor run
+\end{lstlisting}
+
+Jeżeli na ekranie pojawi się
+
+\begin{figure}[th!]
+\centering
+\includegraphics[width=0.8\hsize]{images/succesfullStart} 
+\caption{Start aplikacji bez błędów\label{RYS.16}}
+\source{Własne}
+\end{figure}
+
+oznacza to, że aplikacja uruchomiła się bez błędów i od teraz można z niej korzystać pod podanym adresem. Na początku warto podzielić projekt na część serwerową, kliencką oraz dostępną zarówno dla części serwerowej oraz klienckiej. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\hsize]{images/splitProject} 
+\caption{Podział projektu\label{RYS.17}}
+\source{Własne}
+\end{figure}
+
+Warto również usunąć pakiety \textit{autopublish} oraz \textit{insecure} dzięki czemu zwiększone zostanie bezpieczeństwo aplikacji. Usnięcie pakietu \textit{insecure} blokuje możliwość użytkownikom do zarządzania bazą danych po stronie klienta, natomiast wyrzucenie \textit{autopublish} spowoduje, że trzeba samemu zadbać o wysyłanie danych z serwera do klienta.\cite{DiscoverMeteor2013}
+
+\begin{lstlisting}[language=bash,caption={Usuwanie pakietów}]
+meteor remove autopublish
+meteor remove insecure
+\end{lstlisting}
+
+W części klienckiej trzymane są widoki aplikacji, funkcje pomocnicze oraz router, a po stronie serwera plik publish, który definiuje jakie dane zostną wysłane do użytkowników. Po podzieleniu projektu trzeba utworzyć kolekcje, w których będziemy trzymać informacje o przedmiotach, oraz ocenach studentów zdobytych na zajęciach. Do tego celu utworzymy kolekcję subjects, w której będzie trzymana nazwa przedmiotu, prowadzący, semestr, na którym przedmiot się odbywa oraz lista zapisanych studentów. Kolekcja grades będzie łączyła informacje z kolekcji z użytkownikami oraz przedmiotami. Znajdą się tu login oraz id użytkownika, oraz id, nazwa przedmiotu, prowadzący przedmiot oraz oceny z ćwiczeń i egaminu końcowego.
+
+\begin{listing}[H]
+\begin{minted}[frame=single]{js}
+Subjects = new Mongo.Collection('subjects');
+Grades = new Mongo.Collection('grades');
+\end{minted}
+\caption{Utworzenie kolekcji}
+\end{listing}
+
+Kiedy już mamy kolekcje, trzeba utworzyć widoki. Zaczynamy od widoku strony głównej, na której w zależności od grupy do której przynależeć będzie użytkownik będą wyświetleni studenci, przedmioty oraz wykładowcy
+
+\begin{listing}[H]
+\begin{minted}[frame=single, fontsize=\scriptsize]{html+handlebars}
+<template name="subjectList">
+  <div class="container">
+    <div class="subject-list">
+      <div class="list-group">
+        {{#if isInRole 'admin, wykładowca, student'}}
+        <a class="list-group-item active">
+          Przedmioty
+        </a>
+        {{#if isInRole 'student'}}
+        {{#each mySubjects}}
+        <a href="/subjects/{{_id}}" class="list-group-item">{{subject}}</a>
+        {{/each}}
+        {{/if}}
+\end{minted}
+\caption{Template wyświetlający wszystkie przedmioty, na które uczęszcza student}
+\end{listing}
+
+Analogicznie działa wyświetlanie przedmiotów dla wykładowcy czy administratora. W tym momencie nawet jeśli w bazie będą wprowadzone przedmioty, nadal będzie pusta strona. Do przesyłu danych wykorzystamy \textit{iron-router}.
+
+\begin{listing}[H]
+\begin{minted}[frame=single, fontsize=\tiny, breaklines=true]{js}
+waitOn: function () {
+    return [ Meteor.subscribe('theSubjects') ];
+  },
+  onBeforeAction: function () {
+    if(!Meteor.user()){
+      this.layout('appLayout');
+      this.render('login');
+    }
+    else {
+      this.next();
+    }
+  },
+action: function () {
+    this.layout('appLayout');
+    this.render('subjectList', {
+      'data': {
+        'User': Meteor.user(),
+        'mySubjects': Subjects.find(),
+        'teacherSubjects': Subjects.find({'leading': Meteor.user().profile.title + " " + Meteor.user().profile.firstName + " " + Meteor.user().profile.lastName}, {sort: {'subject': 1}}),
+        'myStudents': Meteor.users.find({'roles': 'student'}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1}}),
+        'myLeaders': Meteor.users.find({'roles': 'wykładowca'}, {sort: {'profile.lastName': 1, 'profile.firstName': 1, 'username': 1}}),
+        'myGrades': Grades.find()
+      }
+    });
+  }
+\end{minted}
+\caption{Powyższy fragment renderuje widok z przedmiotami oraz użytkownikami}
+\end{listing}
+
+W drugiej linijce kodu widzimy return, który zwraca zasubskrybowane dane z~theSubjects. Żeby te dane można było odebrać, serwer musi je opublikować.
+
+\begin{listing}[H]
+\begin{minted}[frame=single, fontsize=\tiny]{js}
+Meteor.publish('theSubjects', function () {
+  if(this.userId){
+    if (Roles.userIsInRole(this.userId, 'admin')) {
+      return [Meteor.users.find({}), Subjects.find({})];
+    } else if(Roles.userIsInRole(this.userId, 'dziekanat')){
+        return [Meteor.users.find({}), Subjects.find({})];
+    } else if(Roles.userIsInRole(this.userId, 'student')){
+        var user = Meteor.users.findOne({'_id': this.userId})._id;
+        return Subjects.find({"students": user});
+    } else if(Roles.userIsInRole(this.userId, 'wykładowca')){
+        return [Subjects.find({}), Meteor.users.find({})];
+      }
+    }
+    else {
+      this.ready();
+    }
+});
+\end{minted}
+\caption{udostępnianie danych poszczególnym grupom użytkowników}
+\end{listing}
+
+Dzięki pakietowi \textit{meteor-roles} jesteśmy w stanie dokładniej określić jakie dane chcemy wysyłać poszczególnym grupom użytkowników. Dzięki temu w szybki sposób możemy również zarządzać treściami które pojawią się na widokach dzięki blokom pomocniczym.
+
+W aplikacji znajduje się szereg managerów, które przekazują operacje wykonane przez użytkownika do metod, które zostaną wykonane na serwerze. Funkcja \textit{assignSubject}, która zostaje wywołana w momencie gdy użytkownik chce przypisać studenta do przedmiotu, pobiera id przedmiotu, nazwe przedmiotu, nazwe użytkownika, id użytkownika oraz prowadzącego zajęcia i przekazuje je do metody \textit{addStudentToSubject}, która umieszcza te informacje w kolekcji grades, jednocześnie przypisując id studenta do listy osób zapisanych na przedmiot w kolekcji subjects, a także id przedmotu przypisuje liście przedmiotów, na które student uczęszcza w~kolekcji użytkowników. Funkcje \textit{updateExerciseGrade} i \textit{updateExamGrade} działają w taki sam sposób. Gdy wykładowca zatwierdza zmiane oceny, pobierają one z pola ocene jaką zatwierdził prowadzący, a następnie przekazują id studenta, id przedmiotu oraz ocene do metod o tych samych nazwach. Dzięki temu, że wysłane zostały także id przedmiotu i studenta, możliwa jest aktualizacja oceny konkretnego studenta dla konkretnego przedmiotu. Gdy administrator wysyła formularz \textit{form} aby dodać nowy przedmiot, z pól formularza zostają pobrane informacje o nazwie przedmiotu, prowadzącym przedmiot oraz informacja, na którym semestrze zajęcia się odbywają, a następnie sa one przesłane do metody \textit{addSubject}, która umieszcza przedmiot w kolekcji subjects. W trakcie tworzenia nowego użytkownika, zostaje mu przypisana jedna z czterech dostępnych ról. Jeśli tworzenie użytkownika zakończy się powodzeniem, zostaje wywołana metoda \textit{assignRole}, która otrzymuje stworzonego użytkownika oraz role do której bedzie przypisany i ustawia danemu użytkownikowi wybraną rolę.
+
 \cite{Introduction}
 \cite{MeteorDocs}
-\cite{DiscoverMeteor2013}
-\cite{NodeDocs}
 \cite{MongoDocs}
 \cite{ScalingMongoDB2011}
 \cite{ScalingWithMongoDB}
 \section{Opis testowania aplikacji}
-\cite{Laika}
-\section{Opis własnych rozwiązań}
+Od wersji \textit{Meteor} 1.0, zostało oficjalne udostępnione narzędzie do testowania aplikacji o nazwie \textit{Velocity}. Instaluje się ono razem z jednym z czterech dostępnych frameworków do testowania. W tej pracy użyty został framework \textit{Jasmine}. Aby dodać go do projektu wystarczy w konsoli wpisać
 
+\begin{lstlisting}[language=bash,caption={Instalacja Velocity, Jasmine i html reporter}]
+meteor add sanjo:jasmine
+meteor add velocity:html-reporter
+\end{lstlisting}
+
+\textit{Html-reporter} jest to reaktywny plugin, który prezentuje wyniki testów.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\hsize]{images/htmlReporter} 
+\caption{Html-reporter\label{RYS.18}}
+\source{Własne}
+\end{figure}
+
+\begin{listing}[H]
+\begin{minted}[frame=single, fontsize=\tiny]{js}
+describe('Set user a role', function () {
+  it('Should assign user to role', function () {
+    if (Meteor.users.find().count() === 0) {
+      Accounts.createUser({
+        username: 'username1',
+        email: 'username1@test.pl',
+        password: 'abcdef',
+        profile:{
+          name: 'student',
+          firstName: 'firstName1',
+          lastName: 'lastName1',
+          subjects:[]
+        }
+      });
+      Accounts.createUser({
+        username: 'username2',
+        email: 'username2@test.pl',
+        password: 'abcdef',
+        profile:{
+          name: 'student',
+          firstName: 'firstName2',
+          lastName: 'lastName2',
+          subjects:[]
+        }
+      });
+    }
+
+    user = Meteor.users.find({'username': 'username1'}).fetch();
+
+    Meteor.call('assignRole', user[0], 'student');
+    expect(Meteor.users.findOne({'username': 'username1'}).roles[0]).toBe('student');
+
+    Meteor.users.remove({'username': 'username1'});
+    Meteor.users.remove({'username': 'username2'});
+  });
+
+});
+\end{minted}
+\caption{Test przypisywania roli użytkownikowi}
+\end{listing}
+
+\textit{describe} mówi nam jaka funkcjonalność będzie testowana, \textit{it} opisuje, co dana funkcjonalność powinna robić, następnie do replikowanej bazy na potrzeby testu dodajemy użytkowników. Gdy już są utworzeni bierzemy użytkownika i wyłuskujemy wszystkie informacje o nim. Wywołujemy metodę, która przypisuje użytkownikowi rolę, a następnie sprawdzamy czy naszemu użytkownikowi została przypisana rola, której oczekiwaliśmy. Po wszystkim czyścimy zreplikowaną bazę.  
+
+\cite{Laika}
+%\section{Opis własnych rozwiązań}
 
 \chapter{Pakiet walidujący operacje elektronicznego indeksu}
 
@@ -478,19 +701,9 @@ Jeśli wybrany zostanie z listy wykładowca, pojawi się na ekranie lista przedm
 
 %Treść załącznika jeden.
 
-\chapter{Meteor}
-
-%Treść załącznika dwa.
-
-\chapter{Laika}
-
-%Treść załącznika trzy.
-
 \chapter{TinyTest}
 
-%Treść załącznika cztery.
-
-
+%Treść załącznika dwa.
 
 % literatura (obowiązkowo):
 \bibliographystyle{unsrt}
