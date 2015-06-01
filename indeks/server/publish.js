@@ -12,6 +12,22 @@ Meteor.startup(function (){
     console.log("koniec");
     console.log(ar);
   }
+
+  temporaryFiles.allow({
+  insert: function (userId, file) {
+    return true;
+  },
+  remove: function (userId, file) {
+    return true;
+  },
+  read: function (userId, file) {
+    return true;
+  },
+  write: function (userId, file, fields) {
+    return true;
+  }
+});
+
 /*        // store the default createUser method handler
         var default_create_user = Meteor.server.method_handlers.createUser;
 

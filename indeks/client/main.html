@@ -38,6 +38,9 @@
         </ul>
       </li>
       {{/if}}
+      {{#if isInRole 'admin, wykładowca, dziekanat'}}
+      <li role="presentation"><a class="backup">Pobierz plik Excel</a></li>
+      {{/if}}
       <li role="presentation"><a href="#" class="logOut">Wyloguj się</a></li>
       {{else}}
       <li role="presentation"><a href="/login">Zaloguj się</a></li>
