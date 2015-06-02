@@ -1,9 +1,9 @@
 <head>
   <title>Elektroniczny indeks</title>
 
-  <link rel="stylesheet" type="text/css" href="http://localhost:3000/bower_components/bootstrap/dist/css/bootstrap.css">
-  <script src="http://localhost:3000/bower_components/jquery/dist/jquery.js"></script>
-  <script src="http://localhost:3000/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 
 <body></body>
@@ -17,6 +17,8 @@
 
 <template name="menu">
   <div class="container">
+    {{#if isInRole 'admin, wykładowca, dziekanat'}}
+    {{/if}}
     <ul class="nav nav-pills nav-justified">
       <li role="presentation"><a href="/">Start</a></li>
       {{#if currentUser}}
@@ -40,6 +42,20 @@
       {{/if}}
       {{#if isInRole 'admin, wykładowca, dziekanat'}}
       <li role="presentation"><a class="backup">Pobierz plik Excel</a></li>
+      <li role="presentation" class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Importuj<span class="caret"></span></a>
+      <ul class="dropdown-menu" role="menu">
+        <button type="button" class="btn btn-primary btn-file">
+                  Przedmioty <input type="file" class="importSubjects" value="">
+        </button>
+        <button type="button" class="btn btn-primary btn-file">
+                  Użytkowników <input type="file" class="importUsers" value="">
+        </button>
+        <button type="button" class="btn btn-primary btn-file">
+                  Oceny <input type="file" class="importGrades" value="">
+        </button>
+      </ul>
+    </li>
       {{/if}}
       <li role="presentation"><a href="#" class="logOut">Wyloguj się</a></li>
       {{else}}
@@ -51,7 +67,7 @@
 
 <template name="header">
   <div class="container">
-    <h1><img src="http://localhost:3000/img/UG_logo_short.png"> Elektroniczny indeks</h1>
+    <h1><img src="img/UG_logo_short.png"> Elektroniczny indeks</h1>
   </div>
 </template>
 
