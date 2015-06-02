@@ -1,7 +1,7 @@
 describe("Assigning users to subjects", function(){
   it("assign users to subjects", function(){
 
-    if (Meteor.users.find().count() === 0) {
+    if (Meteor.users.find().count() === 1) {
       Accounts.createUser({
         username: 'username1',
         email: 'username1@test.pl',
@@ -53,7 +53,7 @@ describe("Assigning users to subjects", function(){
 describe("Update grades", function(){
   it("Should update exerciseGrade and examGrade", function(){
 
-    if (Meteor.users.find().count() === 0) {
+    if (Meteor.users.find().count() === 1) {
       Accounts.createUser({
         username: 'username1',
         email: 'username1@test.pl',

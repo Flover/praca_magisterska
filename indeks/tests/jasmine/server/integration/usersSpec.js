@@ -1,6 +1,6 @@
 describe("Users Ordering", function(){
   it("check is there any users in database", function(){
-    if (Meteor.users.find().count() === 0) {
+    if (Meteor.users.find().count() === 1) {
       Accounts.createUser({
         username: 'username1',
         email: 'username1@test.pl',
@@ -24,7 +24,7 @@ describe("Users Ordering", function(){
         }
       });
     }
-    
+
     var users = Meteor.users.find({}, {sort: { 'profile.lastName': 1 }}).fetch();
     expect(users[0].profile.lastName <= users[1].profile.lastName).toBe(true);
 
@@ -36,7 +36,7 @@ describe("Users Ordering", function(){
 
 describe('Adding user', function () {
   it('Should add new users', function () {
-    if (Meteor.users.find().count() === 0) {
+    if (Meteor.users.find().count() === 1) {
       Accounts.createUser({
         username: 'username1',
         email: 'username1@test.pl',
@@ -61,7 +61,7 @@ describe('Adding user', function () {
       });
     }
 
-    expect(Meteor.users.find({}).count()).toBe(2);
+    expect(Meteor.users.find({}).count()).toBe(3);
 
     Meteor.users.remove({'username': 'username1'});
     Meteor.users.remove({'username': 'username2'});
@@ -70,7 +70,7 @@ describe('Adding user', function () {
 
 describe('Set user a role', function () {
   it('Should assign user to role', function () {
-    if (Meteor.users.find().count() === 0) {
+    if (Meteor.users.find().count() === 1) {
       Accounts.createUser({
         username: 'username1',
         email: 'username1@test.pl',
