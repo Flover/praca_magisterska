@@ -13,6 +13,25 @@ Meteor.startup(function (){
     console.log(ar);
   }
 
+  if(Meteor.users.find().count()===0){
+    Accounts.createUser({
+      username: 'admin',
+      email: 'admin@sigma.ug.edu.pl',
+      password: 'abcdef',
+      profile:{
+        name: 'admin',
+        firstName: 'Jan',
+        lastName: 'Kowalski',
+        subjects:[]
+      }
+    });
+
+    user = Meteor.users.find({'username': 'admin'}).fetch();
+    Meteor.call('assignRole', user, 'admin');
+
+    console.log(Meteor.users.find({'username': 'admin'}).fetch());
+  }
+
   temporaryFiles.allow({
   insert: function (userId, file) {
     return true;
