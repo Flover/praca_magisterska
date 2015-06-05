@@ -11,7 +11,8 @@ Template.subjectDetails.events({
   },
   'click .updateExamGrade': function (event, template) {
     var examGrade = template.find('#subjectExamGrade_'+this._id).value;
-    Meteor.call('updateExamGrade', this._id, Router.current().params.subjectId, examGrade);
+    var exerciseGrade = Grades.findOne({'subjectId': Router.current().params.subjectId, 'studentId': this._id}).exerciseGrade;
+    checkBeforeAction(this._id, exerciseGrade, examGrade);
   },
   'click .updateExerciseGrade': function (event, template) {
     var exerciseGrade = template.find('#subjectExerciseGrade_'+this._id).value;

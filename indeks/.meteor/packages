@@ -5,7 +5,24 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 accounts-base
 accounts-password
+alanning:roles
+iron:router
+meteorhacks:npm
+
+
+npm-container
+underscorestring:underscore.string
+velocity:html-reporter
+sanjo:jasmine
+netanelgilad:excel
+vsivsi:file-collection
+netanelgilad:mkdirp
+netanelgilad:node-uuid
+cfs:standard-packages
+cfs:filesystem
+dsyko:meteor-node-csv
+copleykj:mesosphere
+emflover:validation
+mizzao:bootboxjs

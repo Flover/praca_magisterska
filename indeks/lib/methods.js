@@ -3,7 +3,13 @@ Meteor.methods({
     Grades.update({'studentId': studentId, 'subjectId': subjectId }, {$set: {'examGrade': grade } });
   },
   'updateExerciseGrade': function (studentId, subjectId, grade) {
-    Grades.update({'studentId': studentId, 'subjectId': subjectId }, {$set: {'exerciseGrade': grade } });
+    if (grade === '2') {
+      Grades.update({'studentId': studentId, 'subjectId': subjectId }, {$set: {'exerciseGrade': grade } });
+      Grades.update({'studentId': studentId, 'subjectId': subjectId }, {$set: {'examGrade': grade } });
+    } else {
+      Grades.update({'studentId': studentId, 'subjectId': subjectId }, {$set: {'exerciseGrade': grade } });
+    }
+
   },
   'addStudentToSubject': function(selectedSubject, selectedSubjectId, selectedUser, selectedUserId, selectedLeading){
     Grades.insert({
@@ -45,7 +51,7 @@ Meteor.methods({
             'subject':row[1],
             'leading':row[2],
             'semester':row[3],
-            'students':row[4],
+            'students':[row[4]],
 
           })
         }, function(error){
@@ -59,29 +65,48 @@ Meteor.methods({
         })
     },1000)
   },
-  //'uploadUsersFile':function(fileid,filename){
-  //   var fs = Meteor.npmRequire('fs');
-  //   var file = Uploads.find({_id:fileid});
-  //   Meteor.setTimeout(function(){
-  //     console.log('uploads-' + fileid + '-' + filename);
-  //     var filepath = 'indeks/public/imports/uploads-' + fileid + '-' + filename;
-  //     CSV().from.stream(
-  //       fs.createReadStream(filepath),
-  //       {'escape':'\\'})
-  //       .on('record',Meteor.bindEnvironment(function(row,index){
-  //         //TODO
-  //         })
-  //       }, function(error){
-  //         console.log(error);
-  //       }))
-  //       .on('error',function(err){
-  //         console.log(err);
-  //       })
-  //       .on('end',function(count){
-  //
-  //       })
-  //   },1000)
-  // },
+  'uploadUsersFile':function(fileid,filename){
+    var fs = Meteor.npmRequire('fs');
+    var file = Uploads.find({_id:fileid});
+    Meteor.setTimeout(function(){
+      console.log('uploads-' + fileid + '-' + filename);
+      var filepath = 'indeks/public/imports/uploads-' + fileid + '-' + filename;
+      CSV().from.stream(
+        fs.createReadStream(filepath),
+        {'escape':'\\'})
+        .on('record',Meteor.bindEnvironment(function(row,index){
+          Meteor.users.insert({
+            '_id':row[0],
+            'username':row[1],
+            'profile':{
+                'name': row[2],
+                'title': row[3],
+                'firstName': row[4],
+                'lastName': row[5],
+                'subjects': [row[6]],
+            },
+            'roles':row[7],
+            'services':{
+              'password':{
+                'bcrypt':row[8],
+              },
+            },
+            'emails':{
+              'address': row[9]
+            }
+          })
+
+        }, function(error){
+          console.log(error);
+        }))
+        .on('error',function(err){
+          console.log(err);
+        })
+        .on('end',function(count){
+
+        })
+    },1000)
+  },
   'uploadGradesFile':function(fileid,filename){
     var fs = Meteor.npmRequire('fs');
     var file = Uploads.find({_id:fileid});

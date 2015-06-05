@@ -13,7 +13,6 @@ Template.registerStudent.helpers({
     }
   }
 });
-
 Template.registerStudent.events({
    'submit #register-form' : function(event, template) {
      event.preventDefault();
