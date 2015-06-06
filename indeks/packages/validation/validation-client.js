@@ -1,7 +1,3 @@
-// capitalise = function(str){
-//   return str + " actually can't be capitalised";
-// }
-
 checkBeforeAction = function(studentId, exercise, exam){
   if(exercise > 2 && exercise <=5){
     Meteor.call('updateExamGrade', studentId, Router.current().params.subjectId, exam);
