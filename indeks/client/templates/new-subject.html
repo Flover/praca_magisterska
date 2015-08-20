@@ -1,22 +1,21 @@
 <template name="addSubject">
   <div class="container">
     <form>
-      <div class="form-group">
-        <label for="subjectName">Przedmiot</label>
-        <input type="text" class="form-control input-md" id="subjectName" placeholder="Name">
+      <div class="input-field col s6">
+        <i class="mdi-action-book prefix"></i>
+        <input  id="subjectName" type="text" class="validate">
+        <label for="subjectName">Nazwa przedmiotu</label>
       </div>
-      <div class="form-group">
-        <label for="subjectLeading">Prowadzący</label>
-        <select id="subjectLeading" class="form-control input-md">
+      <div class="input-field col s6">
+        <select id="subjectLeading">
           {{#each teachers}}
           <option value='{{profile.title}} {{profile.firstName}} {{profile.lastName}}'>{{profile.title}} {{profile.firstName}} {{profile.lastName}}</option>
           {{/each}}
         </select>
-
+        <label for="subjectLeading">Prowadzący</label>
       </div>
-      <div class="form-group">
-        <label for="subjectSemester">Semestr</label>
-        <select id="subjectSemester" class="form-control input-md">
+      <div class="input-field col s6">
+        <select id="subjectSemester">
           <option value=""></option>
           <option selected value="1">1</option>
           <option value="2">2</option>
@@ -29,8 +28,9 @@
           <option value="9">9</option>
           <option value="10">10</option>
         </select>
+        <label>Semestr</label>
       </div>
-      <button type="submit" class="btn btn-default">Dodaj przedmiot</button>
+      <button type="submit" class="btn waves-effect waves-light light-blue darken-4">Dodaj przedmiot</button>
     </form>
   </div>
 </template>

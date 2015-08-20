@@ -1,10 +1,15 @@
 <template name="teacherDetails">
   <div class="container">
-    <div class="list-group">
-      <a href="#" class="list-group-item active">Przedmiot</a>
-      {{#each subjects}}
-      <a href="/subjects/{{_id}}" class="list-group-item">{{subject}}</a>
-      {{/each}}
+    <div class="subject-list">
+      <div class="row">
+
+        <div class="collection with-header">
+          <h5 class="collection-header">Przedmiot</h5>
+          {{#each subjects}}
+          <a class="collection-item" href="/subjects/{{_id}}" style="color:#01579b">{{subject}}</a>
+          {{/each}}
+        </div>
+      </div>
     </div>
   </div>
 </template>

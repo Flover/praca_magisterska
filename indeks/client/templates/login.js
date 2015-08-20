@@ -25,11 +25,11 @@ Template.login.events({
       var errors = {};
 
       if (! username) {
-          errors.username = 'Your album number is required';
+          Materialize.toast('Musisz podać nazwę użytkownika', 4000);
       }
 
       if (! password) {
-          errors.password = 'Password is required';
+          Materialize.toast('Musisz podać hasło', 4000);
       }
 
       Session.set(ERRORS_KEY, errors);
@@ -46,8 +46,11 @@ Template.login.events({
           // could be incorrect. Inform the user that their
           // login attempt has failed.
           //console.log("Go away! You don't exist!");
-          return Session.set(ERRORS_KEY, {'none': err.reason});
+          if(username !== '' && password !== ''){
+              Materialize.toast('Podałeś błędne hasło', 4000);
+          }
         } else {
+          Materialize.toast('Witaj!', 4000, 'rounded');
           // The user has been logged in.
       //    console.log("everything is ok :)");
         }

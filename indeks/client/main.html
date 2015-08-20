@@ -1,9 +1,11 @@
 <head>
   <title>Elektroniczny indeks</title>
-
-  <link rel="stylesheet" type="text/css" href="http://localhost:3000/bower_components/bootstrap/dist/css/bootstrap.css">
-  <script src="http://localhost:3000/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="http://localhost:3000/bower_components/jquery/dist/jquery.js"></script>
+  <script src="http://eindeks.meteor.com/bower_components/jquery/dist/jquery.js"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="http://localhost:3000/bower_components/bootstrap/dist/css/bootstrap.css"> -->
+  <link rel="stylesheet" type="text/css" href="http://eindeks.meteor.com/bower_components/materialize/dist/css/materialize.css">
+  <!-- // <script src="http://localhost:3000/bower_components/bootstrap/dist/js/bootstrap.js"></script> -->
+  <script src="http://eindeks.meteor.com/bower_components/materialize/dist/js/materialize.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 
@@ -12,68 +14,136 @@
 <template name="loading">
   {{> header}}
   {{> menu}}
-  <p>Loading...</p>
+  <center>
+  <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-blue">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-red">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-yellow">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-green">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </center>
 </template>
 
 
 <template name="menu">
-  <div class="container">
-    {{#if isInRole 'admin, wykładowca, dziekanat'}}
-    {{/if}}
-    <ul class="nav nav-pills nav-justified">
-      <li role="presentation"><a href="/">Start</a></li>
-      {{#if currentUser}}
-      <li role="presentation"><a>Zalogowany jako {{currentUser.username}}</a></li>
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="/registerStudent" style="color:#01579b">Dodaj studenta</a></li>
+    <li><a href="/registerTeacher" style="color:#01579b">Dodaj wykładowce</a></li>
+    <li><a href="/registerAdmin" style="color:#01579b">Dodaj admina</a></li>
+    <li><a href="/registerDeanery" style="color:#01579b">Dodaj biurokrate</a></li>
+    <li class="divider"></li>
+    <li><a href="/subjects/add" style="color:#01579b">Dodaj przedmiot</a></li>
+  </ul>
 
-      {{#if isInRole 'admin'}}
-      <li role="presentation" class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Dodaj<span class="caret"></span></a>
-        <ul class="dropdown-menu" role="menu">
-          <li role="presentation"><a role="menuitem" href="/registerStudent">Dodaj studenta</a></li>
-          <li role="presentation"><a role="menuitem" href="/registerTeacher">Dodaj wykładowce</a></li>
-          <li role="presentation"><a role="menuitem" href="/registerAdmin">Dodaj admina</a></li>
-          <li role="presentation"><a role="menuitem" href="/registerDeanery">Dodaj biurokrate</a></li>
-          <li role="presentation" class="divider"></li>
-          <li role="presentation">
-             <a role="menuitem" href="/subjects/add">Dodaj przedmiot</a>
-          </li>
+  <ul id="dropdown2" class="dropdown-content">
+    <div class="file-field input-field">
+      <input class="file-path validate" type="text"/>
+      <div class="btn">
+        <span>Użytkownicy</span>
+        <input type="file" class="importUsers"/>
+      </div>
+    </div>
+    <div class="file-field input-field">
+      <input class="file-path validate" type="text"/>
+      <div class="btn">
+        <span>Przedmioty</span>
+        <input type="file" class="importSubjects" />
+      </div>
+    </div>
+    <div class="file-field input-field">
+      <input class="file-path validate" type="text"/>
+      <div class="btn">
+        <span>Oceny</span>
+        <input type="file" class="importGrades" />
+      </div>
+    </div>
+  </ul>
 
-        </ul>
-      </li>
-      {{/if}}
-      {{#if isInRole 'admin, wykładowca, dziekanat'}}
-      <li role="presentation"><a class="backup">Pobierz plik Excel</a></li>
-      <li role="presentation" class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Importuj<span class="caret"></span></a>
-      <ul class="dropdown-menu" role="menu">
-        <button type="button" class="btn btn-primary btn-file">
-                  Przedmioty <input type="file" class="importSubjects" value="">
-        </button>
-        <button type="button" class="btn btn-primary btn-file">
-                  Użytkowników <input type="file" class="importUsers" value="">
-        </button>
-        <button type="button" class="btn btn-primary btn-file">
-                  Oceny <input type="file" class="importGrades" value="">
-        </button>
+  <nav>
+    <div class="nav-wrapper light-blue darken-4">
+      <li class="brand-logo left">Elektroniczny indeks</li>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/">Start</a></li>
+        {{#if currentUser}}
+        <li><a>Zalogowany jako {{currentUser.username}}</a></li>
+        {{#if isInRole 'admin'}}
+
+        <li><a class="dropdown-button" href="#!" data-constrainwidth='false' data-activates="dropdown1">Dodaj<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+        {{/if}}
+        {{#if isInRole 'admin, dziekanat, wykładowca'}}
+        <li><a class="dropdown-button" href="#!" data-constrainwidth='false' data-activates="dropdown2">Importuj<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+        <li><a href="#" class="backup">Pobierz plik Excel</a></li>
+        {{/if}}
+        <li><a href="#" class="logOut">Wyloguj się</a></li>
+
+        {{else}}
+        <li><a href="/login">Zaloguj się</a></li>
+        {{/if}}
       </ul>
-    </li>
-      {{/if}}
-      <li role="presentation"><a href="#" class="logOut">Wyloguj się</a></li>
-      {{else}}
-      <li role="presentation"><a href="/login">Zaloguj się</a></li>
-      {{/if}}
-    </ul>
-  </div>
+    </div>
+  </nav>
 </template>
 
 <template name="header">
   <div class="container">
-    <h1><img src="img/UG_logo_short.png"> Elektroniczny indeks</h1>
+    <h1><img src="http://localhost:3000/img/UG_logo_short.png"> Elektroniczny indeks</h1>
   </div>
+</template>
+
+
+<template name="footer">
+  <footer class="page-footer light-blue darken-4">
+    <div class="footer-copyright">
+      <div class="container">
+        © 2015 Created by Mateusz Kwiatkowski for Master Thesis
+      </div>
+    </div>
+  </footer>
+  <!-- <footer class="site-footer">
+    <div class="container">
+      © 2015 Created by Mateusz Kwiatkowski for Master Thesis
+    </div>
+  </footer> -->
 </template>
 
 <template name="appLayout">
   {{> header}}
   {{> menu}}
   {{> yield}}
+  {{> footer}}
 </template>

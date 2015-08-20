@@ -1,3 +1,7 @@
+Template.subjectDetails.onRendered(function(){
+  $('select').material_select();
+});
+
 Template.subjectDetails.events({
   'click .assignSubject': function(event){
     event.preventDefault();
@@ -17,5 +21,6 @@ Template.subjectDetails.events({
   'click .updateExerciseGrade': function (event, template) {
     var exerciseGrade = template.find('#subjectExerciseGrade_'+this._id).value;
     Meteor.call('updateExerciseGrade', this._id, Router.current().params.subjectId, exerciseGrade);
-  }
+  },
+
 });

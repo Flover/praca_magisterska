@@ -3,5 +3,6 @@ Template.menu.events({
     event.preventDefault();
     Meteor.logout();
     Router.go("/login");
+    Materialize.toast('Wróć jeszcze kiedyś!', 4000, 'rounded');
   }
 });

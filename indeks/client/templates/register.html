@@ -1,145 +1,154 @@
 <template name="registerStudent">
-        <div class="container">
-          <form id="register-form" action="action">
-            {{#if errorMessages}}
-              <div class="list-errors">
-                {{#each errorMessages}}
-                  <div class="list-item">{{this}}</div>
-                {{/each}}
-                  </div>
-            {{/if}}
-            <!--   <div class="form-group {{errorClass 'number'}}">
-              <label for="account-text">Numer albumu</label>
-              <input type="text" class="form-control" id="account-text" placeholder="Twój numer albumu">
-            </div> -->
-
-              <div class="form-group ">
-                <label for="account-firstName">Imię</label>
-                <input type="text" class="form-control" id="account-firstName" placeholder="Imię">
-              </div>
-
-              <div class="form-group ">
-                <label for="account-lastName">Nazwisko</label>
-                <input type="text" class="form-control" id="account-lastName" placeholder="Nazwisko">
-              </div>
-
-             <div class="form-group {{errorClass 'password'}}">
-              <label for="account-password">Hasło</label>
-              <input type="password" class="form-control" id="account-password" placeholder="Hasło">
-            </div>
-
-            <button type="submit" id="create-account" class="btn btn-default">Dodaj studenta</button>
-          </form>
+<div class="container">
+  <div class="row">
+    <form id="register-form" action="action" class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="mdi-action-account-circle prefix"></i>
+          <input  id="account-firstName" type="text" class="validate">
+          <label for="account-firstName">Imię</label>
         </div>
+        <div class="input-field col s6">
+          <i class="mdi-action-account-circle prefix"></i>
+          <input id="account-lastName" type="text" class="validate">
+          <label for="account-lastName">Nazwisko</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="mdi-action-lock-outline prefix"></i>
+          <input id="account-password" type="password" class="validate">
+          <label for="account-password">Hasło</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="mdi-action-perm-identity prefix"></i>
+          <input id="account-text" type="text" class="validate">
+          <label for="account-text">Numer albumu</label>
+        </div>
+      </div>
+      <button id="create-account" class="btn waves-effect waves-light light-blue darken-4" type="submit" name="action">Dodaj studenta
+    <i class="mdi-action-done right"></i>
+  </button>
+    </form>
+  </div>
+</div>
 </template>
 
 <template name="registerTeacher">
         <div class="container">
-          <form id="register-form" action="action">
-            {{#if errorMessages}}
-              <div class="list-errors">
-                {{#each errorMessages}}
-                  <div class="list-item">{{this}}</div>
-                {{/each}}
+            <div class="input-field col s6">
+              <select id="account-title">
+                <option value="mgr">mgr</option>
+                <option value="mgr inż.">mgr inż.</option>
+                <option selected value="dr">dr</option>
+                <option value="dr inż.">dr inż.</option>
+                <option value="dr hab.">dr hab.</option>
+                <option value="prof. UG dr">prof. UG dr</option>
+                <option value="prof. UG dr hab.">prof. UG dr hab.</option>
+                <option value="prof. dr hab.">prof. dr hab.</option>
+              </select>
+              <label>Tytuł naukowy</label>
+            </div>
+            <div class="row">
+              <form id="register-form" action="action" class="col s12">
+                <div class="row">
+                  <div class="input-field col s6">
+                    <i class="mdi-action-account-circle prefix"></i>
+                    <input  id="account-firstName" type="text" class="validate">
+                    <label for="account-firstName">Imię</label>
                   </div>
-            {{/if}}
-
-              <div class="form-group ">
-                <label for="account-title">Tytuł naukowy</label>
-                <select id="account-title" class="form-control input-md">
-                  <option value="mgr">mgr</option>
-                  <option value="mgr inż.">mgr inż.</option>
-                  <option selected value="dr">dr</option>
-                  <option value="dr inż.">dr inż.</option>
-                  <option value="dr hab.">dr hab.</option>
-                  <option value="prof. UG dr">prof. UG dr</option>
-                  <option value="prof. UG dr hab.">prof. UG dr hab.</option>
-                  <option value="prof. dr hab.">prof. dr hab.</option>
-                </select>
-              </div>
-
-              <div class="form-group ">
-                <label for="account-firstName">Imię</label>
-                <input type="text" class="form-control" id="account-firstName" placeholder="Imię">
-              </div>
-
-              <div class="form-group ">
-                <label for="account-lastName">Nazwisko</label>
-                <input type="text" class="form-control" id="account-lastName" placeholder="Nazwisko">
-              </div>
-
-              <div class="form-group {{errorClass 'password'}}">
-                <label for="account-password">Hasło</label>
-                <input type="password" class="form-control" id="account-password" placeholder="Hasło">
-              </div>
-
-            <button type="submit" id="create-account" class="btn btn-default">Dodaj wykładowcę</button>
-          </form>
+                  <div class="input-field col s6">
+                    <i class="mdi-action-account-circle prefix"></i>
+                    <input id="account-lastName" type="text" class="validate">
+                    <label for="account-lastName">Nazwisko</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="mdi-action-lock-outline prefix"></i>
+                    <input id="account-password" type="password" class="validate">
+                    <label for="account-password">Hasło</label>
+                  </div>
+                </div>
+                <button id="create-account" class="btn waves-effect waves-light light-blue darken-4" type="submit" name="action">Dodaj wykładowcę
+              <i class="mdi-action-done right"></i>
+            </button>
+              </form>
+            </div>
         </div>
 </template>
 
 <template name="registerAdmin">
-        <div class="container">
-          <form id="register-form" action="action">
-            {{#if errorMessages}}
-              <div class="list-errors">
-                {{#each errorMessages}}
-                  <div class="list-item">{{this}}</div>
-                {{/each}}
-                  </div>
-            {{/if}}
-              <div class="form-group {{errorClass 'number'}}">
-                <label for="account-text">Nazwa użytkownika</label>
-                <input type="text" class="form-control" id="account-text" placeholder="Twoja nazwa użytkownika">
-              </div>
-
-              <div class="form-group ">
-                <label for="account-firstName">Imię</label>
-                <input type="text" class="form-control" id="account-firstName" placeholder="Imię">
-              </div>
-
-              <div class="form-group ">
-                <label for="account-lastName">Nazwisko</label>
-                <input type="text" class="form-control" id="account-lastName" placeholder="Nazwisko">
-              </div>
-
-            <div class="form-group {{errorClass 'password'}}">
-              <label for="account-password">Hasło</label>
-              <input type="password" class="form-control" id="account-password" placeholder="Hasło">
-            </div>
-
-            <button type="submit" id="create-account" class="btn btn-default">Dodaj admina</button>
-          </form>
+  <div class="container">
+    <div class="row">
+      <form id="register-form" action="action" class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="mdi-action-account-circle prefix"></i>
+            <input  id="account-firstName" type="text" class="validate">
+            <label for="account-firstName">Imię</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="mdi-action-account-circle prefix"></i>
+            <input id="account-lastName" type="text" class="validate">
+            <label for="account-lastName">Nazwisko</label>
+          </div>
         </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="mdi-action-lock-outline prefix"></i>
+            <input id="account-password" type="password" class="validate">
+            <label for="account-password">Hasło</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="mdi-action-perm-identity prefix"></i>
+            <input id="account-text" type="text" class="validate">
+            <label for="account-text">Login</label>
+          </div>
+        </div>
+        <button id="create-account" class="btn waves-effect waves-light light-blue darken-4" type="submit" name="action">Dodaj admina
+      <i class="mdi-action-done right"></i>
+    </button>
+      </form>
+    </div>
+  </div>
 </template>
 
 <template name="registerDeanery">
         <div class="container">
-          <form id="register-form" action="action">
-            {{#if errorMessages}}
-              <div class="list-errors">
-                {{#each errorMessages}}
-                  <div class="list-item">{{this}}</div>
-                {{/each}}
-                  </div>
-            {{/if}}
-
-              <div class="form-group ">
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="mdi-action-account-circle prefix"></i>
+                <input  id="account-firstName" type="text" class="validate">
                 <label for="account-firstName">Imię</label>
-                <input type="text" class="form-control" id="account-firstName" placeholder="Imię">
               </div>
-
-              <div class="form-group ">
+              <div class="input-field col s6">
+                <i class="mdi-action-account-circle prefix"></i>
+                <input id="account-lastName" type="text" class="validate">
                 <label for="account-lastName">Nazwisko</label>
-                <input type="text" class="form-control" id="account-lastName" placeholder="Nazwisko">
               </div>
-
-            <div class="form-group {{errorClass 'password'}}">
-              <label for="account-password">Hasło</label>
-              <input type="password" class="form-control" id="account-password" placeholder="Hasło">
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="mdi-action-lock-outline prefix"></i>
+                <input id="account-password" type="password" class="validate">
+                <label for="account-password">Hasło</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="mdi-action-perm-identity prefix"></i>
+                <input id="account-text" type="text" class="validate">
+                <label for="account-text">Login</label>
+              </div>
             </div>
 
-            <button type="submit" id="create-account" class="btn btn-default">Dodaj biurokratę</button>
-          </form>
+            <button id="create-account" class="btn waves-effect waves-light light-blue darken-4" type="submit" name="action">Dodaj biurokratę
+          <i class="mdi-action-done right"></i>
+        </button>
         </div>
 </template>

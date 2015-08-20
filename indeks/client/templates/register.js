@@ -1,5 +1,9 @@
 var ERRORS_KEY = {};
 
+Template.registerTeacher.onRendered(function(){
+  $('select').material_select();
+})
+
 Template.registerStudent.helpers({
   errorMessages: function() {
     return _.values(Session.get(ERRORS_KEY) || {});

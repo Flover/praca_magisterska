@@ -1,5 +1,7 @@
 Template.menu.rendered = function() {
-
+  $(document).ready(function(){
+      $('.dropdown-button').dropdown();
+    });
 };
 
 Template.menu.events({

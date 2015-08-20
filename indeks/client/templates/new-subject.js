@@ -1,3 +1,7 @@
+Template.addSubject.onRendered(function(){
+  $('select').material_select();
+})
+
 Template.addSubject.events({
   'submit form': function (event, template) {
     event.preventDefault();
