@@ -13,14 +13,14 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
-  api.use("templating", "client");
   api.add_files("validation-client.js", "client");
   api.export('checkBeforeAction', 'client');
-  api.export('checkIfChooseTeacher', 'client');
+  api.export('checkIfChooseTeacher', ['client', 'server']);
 });
 
 Package.onTest(function(api) {
   api.use('tinytest');
+  api.use(['mizzao:bootboxjs']);
   api.use('emflover:validation');
   api.addFiles('validation-tests.js');
 });
