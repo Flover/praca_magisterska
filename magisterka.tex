@@ -44,7 +44,7 @@
 \begin{abstract}
 
 
-
+\iffalse
 \indent \indent Pracę poświęcono zagadnieniu walidacji, kwestii ważnej i~integralnie związanej z~odpowiednim funkcjonowaniem sieci.
 W szczególności zwrócono uwagę na aspekt prawidłowego zarządzania jej jakością, co obligatoryjnie wiąże się z~problemem
 odpowiedniego zabezpieczenia i~odpowiedzialnego korzystania z~niej.
@@ -54,13 +54,20 @@ ma uniemożliwić użytkownikowi wprowadzenie błędnych danych do systemu, dzi�
 do korzystania z~niego. Jednocześnie, aby przybliżyć i~zademonstrować jego działanie, utworzono na potrzeby pracy, aplikację elektroniczny indeks.
 Wybór dokumentu nie był przypadkowy. Świadczy o~tym jego wysoka ranga wśród uczelnianej dokumentacji urzędowej. Inny, równie istotny powód
 wyboru stanowi fakt, iż korzystanie z~sieci komputerowej w~systemie edukacyjnym stało sie powszechne. Uczelnie wyższe wykorzystują sieć, by
-między innymi ułatwić kontakty na linii: wykładowca - student - administracja uczelni.  Temu ma służyć wprowadzenie w~ostatnich latach przez
+między innymi ułatwić kontakty na linii: wykładowca --- student --- administracja uczelni.  Temu ma służyć wprowadzenie w~ostatnich latach przez
 większość uczelni wyższych w~Polsce, w~tym Uniwersytet Gdański, elektronicznego systemu zarządzania osiągnieciami studentów
 tzw. elektronicznego indeksu.
 \\
 \indent W pracy, walidacji zostaną poddane operacje, które można wykonać w~aplikacji elektroniczny indeks. Do stworzenia jej użyto frameworku \textit{Meteor}, a~dane wprowadzone do systemu, w~celu ich przechowywania umieszczono w~bazie danych - \textit{MongoDB}.
 
 \indent Założono, że skutkiem tego działania będzie uproszczenie, a~nawet intuicyjność obsługi oprogramowania. Cele założone przez autora pracy zostały zrealizowane, czego dowodem jest udostepnienie do pobrania pakietu walidacji systemu.
+\fi
+
+\indent \indent Pracę poświęcono zagadnieniu walidacji, kwestii ważnej i~integralnie związanej z~odpowiednim funkcjonowaniem sieci.
+W szczególności zwrócono uwagę na aspekt prawidłowego zarządzania jej jakością, co obligatoryjnie wiąże się z~problemem
+odpowiedniego zabezpieczenia i~odpowiedzialnego korzystania z~niej.
+
+Na potrzeby pracy powstała aplikacja \textit{Elektroniczny indeks}, w której zostało zaimplemetowane przeglądanie ocen przez studenta, wykładowcę oraz pracownika dziekanatu, wystawianie ocen przez wykładowce oraz przegląd studentów, a także ich osiągnięć na zajęciach, które dany wykłądowca prowadzi. Program został również przetestowany w celu weryfikacji czy funkcje działają prawidłowo. Funkcja zapisu studenta na zajęcia i dodawanie nowych użytkowników oraz przedmiotów dostępna jest jedynie dla administratora systemu.  Aplikacja jest dostępna pod adresem eindeks.meteor.com, a dostęp do jej funkcjonalności można uzyskać logując się jako administrator -- login: admin hasło: abcdef, student -- login: 194925 hasło: abcdef, wykładowca -- login: wbzyl, hasło: abcdef lub biurokrata -- login: iszreder, hasło: abcdef. W aplikacji nie zostało zaimplementowane automatycznie przypisywanie loginu studentowi, wyszukiwanie użytkowników oraz zapisywanie się na zajęcia przez studentów, ponieważ funkcjonalność ta nie jest niezbędna w tej pracy.
 
 \end{abstract}
 %\keywords{SGML,
@@ -234,9 +241,9 @@ Systemy zautomatyzowane i~skomputeryzowane stosowane szczególnie w~przemyśle w
 
 Jeżeli istnieje możliwość, walidacja systemu powinna być poprzedzona rozmową z~jego użytkownikiem. Ma ona spełnić rolę sondy i~zebrania cennych informacji, by program walidacyjny stał się optymalny. Mając przez długi czas styczność z~systemem rzeczywistym, ekspert często potrafi odpowiedzieć na pytania dotyczące całości systemu lub wskazać rażące błędy, których podstawą jest niezrozumienie rzeczywistego systemu, co staje się przyczyną generowania przez symulację złych wyników. \cite{Validation}
 
-\indent Innym zagadnieniem mającym związek z~procesem walidacji jest problem czasu tworzenia go oraz związanych z~tym kosztów. Walidacja procesów,systemów czy urządzeń jest czasochłonna. Tworzenie dokumentacji, procedur, wykonywanie testów i~działań naprawczych na ogół przeciąga się w~czasie. Dobrze zarządzana walidacja, obciąża budżet projektu w~skali 4 - 7 \% kosztów. Nieprawidłowo prowadzona podnosi ją do 20 – 30\% kosztów całkowitych. Poniesienie niskich nakładów może przynieść wymierne zyski ekonomiczne już w~krótkiej perspektywie. Według danych zgromadzonych przez osoby zajmujące się walidacją dla nowych urządzeń i~systemów produkcyjnych, wydajność początkowa urządzenia, które były przedmiotem pełnego cyklu walidacji, może być 2 – 3 razy wyższa, niż tych uruchomionych bez jej przeprowadzania. Mechanizmy i~systemy poddane walidacji osiągają pełną zdolność produkcyjną a~ich kultura obsługi i~serwisu jest wysoka, ponieważ w~czasie testów walidacyjnych pracownicy zdobywają praktyczną wiedzę od dostawcy czy użytkownika. Właściwe opracowanie \textit{specyfikacji wymagań użytkownika}
+\indent Innym zagadnieniem mającym związek z~procesem walidacji jest problem czasu tworzenia go oraz związanych z~tym kosztów. Walidacja procesów,systemów czy urządzeń jest czasochłonna. Tworzenie dokumentacji, procedur, wykonywanie testów i~działań naprawczych na ogół przeciąga się w~czasie. Dobrze zarządzana walidacja, obciąża budżet projektu w~skali 4--7 \% kosztów. Nieprawidłowo prowadzona podnosi ją do 20--30\% kosztów całkowitych. Poniesienie niskich nakładów może przynieść wymierne zyski ekonomiczne już w~krótkiej perspektywie. Według danych zgromadzonych przez osoby zajmujące się walidacją dla nowych urządzeń i~systemów produkcyjnych, wydajność początkowa urządzenia, które były przedmiotem pełnego cyklu walidacji, może być 2--3 razy wyższa, niż tych uruchomionych bez jej przeprowadzania. Mechanizmy i~systemy poddane walidacji osiągają pełną zdolność produkcyjną a~ich kultura obsługi i~serwisu jest wysoka, ponieważ w~czasie testów walidacyjnych pracownicy zdobywają praktyczną wiedzę od dostawcy czy użytkownika. Właściwe opracowanie \textit{specyfikacji wymagań użytkownika}
 \\
-/ w~skrócie URS / \footnote{ang. User Requirements Specification - URS}, prowadzenie kwalifikacji projektu, nadzorowanie i~współpraca z~dostawcą od początku wiąże się z~nakładami. Jednak poniesione koszty są niewspółmierne niższe od kosztów poprawy pracy czy usuwania usterek w~gotowym urządzeniu, czy utworzonym systemie. Dlatego ważna jest współpraca z~dostawcą / użytkownikiem  od samego początku inwestycji. Wspólne rozwiązywanie problemów, tworzenie scenariuszy testowych, pozwala na obustronną wymianę wiedzy
+/ w~skrócie URS / \footnote{ang. User Requirements Specification -- URS}, prowadzenie kwalifikacji projektu, nadzorowanie i~współpraca z~dostawcą od początku wiąże się z~nakładami. Jednak poniesione koszty są niewspółmierne niższe od kosztów poprawy pracy czy usuwania usterek w~gotowym urządzeniu, czy utworzonym systemie. Dlatego ważna jest współpraca z~dostawcą / użytkownikiem  od samego początku inwestycji. Wspólne rozwiązywanie problemów, tworzenie scenariuszy testowych, pozwala na obustronną wymianę wiedzy
 \\
 i znaczne ograniczenie kosztów w~późniejszej eksploatacji systemu i~urządzenia.\cite{ekonomia}
 
@@ -258,22 +265,15 @@ Kryterium funkcjonalności wyróżnia następujący podział walidacji:
 \section{Etapy walidacji}
 \indent \indent \indent Zakres walidacji powinien uwzględniać wiele czynników systemu, w tym jego zamierzone zastosowanie i~rodzaj walidacji oraz czy mają być dołączane nowe elementy systemu. Walidacja powinna być uznawana za część całego cyklu użytkowania systemu komputerowego. Obejmuje on planowanie, specyfikację, programowanie, badanie, odbiór techniczny, dokumentację, działanie, monitorowanie i~modyfikowanie.
 
-\begin{figure}[th!]
-\centering
-\includegraphics[width=.7\hsize]{images/cykl}
-\caption{Cykl życia systemu\label{RYS.3}}
-\source{http://www.label.pl}
-\end{figure}
-
 Projektowanie systemu skomputeryzowanego można podzielić na kilka etapów:
 
 \begin{enumerate}
-  \item \textbf{\textit{Specyfikowanie}} – URS oraz specyfikacja funkcjonalna\footnote{ang. Functional Specification - FS}. W~planie walidacji tego etapu projektowania powinno się uwzględnić audyt dostawcy oraz przegląd specyfikacji.
-  \item \textbf{\textit{Projektowanie}} – projekt hardwaru\footnote{ang. Hardware Design System - HDS}, softwaru\footnote{ang. Software Design System - SDS}, projekt mechaniczny i~elektryczny oraz projekt sieci informatycznej. Walidacją objęty jest przegląd poszczególnych projektów – kwalifikacja projektu\footnote{ang. Design Qualification - DQ}.
-  \item \textbf{\textit{Wykonanie}} – utworzenie hardwaru, połączeń elektrycznych modułów systemu, oprogramowanie modułów, montaż całego urządzenia, wykonanie sieci informatycznej. Walidacja obejmuje przeglądy wykonania poszczególnych czynności oraz przegląd kodów źródłowych oprogramowania.
-\item \textbf{\textit{Testowanie}} – testowanie hardwaru, poszczególnych modułów oprogramowania,  integracji oprogramowania oraz testy funkcjonalne kompletnego urządzenia. Walidacja obejmuje nadzór nad dostawcą poszczególnych elementów systemu.
-\item \textbf{\textit{Instalacja}} – instalacja hardwaru, softwaru, urządzeń, sieci informatycznej, testy instalacyjne hardwaru oraz sieci informatycznej. Walidacja tego etapu projektowania systemu skomputeryzowanego dotyczy pełnej kwalifikacji instalacyjnej\footnote{ang. Installation Qualification - IQ}
-\item \textbf{\textit{Odbiór}} – testy akceptacji systemu, w~tym kompletności dokumentacji. Na tym etapie realizacji, walidacja dotyczy kwalifikacji operacyjnej\footnote{ang. Operational Qualification - OQ} oraz procesowej\footnote{ang. Performance Qualification - PQ}. Zakończenie jej uwieńczone jest raportem, który powinien określać przykładowo urządzenia produkcyjne, krytyczne parametry procesu i~krytyczne zakresy operacyjne, charakterystykę produktu, sposób pobierania próbek koniecznych do zebrania danych z~badań, ilość przebiegów procesu walidacyjnego i~akceptowalne wyniki badań.
+  \item \textbf{\textit{Specyfikowanie}} -- URS oraz specyfikacja funkcjonalna\footnote{ang. Functional Specification -- FS}. W~planie walidacji tego etapu projektowania powinno się uwzględnić audyt dostawcy oraz przegląd specyfikacji.
+  \item \textbf{\textit{Projektowanie}} -- projekt hardwaru\footnote{ang. Hardware Design System -- HDS}, softwaru\footnote{ang. Software Design System - SDS}, projekt mechaniczny i~elektryczny oraz projekt sieci informatycznej. Walidacją objęty jest przegląd poszczególnych projektów – kwalifikacja projektu\footnote{ang. Design Qualification -- DQ}.
+  \item \textbf{\textit{Wykonanie}} -- utworzenie hardwaru, połączeń elektrycznych modułów systemu, oprogramowanie modułów, montaż całego urządzenia, wykonanie sieci informatycznej. Walidacja obejmuje przeglądy wykonania poszczególnych czynności oraz przegląd kodów źródłowych oprogramowania.
+\item \textbf{\textit{Testowanie}} -- testowanie hardwaru, poszczególnych modułów oprogramowania,  integracji oprogramowania oraz testy funkcjonalne kompletnego urządzenia. Walidacja obejmuje nadzór nad dostawcą poszczególnych elementów systemu.
+\item \textbf{\textit{Instalacja}} -- instalacja hardwaru, softwaru, urządzeń, sieci informatycznej, testy instalacyjne hardwaru oraz sieci informatycznej. Walidacja tego etapu projektowania systemu skomputeryzowanego dotyczy pełnej kwalifikacji instalacyjnej\footnote{ang. Installation Qualification -- IQ}
+\item \textbf{\textit{Odbiór}} – testy akceptacji systemu, w~tym kompletności dokumentacji. Na tym etapie realizacji, walidacja dotyczy kwalifikacji operacyjnej\footnote{ang. Operational Qualification -- OQ} oraz procesowej\footnote{ang. Performance Qualification -- PQ}. Zakończenie jej uwieńczone jest raportem, który powinien określać przykładowo urządzenia produkcyjne, krytyczne parametry procesu i~krytyczne zakresy operacyjne, charakterystykę produktu, sposób pobierania próbek koniecznych do zebrania danych z~badań, ilość przebiegów procesu walidacyjnego i~akceptowalne wyniki badań.
 \item \textbf{\textit{Użytkowanie systemu}} – konserwacja i~utrzymanie sprawności systemu, nadzór nad zmianami. W~okresie użytkowania systemu przeprowadzane są okresowe, planowane rewalidacje, a~system jest monitorowany.\cite{LAB-EL2}
 \end{enumerate}
 
@@ -413,7 +413,7 @@ Nastepnie możemy dodać właściwy pakiet
 \end{figure}
 
 \chapter{Aplikacja Elektroniczny indeks w~Meteor}
-\section{Opis wybranych technologii użytych w pracy}
+\section{Technologie wykorzystane w pracy}
 \indent \indent \indent Zanim rozpocznie się proces tworzenia aplikacji, programista musi zdecydować, jakich technologii chce użyc do tego celu oraz jakie technologie będą do danego programu najwłaściwsze.
 \subsection{Javascript}
 \indent \indent \indent Do stworzenia aplikacji - elektroniczny indeks wykorzystano język javascript, którego zaletami są niewielkie rozmiary skryptów, dzięki czemu krótszy jest czas ładowania z serwera, a co za tym idzie mniejsze obciążenie sieci. Dodatkową zaletą jest jego niezależność od systemu, a także nie wymagalność kompilatora.
@@ -818,7 +818,7 @@ Technologie wykorzystane w pracy okazały się dobrym wyborem, ponieważ oferowa
 \newline \newline
 Podczas tworzenia pracy pojawiły się problemy ze strony dostarczonych technologii. Dla sprawnego przeglądu informacji przez użytkowników, autor chciał sortować dane wyświetlane użytkownikowi leksykograficznie, na co pozwala \textit{MongoDB}, ale technologia ta ze względu na wykorzystywaną funkcję \textit{memcmp} nie obsługuje poprawnie formatu UTF-8 w różnych ustawieniach lokalnych. Twórcy bazy danych planują wprowadzić zmiany w systemie, ale przybliżona data nie jest znana, ponieważ wymaga to wielu poważnych modyfikacji programu.
 \newline \newline
-Niewątpliwą zaletą systemu jest możliwość jego rozdudowy bez konieczności ingerencji w kod, który został napisany wcześniej, czego dowodem jest dodanie funckji pobierania danych z aplikacji oraz ich import z powrotem do systemu z poziomu aplikacji, już po zakończeniu jej tworzenia. Ta dodatkowa funkcjonalność pozwala użytkownikom zarządzać danymi w swoich własnych aplikacjach typu - elektroniczny indeks, utworzonym przez nich na własne potrzeby.
+Niewątpliwą zaletą systemu jest możliwość jego rozdudowy bez konieczności ingerencji w kod, który został napisany wcześniej, czego dowodem jest dodanie funckji pobierania danych z aplikacji oraz ich import z powrotem do systemu z poziomu aplikacji, już po zakończeniu jej tworzenia. Ta dodatkowa funkcjonalność pozwala użytkownikom zarządzać danymi w swoich własnych aplikacjach typu --- elektroniczny indeks, utworzonym przez nich na własne potrzeby.
 
 % załączniki (opcjonalnie):
 %\appendix
