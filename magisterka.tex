@@ -1,4 +1,4 @@
-\documentclass{xmgr}
+\documentclass[openright]{xmgr}
 
 \usepackage{minted}
 \usepackage{xcolor}
@@ -43,31 +43,11 @@
 
 \begin{abstract}
 
-
-\iffalse
-\indent \indent Pracę poświęcono zagadnieniu walidacji, kwestii ważnej i~integralnie związanej z~odpowiednim funkcjonowaniem sieci.
-W szczególności zwrócono uwagę na aspekt prawidłowego zarządzania jej jakością, co obligatoryjnie wiąże się z~problemem
-odpowiedniego zabezpieczenia i~odpowiedzialnego korzystania z~niej.
-\\
-\indent Praca prezentuje sposób tworzenia oraz funkcjonowanie pakietu walidującego do frameworka \textit{Meteor}. Pakiet ten
-ma uniemożliwić użytkownikowi wprowadzenie błędnych danych do systemu, dzięki czemu podniesiony zostanie poziom zaufania
-do korzystania z~niego. Jednocześnie, aby przybliżyć i~zademonstrować jego działanie, utworzono na potrzeby pracy, aplikację elektroniczny indeks.
-Wybór dokumentu nie był przypadkowy. Świadczy o~tym jego wysoka ranga wśród uczelnianej dokumentacji urzędowej. Inny, równie istotny powód
-wyboru stanowi fakt, iż korzystanie z~sieci komputerowej w~systemie edukacyjnym stało sie powszechne. Uczelnie wyższe wykorzystują sieć, by
-między innymi ułatwić kontakty na linii: wykładowca --- student --- administracja uczelni.  Temu ma służyć wprowadzenie w~ostatnich latach przez
-większość uczelni wyższych w~Polsce, w~tym Uniwersytet Gdański, elektronicznego systemu zarządzania osiągnieciami studentów
-tzw. elektronicznego indeksu.
-\\
-\indent W pracy, walidacji zostaną poddane operacje, które można wykonać w~aplikacji elektroniczny indeks. Do stworzenia jej użyto frameworku \textit{Meteor}, a~dane wprowadzone do systemu, w~celu ich przechowywania umieszczono w~bazie danych - \textit{MongoDB}.
-
-\indent Założono, że skutkiem tego działania będzie uproszczenie, a~nawet intuicyjność obsługi oprogramowania. Cele założone przez autora pracy zostały zrealizowane, czego dowodem jest udostepnienie do pobrania pakietu walidacji systemu.
-\fi
-
-\indent \indent Pracę poświęcono zagadnieniu walidacji, kwestii ważnej i~integralnie związanej z~odpowiednim funkcjonowaniem sieci.
+\indent \indent \indent Pracę poświęcono zagadnieniu walidacji, kwestii ważnej i~integralnie związanej z~odpowiednim funkcjonowaniem sieci.
 W szczególności zwrócono uwagę na aspekt prawidłowego zarządzania jej jakością, co obligatoryjnie wiąże się z~problemem
 odpowiedniego zabezpieczenia i~odpowiedzialnego korzystania z~niej.
 
-Na potrzeby pracy powstała aplikacja \textit{Elektroniczny indeks}, w której zostało zaimplemetowane przeglądanie ocen przez studenta, wykładowcę oraz pracownika dziekanatu, wystawianie ocen przez wykładowce oraz przegląd studentów, a także ich osiągnięć na zajęciach, które dany wykłądowca prowadzi. Program został również przetestowany w celu weryfikacji czy funkcje działają prawidłowo. Funkcja zapisu studenta na zajęcia i dodawanie nowych użytkowników oraz przedmiotów dostępna jest jedynie dla administratora systemu.  Aplikacja jest dostępna pod adresem eindeks.meteor.com, a dostęp do jej funkcjonalności można uzyskać logując się jako administrator -- login: admin hasło: abcdef, student -- login: 194925 hasło: abcdef, wykładowca -- login: wbzyl, hasło: abcdef lub biurokrata -- login: iszreder, hasło: abcdef. Pakiet walidujący \textit{elektroniczny indeks} jest dostępny na https://atmospherejs.com/emflover/validation gdzie znajduje się także instrukcja jak dodać pakiet. W aplikacji nie zostało zaimplementowane automatycznie przypisywanie loginu studentowi, wyszukiwanie użytkowników oraz zapisywanie się na zajęcia przez studentów, ponieważ funkcjonalność ta nie jest niezbędna w tej pracy.
+Na potrzeby pracy powstała aplikacja \textit{Elektroniczny indeks}, w której zostało zaimplemetowane przeglądanie ocen przez studenta, wykładowcę oraz pracownika dziekanatu, wystawianie ocen przez wykładowce oraz przegląd studentów, a także ich osiągnięć na zajęciach, które dany wykłądowca prowadzi. Program został również przetestowany w celu weryfikacji czy funkcje działają prawidłowo. Funkcja zapisu studenta na zajęcia i dodawanie nowych użytkowników oraz przedmiotów dostępna jest jedynie dla administratora systemu.  Aplikacja jest dostępna pod adresem eindeks.meteor.com, a dostęp do jej funkcjonalności można uzyskać logując się jako administrator -- login: admin hasło: abcdef, student -- login: 194925 hasło: abcdef, wykładowca -- login: wbzyl, hasło: abcdef lub biurokrata -- login: iszreder, hasło: abcdef. Pakiet walidujący \textit{elektroniczny indeks} jest dostępny na https://atmospherejs.com/emflover/validation gdzie znajduje się także instrukcja jak dodać pakiet. W aplikacji nie zostało zaimplementowane automatycznie przypisywanie loginu studentowi, podział studentów oraz zajęć na grupy, wyszukiwanie użytkowników oraz zapisywanie się na zajęcia przez studentów, ponieważ funkcjonalność ta nie jest niezbędna w tej pracy.
 
 \end{abstract}
 %\keywords{SGML,
@@ -79,171 +59,64 @@ Na potrzeby pracy powstała aplikacja \textit{Elektroniczny indeks}, w której z
 % wstęp
 \introduction
 
-\indent \indent Najcenniejszym walorem komputera i~Internetu są przechowywane w~nich dane - zarówno
-ich ilość, jak i~jakość. Ze względu na to, z~dnia na dzień, rośnie liczba
-użytkowników sieci. Jednocześnie zwiększa się liczebność i~różnorodność usług
-sieciowych.
-\\
-\indent Komputer i~Internet zmienił, wciąż zmienia naszą codzienność. To prawda oczywista.
-Usługi internetowe nie są już domeną urzędów, firm czy handlu. Chcemy za ich pomocą
-robić zakupy, obsługiwać konto w~banku, a~także załatwiać wszelkie formalności w
-urzędach. Jest to po prostu wymóg rozwoju cywilizacji, techniki oraz oszczędności
-czasu.
-\\
-\indent Coraz częściej systemy informatyczne wykorzystywane są w~edukacji społeczeństwa.
-Jeszcze do niedawna na wszystkich uczelniach wyższych stosowano klasyczne indeksy
-papierowe, aby zarchiwizować osiągnięcia studentów podczas całego cyklu kształcenia.
-Jednak w~wyniku rozwoju technologii internetowych coraz częściej rezygnuje się
-z klasycznych rozwiązań, zastępując je ich elektronicznymi odpowiednikami.
-\\
-\indent Dziś wiele szkół i~uczelni wprowadziło do obszaru swego funkcjonowania nowoczesny
-system ewidencji osiągnięć ucznia czy studenta. W~szkołach podstwowych, gimnazjach,
-liceach, technikach czy zasadniczych szkołach zawodowych jest nim tzw. dziennik
-elektroniczny. W~uczelniach wyższych  nazwano go elektronicznym indeksem. Zjawisko
-to stanowi nie lada wyzwanie, ponieważ wiąże się z~problemem niezawodnego świadczenia
-usług w~sieci komputerowej. Odbiorca, w~tym przypadku uczeń lub student, musi mieć
-pewność, że dane są stałe, prawdziwe, odpowiednio zabezpieczone przed ich utratą
-czy nieuprawnionym dostępem. Należy nadmienić, że taki poziom zaufania i~poczucia
-bezpieczeństwa funkcjonowania systemu, powinna mieć również druga strona - nadawca,
-ten który wprowadza owe dane. Jest to tym bardziej ważną kwestią, gdyż coraz częściej
-mamy do czynienia ze zdarzeniami, wskazującymi na nieprawidłowe stosowanie sieci
-komputerowej lub jej nadużycie.
-\\
-\indent Rozwiązaniem, które zapewniłoby wzrost poziomu zaufania do korzystania
-\\
-z sieci,
-w tym również z~elektronicznego systemu zarządzania osiagnieciami ucznia lub studenta
-jest, według autora niniejszej pracy, odpowiednie i~odpowiedzialne zarządzanie jej
-jakością, czemu służy walidacja systemu.
-\\
-\indent Zjawisko to jest szeroko stosowane w~technice i~informatyce. Internetowy Słownik
-Języka Polskiego wyjaśnia hasło ,,walidacja'' w~następujacy sposób: ,,walidacja
-(technika) - badanie odpowiedności, trafnośc lub dokładności czegoś''.\cite{ValidationSJP}
-\\
-\indent Sam termin - ,,walidacja'' pochodzi od angielskiego słowa ,,validate'' i~oznacza -
-w kontekście informatycznym - sprawdzanie poprawności i~zgodności z~zadanymi
-kryteriami. Jest on stosowany w~odniesieniu do danych pochodzących od użytkownika,
-jak również w~stosunku do zmiennych, obiektów, typów i~klas w~różnych językach
-programowania.\cite{ValidationTermin}
-\\
-\indent Walidacja jest działaniem, mającym na celu potwierdzenie w~sposób udokumentowany
-i zgodny z~założeniami, że procedury, procesy, urządzenia, materiały, czynności
-i systemy, rzeczywiście prowadzą do zaplanowanych wyników. Znana jest także jako
-kontrola jakości oprogramowania.\cite{Validation2}
-\\
-\indent Wprowadzając dane do systemu, użytkownik może - świadomie lub nie - popełnić
-pomyłkę. Jeżeli dane odebrane przez użytkownika poddamy przetworzeniu bez weryfikacji,
+\indent \indent \indent Wprowadzając dane do systemu, użytkownik może -- świadomie lub nie -- popełnić
+pomyłkę. Jeżeli dane odebrane przez użytkownika poddamy przetworzeniu bez walidacji,
 wówczas, w~zależności od odporności aplikacji, możemy mieć do czynienia z~różnymi
 rodzajami błędów, od drukowania w~przeglądarce klienta komunikatów diagnostycznych,
 poprzez utratę spójności bazy danych, aż po ujawnienie niepowołanym użytkownikom
 informacji poufnych. Z~tego powodu nie wolno ignorować wagi problemu.
-\\
+
 \indent Aplikacje pozbawione walidacji pozwalają użytkownikowi na wprowadzenie irracjonalnych
-danych do systemu. Przykładem takiej aplikacji jest wspomiany przez autora pracy,
-elektroniczny indeks. Operacje, takie jak: wystawianie studentowi ocen z~ćwiczeń
-czy też oceny z~egzaminu kończącej edukację z~danego przedmiotu, powinny być
+danych do systemu. Przykładem takiej aplikacji jest elektroniczny indeks. Operacje, takie jak: wystawianie studentowi ocen z~ćwiczeń
+czy też oceny z~egzaminu kończącej edukację z~danego przedmiotu, dodawanie nowych użytkowników, a~także przedmiotów powinny być
 odpowiednio walidowane. Dzięki temu nie dojdzie do niepożądanych zjawisk typu:
 \begin{itemize}
 \item student nie uzyskał pozytywnej oceny z~ćwiczeń, a~otrzymuje ocenę z~egzaminu
 kończącego przedmiot,
 \item student otrzymuje ocenę spoza skali oceniania systemu danej uczelni,
-\item student uzyskuje ocenę od osoby nieuprawnionej do jej wystawienia.
+\item student uzyskuje ocenę od osoby nieuprawnionej do jej wystawienia,
+\item nowy przedmiot nie ma przypisanego prowadzącego,
+\item tworząc nowego użytkownika nie wprowadzamy wymaganych danych.%
 \end{itemize}
 
-Dlatego też, autor pracy chce zwrócić uwagę na rodzący się problem, związany
-z wprowadzeniem przez uczelnie elektronicznego indeksu oraz jego odpowiednim
-funkcjonowaniem. Zaproponowanie zastosowania walidacji w~elektronicznym systemie
-wystawiania ocen usprawni działanie oraz udoskonali jego funkcjonalność.
-Korzystając z~aplikacji, w~której zaimplementowana jest walidacja możemy mieć pewność,
-że nie dojdzie do sytuacji, by użytkownik wprowadził błędne dane do systemu.
-Należy również zwrócić uwagę na ekonomiczny aspekt walidacji. Mianowicie oszczędność
-czasu użytkownika czy zwiększenie efektywności jego pracy.
-\\
+
 \indent W celu ukazania i~udowodnienia przydatności walidacji podczas korzystania
 z elektronicznego systemu zarządzania osiągnięciami studenta, pokazano w~pracy
-działanie tego zjawiska w~aplikacji stworzonej w~frameworku \textit{Meteor} oraz
-zaprezentowano ułożony pakiet oraz wyjaśniono, jak udostępnić go w~prosty, jasny i~zrozumiały sposób.
+działanie tego zjawiska w~aplikacji stworzonej w~frameworku \textit{Meteor} oraz 
+zaprezentowano ułożony pakiet oraz wyjaśniono, jak go udostępnić. W pracy użyto framework \textit{Meteor} w wersji 1.1.0.3. Jest to framework javascriptowy, który zapewnia aplikacji działanie w czasie rzeczywistym / w skrócie RTA / \footnote{ang. Real-Time Application - RTA}, dzięki czemu użytkownikom korzystającym z aplikacji widoki aktualizują się natychmiast, gdy w bazie danych zachodzą zmiany. Komplementarnie należy podkreślić, że atutetm tej technologii jest fakt, że wszystko, zarówno back-end jak i front-end, piszemy w taki sam sposób, korzystając jedynie z javascriptu. \textit{Meteor} pozwala również zaoszczędzić czas, dostarczając deweloperom gotowe rozwiązania w postaci pakietów. W pracy jest on wspierany przez \textit{MongoDB}. Jest to najpopularniejsza nierelacyjna baza danych. Charakteryzuje się dużą skalowalnością, wydajnością oraz brakiem ściśle zdefiniowanej struktury obsługiwanych baz danych. Zamiast tego, dane składowane są jako dokumenty w stylu JSON, co umożliwia aplikacjom bardziej naturalne ich przetwarzanie, przy zachowaniu możliwości tworzenia hierarchii oraz indeksowania. \textit{Meteor} od wersji 1.0 dostarcza narzędzie do testowania \textit{Velocity}. Pozwala ono tworzyć testy w popluranych bibliotekach, takich jak: \textit{mocha}, \textit{jasmine}, \textit{cucumber} czy \textit{selenium}. W pracy wykorzystana została biblioteka \textit{jasmine}. Jednak same testy nie wystarczą, aby zapewnić aplikacji poprawne działanie. Korzystając z testów jednostkowych sprawdzamy czy funkcja wykonuje interesującą nas operację prawidłowo, ale bez walidacji wywołanie funkcji może się zakończyć powodzeniem także dla błędnych danych. 
 \\
-\indent Tworzenie pakietu walidującego oraz aplikacji - elektroniczny indeks, która korzysta
-ze stworzonego w~ramach pracy pakietu, oparto na doświadczeniu innych badaczy,
-zajmujących się oprogramowaniami komputerowymi, takich jak: Kelly Copley, Tom
-Coleman czy Sacha Greif. W pracy umieszczono ponadto uzasadnienie, dlaczego wybrane
-technologie, takie jak - \textit{Meteor} oraz \textit{MongoDB}, to najbardziej trafny wybór do generowania
-pakietu walidacyjnego elektronicznego zarządzania osiągnięciami studenta.
-\\
-\indent Autor niniejszej pracy miał kontakt z~wieloma systemami zarządzania osiągnieciami
-studentów, ale w~każdym można było doprowadzać do anomalii. Zajęcie się rozwiązaniem
-tego problemu jest, z~punktu widzenia informatyka interesujące. Efektem pracy może być
-nie tylko usprawnienie działania systemu, ale również poczucie, że praca z~nim jest
-prosta, przyjemna i~wręcz intuicyjna.
+\indent Aplikacja korzysta również z szeregu dodatkowych pakietów takich jak:
+
+\begin{itemize}
+\item[-] \textit{Meteor-roles} jest to pakiet autoryzujący do frameworka \textit{Meteor}, który pozwala zarządzać, jakie dane zostaną wysłane do konkretnych grup użytkowników,
+\item[-] \textit{Iron router}, którym definiujemy, jak ma wyglądać mapa strony. Działa on zarówno po stronie serwera i klienta. Routing po stronie klienta sprawia, że aplikacja jest naprawdę szybka, gdy już jest załadowana, ponieważ przy każdej zmianie podstrony, nie trzeba jej całej generować,
+\item[-] \textit{Meteor account} jest to kompletny pakiet zarządzania kontami użytkowników. Jedną linią kodu można zapewnić aplikacji możliwość logowania, tworzenia kont, walidacji email, przywracania hasła czy logowania się przez zewnętrzne serwisy jak \textit{facebook} czy \textit{twitter}. Dodatkowo pakiet daje możliwość dostosowania go pod własne potrzeby,
+\item[-] \textit{Underscore.string} jest to pakiet służący do manipulacji stringami,
+\item[-] \textit{Meteor-file-collection} to pakiet, który rozszerza system kolekcji, pozwalając obsługiwać także dane z plików.
+\end{itemize}
+
+
 
 \chapter{Walidacja oprogramowania}
 
-\indent \indent \indent W testowaniu oprogramowania ważne są pojęcia – weryfikacja i~walidacja. Pojęcie walidacji wyjaśniono we wprowadzeniu oraz rudymencie podrozdziału pierwszego. Należy wyjaśnić również pojęcie \textit{weryfikacji}
+\indent \indent \indent W testowaniu oprogramowania ważne są pojęcia – weryfikacja i~walidacja. Pojęcia te są znaczeniowo na tyle bliskie, że mogą przysporzyć trudności. Zarówno weryfikacja jak i~walidacja produktu są czynnościami, które służą sprawdzeniu, czy wytworzony produkt jest taki, jaki sobie życzyliśmy my, bądź inny interesariusz. Warto wyjaśnić oba te pojęcia.
 
-\textit{Internetowy Słownik Języka Polskiego} podaje następujące znaczenia tego słowa: \textit{weryfikacja} z~łac. \textit{verifico} - ,,wycenić wartość, ustalić; 1. Sprawdzenie zgodności czegoś z~prawdą; sprawdzenie autentyczności czegoś; weryfikacja hipotezy, teorii, faktów. 2. Sprawdzanie i~ocena czyichś kwalifikacji - np. pracownika''. Różnica w~znaczeniu tych pojęć jest istotna. Aby ją wskazać należy zwrócić uwagę na celowość tych dwóch określeń. Specyfika działania weryfikacji to zastosowanie pytania: \textit{,,Czy produkt tworzony jest prawidłowo?''}. Z kolei dla procesu walidacji typowym pytaniem będzie: \textit{,,Czy tworzony produkt jest prawidłowy?''}. \textit{Prawidłowy} – to znaczy zgodny z~wytycznymi programowania, przy zastosowaniu odpowiednich metod, języka programowania i~algorytmów. 
+\section{Rozróżnienie walidacji i weryfikacji}
 
-Pojęcia weryfikacji i~walidacji są znaczeniowo na tyle bliskie, że mogą przysporzyć trudności. Zarówno weryfikacja jak i~walidacja produktu są czynnościami, które służą sprawdzeniu, czy wytworzony produkt jest taki, jaki sobie życzyliśmy my, bądź inny interesariusz. \textit{Produkt} możemy rozumieć jako: 
+\indent \indent \indent Walidacja jest to proces wyznaczania kompatybilności stopnia użytkowania systemu, w którym dany model staje się wiernym odzwierciedleniem rzeczywistego systemu. Chodzi o~skuteczną zgodność wprowadzonych danych z~ich oryginałem. Proces ten ma na celu zilustrowanie czy symulacja dostarcza użytkownikowi wiarygodnych danych wyjściowych, zgodnych z~danymi wejściowymi użytkownika. Dokonuje więc, weryfikacji zgodności wizji projektanta z~realnym światem. Pełni rolę autocenzury konkretnego systemu, by każdy wirtualny użytkownik, miał pewność, że dane wprowadzone do systemu są stałe i~spełniają przydzieloną im rolę.\cite{ValidationTermin}\cite{Validation2}
 
-\begin{itemize}
-  \item[-] dany moduł systemu,
-  \item[-] blok kodu,
-  \item[-] cały system,
-  \item[-] istotny dokument, na bazie którego moduł lub system będzie zbudowany.
-\end{itemize}
-
-Warto zapamiętać, że obie te czynności zachodzą w~wielu różnych momentach i~mogą pojawić się w~wielu fazach procesu tworzenia systemu. Błędnym będzie zatem rozumienie, np. walidacji, jako jakiegoś etapu wieńczącego budowę systemu.
-
-\begin{figure}[th!]
-\centering
-\includegraphics[width=.7\hsize]{images/Verification_Validation_Accreditation}
-\caption{Różnice między weryfikacją, walidacją\label{RYS.1}}
-\source{http://commons.wikimedia.org/wiki/}
-\end{figure}
-
- Różnice między weryfikacją i~walidacją dotyczą przede wszystkim tego, z~jakiej perspektywy dokonujemy sprawdzenia czy jest to perspektywa technologiczna i~typowa dla zespołów budujących system, czy raczej z~perspektywy użytkownika końcowego, który nie ma obowiązku rozumieć technicznej strony systemu, z~którego będzie korzystał.
-\\
-\indent Najprościej jest zapamiętać, że weryfikujemy to, co da się wyliczyć, wykazać logicznie i~nie ma jak zanegować tego, co już zweryfikowane. Przy dobrze spisanych wymaganiach weryfikacji dokonać może każdy człowiek rozumiejący tekst specyfikacji i~wiedzący, jak wykonać test. 
-Natomiast walidacja zawsze jest po stronie odbiorcy i to zaspokojenie jego potrzeb jest ostatecznym kryterium sukcesu. Odcinając się od możliwości konsultowania z~klientem spraw dotyczących choćby wygody użytkowania produktu, wytwórcy ryzykują niepowodzenie walidacji.
-\\
 \indent Weryfikacja produktu procesu polega na dostarczeniu dowodów, że dany produkt spełnia z~d~e~f~i~n~i~o~w~a~n~e wymagania. Można spotkać się też z~objaśnieniami tego terminu mówiącymi, że jest to sprawdzanie „czy aplikacja jest prawidłowo zbudowana”, czy produkty danego etapu produkcji spełniają wymogi założone na początku całego procesu.
-Kluczowym słowem jest wyraz -  \textit{zdefiniowane}. Weryfikacja domaga się odniesienia do przesłanek, które spisano w~taki sposób, by można je było sprawdzić w~sposób jednoznaczny. Weryfikacja polega na stwierdzeniu, że dany punkt np. specyfikacji technicznej jest informacją, która w~sposób prawdziwy opisuje dany produkt poddany testowi. W praktyce powinniśmy zatem unifikować weryfikację z~procesem, który zakończy się „zero-jedynkowym” rozstrzygnięciem, decydującym o~tym, że dany produkt wygląda, bądź zachowuje się, bądź jest taki, jak ustalono dla niego w~specyfikacji wszystkich przesłanek. Jeśli na przykład jakąś funkcjonalność można:
-\begin{itemize}
-  \item[-] sprawdzić poprzez odczytanie wyniku liczbowego, którego ona dostarcza; 
-  \item[-] zbadać czy odpowiedź systemu nastąpi w~konkretnie ustalonym czasie;
-  \item[-] sprawdzić czy następuje przesłanie odpowiedniego pliku między serwerem a~klientem,
-wtedy możemy oczekiwać, że proces sprawdzania tego produktu jest weryfikacją.
-\end{itemize}
-
-
-\begin{figure}[th!]
-\centering
-\includegraphics[width=.7\hsize]{images/weryfikacja_walidacja}
-\caption{Weryfikacja i~walidacja\label{RYS.2}}
-\source{http://slideplayer.pl/slide/427709/ slajd 4}
-\end{figure}
-
-\indent Walidacja produktu polega na sprawdzeniu poprawności i~dostarczeniu dowodów,  że proces wytwarzania go, spełnia potrzeby i~wymagania użytkownika. Tłumaczy się ją również, jako „sprawdzenie czy aplikacja jest poprawna” / w~starszych wersjach słowników testerskich / \cite{ALTKOM}
-\\
-\indent Najistotniejsze do zrozumienia walidacji jest to, że to, co było jasno zdefiniowanym kryterium zaliczenia testu, jest tutaj zamienione na potrzeby i~wymagania użytkownika. O ile zweryfikować można różne rzeczy bez wczuwania się w~rolę użytkownika końcowego / bo wystarczy się oprzeć choćby na wyliczeniach i~sprawdzaniu, czy wyniki są zgodne z~założeniami ze specyfikacji /, to walidacja służy właśnie do sprawdzenia wszystkich tych funkcjonalności, które użytkownik będzie oceniał pod kątem swoich osobistych upodobań, często subiektywnie, nieraz w~oparciu o~rozmaite nawyki.
-Sukces walidacji opiera się niejednokrotnie na sprawach, które ciężko jest przewidzieć podczas pisania specyfikacji funkcjonalnej. Odbiorca systemu nieraz nie uświadamia sobie swoich własnych aberracji i~może stwierdzić ich brak dopiero wtedy, gdy przystępuje do finałowego testu akceptacyjnego. Często wtedy słyszanym argumentem z~ust niezadowolonego odbiorcy jest to, że coś było „tak oczywiste, że nie trzeba tego było spisywać w~specyfikacji”.
-O ile kluczem do udanej weryfikacji produktu jest klarowne zdefiniowanie kryteriów zaliczenia testu, o tyle kluczem do udanej walidacji jest pogłębiona i~sprawna komunikacja z~odbiorcą, zadawanie celnych pytań pomagających w~zrozumieniu autentycznych potrzeb klienta, przeprowadzanie wraz z~klientem symulacji zastosowań systemu na wszelkiego rodzaju makietach. Kolejną bardzo istotną sprawą jest umiejętne korzystanie z~badań aktualnych rozwiązań i~tendencji w~produktach dostępnych na rynku, co wiąże się z~przeglądaniem odpowiednich stron internetowych, sięganiem po prace znawców tematu i~autorytetów, ciągłym dokształcaniem.
-\\
-\indent Walidację warto zapamiętać jako ogół tych czynności, które zwiększają szansę na zadowolenie odbiorcy tworzonego produktu i~które będą brały pod uwagę konsultacje z~tym odbiorcą, wspólne wypracowywanie rozwiązania i~przewidywanie jego preferencji.\cite{ALTKOM}
+Kluczowym słowem jest wyraz --  \textit{zdefiniowane}. Weryfikacja domaga się odniesienia do przesłanek, które spisano w~taki sposób, by można je było sprawdzić w~sposób jednoznaczny. Weryfikacja polega na stwierdzeniu, że dany punkt np. specyfikacji technicznej jest informacją, która w~sposób prawdziwy opisuje dany produkt poddany testowi. W praktyce powinniśmy zatem unifikować weryfikację z~procesem, który zakończy się „zero-jedynkowym” rozstrzygnięciem, decydującym o~tym, że dany produkt wygląda, bądź zachowuje się, bądź jest taki, jak ustalono dla niego w~specyfikacji wszystkich przesłanek. \cite{ALTKOM}
 
 \section{Specjalistyczny wstęp do walidacji}
 
-\indent \indent \indent Walidacja jest to proces wyznaczania kompatybilności stopnia użytkowania systemu, w którym dany model staje się wiernym odzwierciedleniem rzeczywistego systemu. Chodzi o~skuteczną zgodność wprowadzonych danych z~ich oryginałem. Proces ten ma na celu zilustrowanie czy symulacja dostarcza użytkownikowi wiarygodnych danych wyjściowych, zgodnych z~danymi wejściowymi użytkownika. Dokonuje więc, weryfikacji zgodności wizji projektanta z~realnym światem. Pełni rolę autocenzury konkretnego systemu, by każdy wirtualny użytkownik, miał pewność, że dane wprowadzone do systemu są stałe i~spełniają przydzieloną im rolę.
-\\
 \indent Każdy system informatyczny wymaga osiągnięcia odpowiedniego stopnia adekwatności, bezbłędności, stabilności oraz wyeliminowania błędów działania w~modelu. Przez model, który przeszedł walidację, rozumieć należy ten, który został poddany serii operacji, mających na celu doprecyzowanie go do optymalnego poziomu, przez co, zgodnie z~jego przeznaczeniem, będzie mógł sprostać postawionym przed nim zadaniom. Taki poziom wiarygodności modelu uzyskamy dzięki procesowi walidacji.
 
 Systemy zautomatyzowane i~skomputeryzowane stosowane szczególnie w~przemyśle wysokich technologii, muszą być poddawane okresowym kontrolom, potwierdzającym ich jakość w~celu wykrycia ewentualnych, potencjalnych zagrożeń, wynikających z~bezpośredniego lub pośredniego wpływu na produkt końcowy. Walidacja zatem ma udokumentować, w~jaki sposób należy zmienić i~udoskonalić proces, aby zminimalizować ewentualne skutki jego nieprawidłowego działania.
 
 Jeżeli istnieje możliwość, walidacja systemu powinna być poprzedzona rozmową z~jego użytkownikiem. Ma ona spełnić rolę sondy i~zebrania cennych informacji, by program walidacyjny stał się optymalny. Mając przez długi czas styczność z~systemem rzeczywistym, ekspert często potrafi odpowiedzieć na pytania dotyczące całości systemu lub wskazać rażące błędy, których podstawą jest niezrozumienie rzeczywistego systemu, co staje się przyczyną generowania przez symulację złych wyników. \cite{Validation}
 
-\indent Innym zagadnieniem mającym związek z~procesem walidacji jest problem czasu tworzenia go oraz związanych z~tym kosztów. Walidacja procesów,systemów czy urządzeń jest czasochłonna. Tworzenie dokumentacji, procedur, wykonywanie testów i~działań naprawczych na ogół przeciąga się w~czasie. Dobrze zarządzana walidacja, obciąża budżet projektu w~skali 4--7 \% kosztów. Nieprawidłowo prowadzona podnosi ją do 20--30\% kosztów całkowitych. Poniesienie niskich nakładów może przynieść wymierne zyski ekonomiczne już w~krótkiej perspektywie. Według danych zgromadzonych przez osoby zajmujące się walidacją dla nowych urządzeń i~systemów produkcyjnych, wydajność początkowa urządzenia, które były przedmiotem pełnego cyklu walidacji, może być 2--3 razy wyższa, niż tych uruchomionych bez jej przeprowadzania. Mechanizmy i~systemy poddane walidacji osiągają pełną zdolność produkcyjną a~ich kultura obsługi i~serwisu jest wysoka, ponieważ w~czasie testów walidacyjnych pracownicy zdobywają praktyczną wiedzę od dostawcy czy użytkownika. Właściwe opracowanie \textit{specyfikacji wymagań użytkownika}
-\\
-/ w~skrócie URS / \footnote{ang. User Requirements Specification -- URS}, prowadzenie kwalifikacji projektu, nadzorowanie i~współpraca z~dostawcą od początku wiąże się z~nakładami. Jednak poniesione koszty są niewspółmierne niższe od kosztów poprawy pracy czy usuwania usterek w~gotowym urządzeniu, czy utworzonym systemie. Dlatego ważna jest współpraca z~dostawcą / użytkownikiem  od samego początku inwestycji. Wspólne rozwiązywanie problemów, tworzenie scenariuszy testowych, pozwala na obustronną wymianę wiedzy
+\indent Innym zagadnieniem mającym związek z~procesem walidacji jest problem czasu tworzenia go oraz związanych z~tym kosztów. Walidacja procesów,systemów czy urządzeń jest czasochłonna. Tworzenie dokumentacji, procedur, wykonywanie testów i~działań naprawczych na ogół przeciąga się w~czasie. Dobrze zarządzana walidacja, obciąża budżet projektu w~skali 4--7 \% kosztów. Nieprawidłowo prowadzona podnosi ją do 20--30\% kosztów całkowitych. Poniesienie niskich nakładów może przynieść wymierne zyski ekonomiczne już w~krótkiej perspektywie. Według danych zgromadzonych przez osoby zajmujące się walidacją dla nowych urządzeń i~systemów produkcyjnych, wydajność początkowa urządzenia, które były przedmiotem pełnego cyklu walidacji, może być 2--3 razy wyższa, niż tych uruchomionych bez jej przeprowadzania. Mechanizmy i~systemy poddane walidacji osiągają pełną zdolność produkcyjną a~ich kultura obsługi i~serwisu jest wysoka, ponieważ w~czasie testów walidacyjnych pracownicy zdobywają praktyczną wiedzę od dostawcy czy użytkownika. Właściwe opracowanie \textit{specyfikacji wymagań użytkownika} / w~skrócie URS / \footnote{ang. User Requirements Specification -- URS}, prowadzenie kwalifikacji projektu, nadzorowanie i~współpraca z~dostawcą od początku wiąże się z~nakładami. Jednak poniesione koszty są niewspółmierne niższe od kosztów poprawy pracy czy usuwania usterek w~gotowym urządzeniu, czy utworzonym systemie. Dlatego ważna jest współpraca z~dostawcą / użytkownikiem  od samego początku inwestycji. Wspólne rozwiązywanie problemów, tworzenie scenariuszy testowych, pozwala na obustronną wymianę wiedzy
 \\
 i znaczne ograniczenie kosztów w~późniejszej eksploatacji systemu i~urządzenia.\cite{ekonomia}
 
@@ -413,37 +286,6 @@ Nastepnie możemy dodać właściwy pakiet
 \end{figure}
 
 \chapter{Aplikacja Elektroniczny indeks w~Meteor}
-\section{Technologie wykorzystane w pracy}
-\indent \indent \indent Zanim rozpocznie się proces tworzenia aplikacji, programista musi zdecydować, jakich technologii chce użyc do tego celu oraz jakie technologie będą do danego programu najwłaściwsze.
-\subsection{Javascript}
-\indent \indent \indent Do stworzenia aplikacji - elektroniczny indeks wykorzystano język javascript, którego zaletami są niewielkie rozmiary skryptów, dzięki czemu krótszy jest czas ładowania z serwera, a co za tym idzie mniejsze obciążenie sieci. Dodatkową zaletą jest jego niezależność od systemu, a także nie wymagalność kompilatora.
-\subsection{Meteor}
-\indent \indent \indent W pracy użyto framework \textit{Meteor} w wersji 1.1.0.2. Jest to framework javascriptowy, który zapewnia aplikacji działanie w czasie rzeczywistym / w skrócie RTA / \footnote{ang. Real-Time Application - RTA}, dzięki czemu użytkownikom korzystającym z aplikacji widoki aktualizują się natychmiast, gdy w bazie danych zachodzą zmiany. Komplementarnie należy podkreślić, że atutetm tej technologii jest fakt, że wszystko, zarówno back-end jak i front-end, piszemy w taki sam sposób, korzystając jedynie z javascriptu. \textit{Meteor} pozwala również zaoszczędzić czas, dostarczając deweloperom gotowe rozwiązania w postaci pakietów. Ich większa część jest wbudowana w framework i wystarczy dodać je do projektu:
-\begin{lstlisting}[language=bash,caption={Dodanie standardowego pakietu do projektu}]
-	meteor add nazwa_pakietu
-\end{lstlisting}
-Istnieją również pakiety stworzone przez społeczność, które można przeglądać na \textit{atmosphere.com}. Instalujemy je w bardzo podobny sposób, jak pakiety dostarczone w standardzie:
-\begin{lstlisting}[language=bash,caption={Dodanie zewnętrznego pakietu do projektu}]
-	meteor add autor:nazwa_pakietu
-\end{lstlisting}
-
-\subsection{MongoDB}
-\indent \indent \indent \textit{MongoDB} jest najpopularniejszą nierelacyjną bazą danych. Charakteryzuje się dużą skalowalnością, wydajnością oraz brakiem ściśle zdefiniowanej struktury obsługiwanych baz danych. Zamiast tego, dane składowane są jako dokumenty w stylu JSON, co umożliwia aplikacjom bardziej naturalne ich przetwarzanie, przy zachowaniu możliwości tworzenia hierarchii oraz indeksowania. Jest to także obecnie jedyna oficjalnie wspierana baza przez twórców \textit{Meteor}.  W pracy wykorzystana została w wersji 3.0.2.
-\subsection{Velocity}
-\indent \indent \indent \textit{Velocity} jest oficjalnym narzędziem do testowania aplikacji napisanych w \textit{Meteor} w~wersji 1.0+. Pozwala ono tworzyć testy w popluranych bibliotekach, takich jak: \textit{mocha}, \textit{jasmine}, \textit{cucumber} czy \textit{selenium}. W pracy wykorzystana została biblioteka \textit{jasmine}
-\subsection{Distributed Data Protocol}
-\indent \indent \indent \textit{Distributed Data Protocol} jest to prosty protokół oparty o format tekstowy \textit{JSON}. Służy on do pobierania danych z~serwera oraz aktualizacji pobranych danych, gdy tylko na serwerze ulegają one zmianie.
-\subsection{Roles}
-\indent \indent \indent \textit{Meteor-roles} jest to pakiet autoryzujący do frameworka \textit{Meteor}, który pozwala zarządzać, jakie dane zostaną wysłane do konkretnych grup użytkowników.
-\subsection{Iron router}
-\indent \indent \indent \textit{Iron router} jest to pakiet, którym definiujemy, jak ma wyglądać mapa strony. Działa on zarówno po stronie serwera i klienta. Routing po stronie klienta sprawia, że aplikacja jest naprawdę szybka, gdy już jest załadowana, ponieważ przy każdej zmianie podstrony, nie trzeba jej całej generować.
-\subsection{Accounts}
-\indent \indent \indent \textit{Meteor account} jest to kompletny pakiet zarządzania kontami użytkowników. Jedną linią kodu można  zapewnić aplikacji możliwość logowania, tworzenia kont, walidacji email, przywracania hasła czy logowania się przez zewnętrzne serwisy jak \textit{facebook} czy \textit{twitter}. Dodatkowo pakiet daje możliwość dostosowania go pod własne potrzeby.
-\subsection{Underscore string}
-\indent \indent \indent \textit{Underscore.string} jest to pakiet służący do manipulacji stringami. Pierwotnie był rozszerzeniem \textit{Underscore.js}, obecnie jest niezależną biblioteką.
-
-\subsection{Meteor-file-collection}
-\indent \indent \indent \textit{Meteor-file-collection} to pakiet, który rozszerza system kolekcji, pozwalając obsługiwać także dane z plików.
 
 \section{Opis tworzenia aplikacji}
 \indent \indent \indent Tworzenie aplikacji w frameworku \textit{Meteor} zaczyna się od utworzenia nowego projektu poleceniem w konsoli:
@@ -503,7 +345,7 @@ Grades = new Mongo.Collection('grades');
 
 \noindent Kiedy dysponujemy już kolekcjami, trzeba utworzyć widoki. Zaczynamy od widoku strony głównej, na której w zależności od grupy danego użytkownika, zawierać będzie imiona i nazwiska studentów, poszczególne przedmioty oraz ich wykładowcy.
 
-\begin{listing}[H]
+\begin{listing}
 \begin{minted}[frame=single, fontsize=\scriptsize]{html+handlebars}
 <template name="subjectList">
   <div class="container">
@@ -808,6 +650,17 @@ Tinytest.add('validation-client - checkBeforeAction', function (test) {
 \caption{Test dodawania oceny z egzaminu studentowi gdy ma on negatywną ocenę z ćwiczeń \newline \newline \hspace{\linewidth} \textbf{Interpretacja:} Pierwszym argumentem \textit{Tinytest.add} jest nazwa naszego testu, a drugim  funkcja, która go wykona. Na potrzeby testu definujmey i tworzymy nowego użytkownika, przedmiot oraz ocenę, a następnie wywołujemy testowaną funkcję, a po jej wykonaniu sprawdzamy czy oceny z ćwiczeń i egzaminu się zgadzają.\cite{TinyTest}  \newline}
 \end{listing}
 
+\section{Udostępnienie pakietu}
+
+\indent \indent \indent Kiedy już pakiet, który tworzymy został ukończony, a także przetestowany, można go opublikować na \textit{https://atmospherejs.com}.\cite{atmospherejs} Czasami może dojśc do sytuacji gdzie postępując zgodnie z instrukcją nie będziemy w stanie opublikować naszego pakietu, a na ekranie pojawi się błąd
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\hsize]{images/publishProblem}
+\caption{Problem z publikowaniem pakietu\label{RYS.22}}
+\source{Własne}
+\end{figure}
+
+W takiej sytuacji należy w aplikacji, w której utworzyliśmy pakiet, wejść do ukrytego folderu \textit{.meteor/local}, a następnie usunąć folder o nazwie \textit{isopacks}. Jeżeli to nie rozwiąże problemu należy przenieść pakiet poza aplikacje i w konsoli wpisać odpowiednią komende.
 
 
 % zakończenie
