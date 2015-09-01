@@ -47,7 +47,27 @@
 W szczególności zwrócono uwagę na aspekt prawidłowego zarządzania jej jakością, co obligatoryjnie wiąże się z~problemem
 odpowiedniego zabezpieczenia i~odpowiedzialnego korzystania z~niej.
 
-Na potrzeby pracy powstała aplikacja \textit{Elektroniczny indeks}, w której zostało zaimplemetowane przeglądanie ocen przez studenta, wykładowcę oraz pracownika dziekanatu, wystawianie ocen przez wykładowce oraz przegląd studentów, a także ich osiągnięć na zajęciach, które dany wykłądowca prowadzi. Program został również przetestowany w celu weryfikacji czy funkcje działają prawidłowo. Funkcja zapisu studenta na zajęcia i dodawanie nowych użytkowników oraz przedmiotów dostępna jest jedynie dla administratora systemu.  Aplikacja jest dostępna pod adresem eindeks.meteor.com, a dostęp do jej funkcjonalności można uzyskać logując się jako administrator -- login: admin hasło: abcdef, student -- login: 194925 hasło: abcdef, wykładowca -- login: wbzyl, hasło: abcdef lub biurokrata -- login: iszreder, hasło: abcdef. Pakiet walidujący \textit{elektroniczny indeks} jest dostępny na https://atmospherejs.com/emflover/validation gdzie znajduje się także instrukcja jak dodać pakiet. W aplikacji nie zostało zaimplementowane automatycznie przypisywanie loginu studentowi, podział studentów oraz zajęć na grupy, wyszukiwanie użytkowników oraz zapisywanie się na zajęcia przez studentów, ponieważ funkcjonalność ta nie jest niezbędna w tej pracy.
+Na potrzeby pracy powstała aplikacja \textit{Elektroniczny indeks}, w której zostało zaimplemetowane przeglądanie ocen przez studenta, wykładowcę oraz pracownika dziekanatu, wystawianie ocen przez wykładowce oraz przegląd studentów, a także ich osiągnięć na zajęciach, które dany wykładowca prowadzi. Program został również przetestowany w celu weryfikacji czy funkcje działają prawidłowo. Funkcja zapisu studenta na zajęcia i~dodawanie nowych użytkowników oraz przedmiotów dostępna jest jedynie dla administratora systemu.
+\\
+\indent Aplikacja jest dostępna pod adresem \href{http://eindeks.meteor.com}{\textit{eindeks.meteor.com}}, a dostęp do jej funkcjonalności można uzyskać logując się na jedno z poniższych kont.
+
+\begin{tabular}{ |p{3cm}|p{3cm}|p{3cm}|  }
+ \hline
+ \multicolumn{3}{|c|}{Dane do logowania} \\
+ \hline
+ Klasa & Login & Hasło\\
+ \hline
+ Administrator & admin & abcdef\\
+ Wykładowca & wbzyl & abcdef\\
+ Biurokrata & iszreder & abcdef\\
+ Student& 194925 & abcdef\\
+ \hline
+\end{tabular}
+\newline
+W ramach pracy powstał pakiet \textit{Validation}\footnote{Pakiet \href{https://atmospherejs.com/emflover/validation}{\textit{Validation}} dostępny jest na \textit{Atmospherejs}}, który zapewni aplikacji poprawne działanie. W aplikacji nie zostało zaimplementowane automatycznie przypisywanie loginu studentowi, podział studentów oraz zajęć na grupy, wyszukiwanie użytkowników oraz zapisywanie się na zajęcia przez studentów, ponieważ funkcjonalność ta nie jest niezbędna w tej pracy.
+
+
+
 
 \end{abstract}
 %\keywords{SGML,
@@ -66,24 +86,24 @@ rodzajami błędów, od drukowania w~przeglądarce klienta komunikatów diagnost
 poprzez utratę spójności bazy danych, aż po ujawnienie niepowołanym użytkownikom
 informacji poufnych. Z~tego powodu nie wolno ignorować wagi problemu.
 
-\indent Aplikacje pozbawione walidacji pozwalają użytkownikowi na wprowadzenie irracjonalnych
+\indent Aplikacje pozbawione walidacji pozwalają użytkownikowi na wprowadzenie niespójnych
 danych do systemu. Przykładem takiej aplikacji jest elektroniczny indeks. Operacje, takie jak: wystawianie studentowi ocen z~ćwiczeń
 czy też oceny z~egzaminu kończącej edukację z~danego przedmiotu, dodawanie nowych użytkowników, a~także przedmiotów powinny być
 odpowiednio walidowane. Dzięki temu nie dojdzie do niepożądanych zjawisk typu:
 \begin{itemize}
-\item student nie uzyskał pozytywnej oceny z~ćwiczeń, a~otrzymuje ocenę z~egzaminu
+\item[-] student nie uzyskał pozytywnej oceny z~ćwiczeń, a~otrzymuje ocenę z~egzaminu
 kończącego przedmiot,
-\item student otrzymuje ocenę spoza skali oceniania systemu danej uczelni,
-\item student uzyskuje ocenę od osoby nieuprawnionej do jej wystawienia,
-\item nowy przedmiot nie ma przypisanego prowadzącego,
-\item tworząc nowego użytkownika nie wprowadzamy wymaganych danych.%
+\item[-] student otrzymuje ocenę spoza skali oceniania systemu danej uczelni,
+\item[-] student uzyskuje ocenę od osoby nieuprawnionej do jej wystawienia,
+\item[-] nowy przedmiot nie ma przypisanego prowadzącego,
+\item[-] tworząc nowego użytkownika nie wprowadzamy wymaganych danych.%
 \end{itemize}
 
 
-\indent W celu ukazania i~udowodnienia przydatności walidacji podczas korzystania
+\indent W celu zilustrowania przydatności walidacji podczas korzystania
 z elektronicznego systemu zarządzania osiągnięciami studenta, pokazano w~pracy
 działanie tego zjawiska w~aplikacji stworzonej w~frameworku \textit{Meteor} oraz 
-zaprezentowano ułożony pakiet oraz wyjaśniono, jak go udostępnić. W pracy użyto framework \textit{Meteor} w wersji 1.1.0.3. Jest to framework javascriptowy, który zapewnia aplikacji działanie w czasie rzeczywistym / w skrócie RTA / \footnote{ang. Real-Time Application - RTA}, dzięki czemu użytkownikom korzystającym z aplikacji widoki aktualizują się natychmiast, gdy w bazie danych zachodzą zmiany. Komplementarnie należy podkreślić, że atutetm tej technologii jest fakt, że wszystko, zarówno back-end jak i front-end, piszemy w taki sam sposób, korzystając jedynie z javascriptu. \textit{Meteor} pozwala również zaoszczędzić czas, dostarczając deweloperom gotowe rozwiązania w postaci pakietów. W pracy jest on wspierany przez \textit{MongoDB}. Jest to najpopularniejsza nierelacyjna baza danych. Charakteryzuje się dużą skalowalnością, wydajnością oraz brakiem ściśle zdefiniowanej struktury obsługiwanych baz danych. Zamiast tego, dane składowane są jako dokumenty w stylu JSON, co umożliwia aplikacjom bardziej naturalne ich przetwarzanie, przy zachowaniu możliwości tworzenia hierarchii oraz indeksowania. \textit{Meteor} od wersji 1.0 dostarcza narzędzie do testowania \textit{Velocity}. Pozwala ono tworzyć testy w popluranych bibliotekach, takich jak: \textit{mocha}, \textit{jasmine}, \textit{cucumber} czy \textit{selenium}. W pracy wykorzystana została biblioteka \textit{jasmine}. Jednak same testy nie wystarczą, aby zapewnić aplikacji poprawne działanie. Korzystając z testów jednostkowych sprawdzamy czy funkcja wykonuje interesującą nas operację prawidłowo, ale bez walidacji wywołanie funkcji może się zakończyć powodzeniem także dla błędnych danych. 
+zaprezentowano ułożony pakiet oraz wyjaśniono, jak go udostępnić. W pracy użyto framework \textit{Meteor} w wersji 1.1.0.3. Jest to framework javascriptowy, który zapewnia aplikacji działanie w czasie rzeczywistym\footnote{ang. Real-Time Application - RTA}, dzięki czemu użytkownikom korzystającym z aplikacji widoki aktualizują się natychmiast, gdy w bazie danych zachodzą zmiany. Dodatkowo należy podkreślić, że atutetm tej technologii jest fakt, że wszystko, zarówno back-end jak i front-end, piszemy w taki sam sposób, korzystając jedynie z javascriptu. \textit{Meteor} pozwala również zaoszczędzić czas, dostarczając deweloperom gotowe rozwiązania w postaci pakietów. Framework ten do przechowywania danych używa nierelacyjnej bazy danych, \textit{MongoDB}\cite{MongoDocs}. Charakteryzuje się dużą skalowalnością, wydajnością oraz brakiem ściśle zdefiniowanej struktury obsługiwanych baz danych. Zamiast tego, dane składowane są jako dokumenty w stylu JSON, co umożliwia aplikacjom bardziej naturalne ich przetwarzanie, przy zachowaniu możliwości tworzenia hierarchii oraz indeksowania. \textit{Meteor} od wersji 1.0 dostarcza narzędzie do testowania \textit{Velocity}. Pozwala ono tworzyć testy w popluranych bibliotekach, takich jak: \textit{Mocha}, \textit{Jasmine}, \textit{Cucumber} czy \textit{Selenium}. W pracy wykorzystana została biblioteka \textit{Jasmine}. Jednak same testy nie wystarczą, aby zapewnić aplikacji poprawne działanie. Korzystając z testów jednostkowych sprawdzamy czy funkcja wykonuje interesującą nas operację prawidłowo, ale bez walidacji wywołanie funkcji może się zakończyć powodzeniem także dla błędnych danych. 
 \\
 \indent Aplikacja korzysta również z szeregu dodatkowych pakietów takich jak:
 
@@ -101,61 +121,28 @@ zaprezentowano ułożony pakiet oraz wyjaśniono, jak go udostępnić. W pracy u
 
 \indent \indent \indent W testowaniu oprogramowania ważne są pojęcia – weryfikacja i~walidacja. Pojęcia te są znaczeniowo na tyle bliskie, że mogą przysporzyć trudności. Zarówno weryfikacja jak i~walidacja produktu są czynnościami, które służą sprawdzeniu, czy wytworzony produkt jest taki, jaki sobie życzyliśmy my, bądź inny interesariusz. Warto wyjaśnić oba te pojęcia.
 
-\section{Rozróżnienie walidacji i weryfikacji}
+\section{Rozróżnienie walidacji i~weryfikacji}
 
+Najprościej jest zapamiętać, że weryfikujemy to, co da się wyliczyć, wykazać logicznie i~nie ma jak zanegować tego, co już zweryfikowane. Przy dobrze spisanych wymaganiach weryfikacji dokonać może każdy człowiek rozumiejący tekst specyfikacji i wiedzący, jak wykonać test. Weryfikacja polega na dostarczeniu dowodów, że dany produkt spełnia zdefiniowane wymagania. Natomiast walidacja jest po stronie odbiorcy i~to zaspokojenie jego potrzeb jest ostatecznym kryterium sukcesu. Polega na sprawdzeniu poprawności i~dostarczeniu dowodów,  że produkt procesu wytwarzania spełnia potrzeby i~wymagania użytkownika.\cite{ALTKOM}
+
+\iffalse
 \indent \indent \indent Walidacja jest to proces wyznaczania kompatybilności stopnia użytkowania systemu, w którym dany model staje się wiernym odzwierciedleniem rzeczywistego systemu. Chodzi o~skuteczną zgodność wprowadzonych danych z~ich oryginałem. Proces ten ma na celu zilustrowanie czy symulacja dostarcza użytkownikowi wiarygodnych danych wyjściowych, zgodnych z~danymi wejściowymi użytkownika. Dokonuje więc, weryfikacji zgodności wizji projektanta z~realnym światem. Pełni rolę autocenzury konkretnego systemu, by każdy wirtualny użytkownik, miał pewność, że dane wprowadzone do systemu są stałe i~spełniają przydzieloną im rolę.\cite{ValidationTermin}\cite{Validation2}
 
 \indent Weryfikacja produktu procesu polega na dostarczeniu dowodów, że dany produkt spełnia z~d~e~f~i~n~i~o~w~a~n~e wymagania. Można spotkać się też z~objaśnieniami tego terminu mówiącymi, że jest to sprawdzanie „czy aplikacja jest prawidłowo zbudowana”, czy produkty danego etapu produkcji spełniają wymogi założone na początku całego procesu.
 Kluczowym słowem jest wyraz --  \textit{zdefiniowane}. Weryfikacja domaga się odniesienia do przesłanek, które spisano w~taki sposób, by można je było sprawdzić w~sposób jednoznaczny. Weryfikacja polega na stwierdzeniu, że dany punkt np. specyfikacji technicznej jest informacją, która w~sposób prawdziwy opisuje dany produkt poddany testowi. W praktyce powinniśmy zatem unifikować weryfikację z~procesem, który zakończy się „zero-jedynkowym” rozstrzygnięciem, decydującym o~tym, że dany produkt wygląda, bądź zachowuje się, bądź jest taki, jak ustalono dla niego w~specyfikacji wszystkich przesłanek. \cite{ALTKOM}
-
+\fi
 \section{Specjalistyczny wstęp do walidacji}
 
-\indent Każdy system informatyczny wymaga osiągnięcia odpowiedniego stopnia adekwatności, bezbłędności, stabilności oraz wyeliminowania błędów działania w~modelu. Przez model, który przeszedł walidację, rozumieć należy ten, który został poddany serii operacji, mających na celu doprecyzowanie go do optymalnego poziomu, przez co, zgodnie z~jego przeznaczeniem, będzie mógł sprostać postawionym przed nim zadaniom. Taki poziom wiarygodności modelu uzyskamy dzięki procesowi walidacji.
+\indent \indent \indent Każdy system informatyczny wymaga osiągnięcia odpowiedniego stopnia adekwatności, bezbłędności, stabilności oraz wyeliminowania błędów działania w~modelu. Przez model, który przeszedł walidację, rozumieć należy ten, który został poddany serii operacji, mających na celu doprecyzowanie go do optymalnego poziomu, przez co, zgodnie z~jego przeznaczeniem, będzie mógł sprostać postawionym przed nim zadaniom. Taki poziom wiarygodności modelu uzyskamy dzięki procesowi walidacji.
 
-Systemy zautomatyzowane i~skomputeryzowane stosowane szczególnie w~przemyśle wysokich technologii, muszą być poddawane okresowym kontrolom, potwierdzającym ich jakość w~celu wykrycia ewentualnych, potencjalnych zagrożeń, wynikających z~bezpośredniego lub pośredniego wpływu na produkt końcowy. Walidacja zatem ma udokumentować, w~jaki sposób należy zmienić i~udoskonalić proces, aby zminimalizować ewentualne skutki jego nieprawidłowego działania.
-
-Jeżeli istnieje możliwość, walidacja systemu powinna być poprzedzona rozmową z~jego użytkownikiem. Ma ona spełnić rolę sondy i~zebrania cennych informacji, by program walidacyjny stał się optymalny. Mając przez długi czas styczność z~systemem rzeczywistym, ekspert często potrafi odpowiedzieć na pytania dotyczące całości systemu lub wskazać rażące błędy, których podstawą jest niezrozumienie rzeczywistego systemu, co staje się przyczyną generowania przez symulację złych wyników. \cite{Validation}
-
-\indent Innym zagadnieniem mającym związek z~procesem walidacji jest problem czasu tworzenia go oraz związanych z~tym kosztów. Walidacja procesów,systemów czy urządzeń jest czasochłonna. Tworzenie dokumentacji, procedur, wykonywanie testów i~działań naprawczych na ogół przeciąga się w~czasie. Dobrze zarządzana walidacja, obciąża budżet projektu w~skali 4--7 \% kosztów. Nieprawidłowo prowadzona podnosi ją do 20--30\% kosztów całkowitych. Poniesienie niskich nakładów może przynieść wymierne zyski ekonomiczne już w~krótkiej perspektywie. Według danych zgromadzonych przez osoby zajmujące się walidacją dla nowych urządzeń i~systemów produkcyjnych, wydajność początkowa urządzenia, które były przedmiotem pełnego cyklu walidacji, może być 2--3 razy wyższa, niż tych uruchomionych bez jej przeprowadzania. Mechanizmy i~systemy poddane walidacji osiągają pełną zdolność produkcyjną a~ich kultura obsługi i~serwisu jest wysoka, ponieważ w~czasie testów walidacyjnych pracownicy zdobywają praktyczną wiedzę od dostawcy czy użytkownika. Właściwe opracowanie \textit{specyfikacji wymagań użytkownika} / w~skrócie URS / \footnote{ang. User Requirements Specification -- URS}, prowadzenie kwalifikacji projektu, nadzorowanie i~współpraca z~dostawcą od początku wiąże się z~nakładami. Jednak poniesione koszty są niewspółmierne niższe od kosztów poprawy pracy czy usuwania usterek w~gotowym urządzeniu, czy utworzonym systemie. Dlatego ważna jest współpraca z~dostawcą / użytkownikiem  od samego początku inwestycji. Wspólne rozwiązywanie problemów, tworzenie scenariuszy testowych, pozwala na obustronną wymianę wiedzy
-\\
-i znaczne ograniczenie kosztów w~późniejszej eksploatacji systemu i~urządzenia.\cite{ekonomia}
-
-\section{Kategorie walidacji}
-
-Kryterium funkcjonalności wyróżnia następujący podział walidacji:
-
-\begin{enumerate}
-  \item \textbf{\textit{Walidacja prospektywna}} – zadaniem takiej walidacji jest, aby przed wprowadzeniem nowych produktów na rynek upewnić się, że funkcjonują prawidłowo i~spełniają standardy bezpieczeństwa.
-  \item \textbf{\textit{Walidacja retrospektywna}} – ten proces wyasygnowano dla produktów, które są już w~użyciu oraz dystrybucji czy produkcji. Walidację tą przeprowadza się na podstawie wcześniej określonych oczekiwań specyfikacji produktu oraz danych historycznych. Jeśli jakiekolwiek dane krytyczne są niepełne, to nie mogą być one przetworzone lub mogą być przetworzone częściowo. Zadania są uważane za konieczne, gdy:
-\begin{itemize}
-\item walidacja prospektywna jest niewystarczająca lub błędna,
-\item zmiana przepisów prawnych lub norm wpływa na zgodnośc produktów wypuszczonych na rynek,
-\item przywrócenie produktu do użytkowania.
-\end{itemize}
-  \item \textbf{\textit{Rewalidacja}} – przeprowadza się dla produktu, który został odrzucony, naprawiony, zintegrowany, przeniesiony lub po upływie określonego czasu.\cite{Categories}
-\end{enumerate}
-
-\section{Etapy walidacji}
-\indent \indent \indent Zakres walidacji powinien uwzględniać wiele czynników systemu, w tym jego zamierzone zastosowanie i~rodzaj walidacji oraz czy mają być dołączane nowe elementy systemu. Walidacja powinna być uznawana za część całego cyklu użytkowania systemu komputerowego. Obejmuje on planowanie, specyfikację, programowanie, badanie, odbiór techniczny, dokumentację, działanie, monitorowanie i~modyfikowanie.
-
-Projektowanie systemu skomputeryzowanego można podzielić na kilka etapów:
-
-\begin{enumerate}
-  \item \textbf{\textit{Specyfikowanie}} -- URS oraz specyfikacja funkcjonalna\footnote{ang. Functional Specification -- FS}. W~planie walidacji tego etapu projektowania powinno się uwzględnić audyt dostawcy oraz przegląd specyfikacji.
-  \item \textbf{\textit{Projektowanie}} -- projekt hardwaru\footnote{ang. Hardware Design System -- HDS}, softwaru\footnote{ang. Software Design System - SDS}, projekt mechaniczny i~elektryczny oraz projekt sieci informatycznej. Walidacją objęty jest przegląd poszczególnych projektów – kwalifikacja projektu\footnote{ang. Design Qualification -- DQ}.
-  \item \textbf{\textit{Wykonanie}} -- utworzenie hardwaru, połączeń elektrycznych modułów systemu, oprogramowanie modułów, montaż całego urządzenia, wykonanie sieci informatycznej. Walidacja obejmuje przeglądy wykonania poszczególnych czynności oraz przegląd kodów źródłowych oprogramowania.
-\item \textbf{\textit{Testowanie}} -- testowanie hardwaru, poszczególnych modułów oprogramowania,  integracji oprogramowania oraz testy funkcjonalne kompletnego urządzenia. Walidacja obejmuje nadzór nad dostawcą poszczególnych elementów systemu.
-\item \textbf{\textit{Instalacja}} -- instalacja hardwaru, softwaru, urządzeń, sieci informatycznej, testy instalacyjne hardwaru oraz sieci informatycznej. Walidacja tego etapu projektowania systemu skomputeryzowanego dotyczy pełnej kwalifikacji instalacyjnej\footnote{ang. Installation Qualification -- IQ}
-\item \textbf{\textit{Odbiór}} – testy akceptacji systemu, w~tym kompletności dokumentacji. Na tym etapie realizacji, walidacja dotyczy kwalifikacji operacyjnej\footnote{ang. Operational Qualification -- OQ} oraz procesowej\footnote{ang. Performance Qualification -- PQ}. Zakończenie jej uwieńczone jest raportem, który powinien określać przykładowo urządzenia produkcyjne, krytyczne parametry procesu i~krytyczne zakresy operacyjne, charakterystykę produktu, sposób pobierania próbek koniecznych do zebrania danych z~badań, ilość przebiegów procesu walidacyjnego i~akceptowalne wyniki badań.
-\item \textbf{\textit{Użytkowanie systemu}} – konserwacja i~utrzymanie sprawności systemu, nadzór nad zmianami. W~okresie użytkowania systemu przeprowadzane są okresowe, planowane rewalidacje, a~system jest monitorowany.\cite{LAB-EL2}
-\end{enumerate}
+Systemy zautomatyzowane i~skomputeryzowane stosowane szczególnie w~przemyśle wysokich technologii, muszą być poddawane okresowym kontrolom, potwierdzającym ich jakość w~celu wykrycia ewentualnych, potencjalnych zagrożeń, wynikających z~bezpośredniego lub pośredniego wpływu na produkt końcowy. Walidacja zatem ma udokumentować, w~jaki sposób należy zmienić i~udoskonalić proces, aby zminimalizować ewentualne skutki jego nieprawidłowego działania, a także zredukować koszty wytwarzania oprogramowania.\cite{Validation}\cite{ekonomia}\cite{Categories}\cite{LAB-EL2}
 
 \chapter{Elektroniczny indeks}
-\indent \indent \indent Elektroniczny indeks jest to elektroniczna platforma, która służy do wystawiania ocen studentom przez prowadzących zajęcia w czasie rzeczywistym, a także do wglądu do tych ocen przez studentów. Dzięki wdrożeniu do użytku wspomnianej platformy, zarówno studenci jak i prowadzący, mogą zaoszczędzić mnóstwo czasu oraz nerwów związanych z próbą zdobycia wpisu, odtworzenia indeksu, gdy zostanie on zgubiony lub uniknięcia długiego stania w kolejce do dziekanatu. Dodatkowo znacznie ułatwiona zostanie biurokracja na lini dziekanat -- wykładowca, a samo zaliczenie semestru studentowi przez osoby do tego uprawnione staję się dużo prostsze i szybsze.
+\indent \indent \indent Elektroniczny indeks jest to platforma, która służy do wystawiania ocen studentom przez prowadzących zajęcia w czasie rzeczywistym, a także do wglądu do tych ocen przez studentów. Dzięki wdrożeniu do użytku wspomnianej platformy, zarówno studenci jak i~prowadzący, mogą zaoszczędzić mnóstwo czasu oraz nerwów związanych z próbą zdobycia wpisu, odtworzenia indeksu, gdy zostanie on zgubiony lub uniknięcia długiego stania w kolejce do dziekanatu. Dodatkowo znacznie ułatwiona zostanie biurokracja na lini dziekanat -- wykładowca, a samo zaliczenie semestru studentowi przez osoby do tego uprawnione staję się dużo prostsze i~szybsze.
 
 \section{Filtrowanie danych}
 
-\indent \indent \indent Filtrowanie danych w elektronicznym indeksie jest jego ważną częścią. Dzięki temu można uniknąć sytuacji, w której nieautoryzowany użytkownik uzyska dostęp do danych, do których nie powinien miec dostępu. \textit{Meteor} nie ma domyślnie zaimplementowanego pakietu, który pozwoliłby na sprawne zarządzanie dostępnością treści w aplikacji.  Dzięki rosnącej popularności frameworku \textit{Meteor} oraz coraz szerszej grupie deweloperów z każdym dniem pojawiają się nowe pakiety, które ułatwiają i zwiększają funkcjonalność tworzonych aplikacji. Do efektywnego przekazywania danych poszczególnym użytkownikom wykorzystano pakiet \textit{meteor-roles}, który pozwala zarządzać rozsyłanymi danymi oraz jest kompatybilny z wbudowanym pakietem do zarządzania kontami. Instalacja pakietu do zarządzania rolami wymaga dołączenia do projektu pakietu \textit{accounts-password}, co można zrobić nastepującym poleceniem w konsoli:
+\indent \indent \indent Filtrowanie danych w elektronicznym indeksie jest jego ważną częścią. Dzięki temu można uniknąć sytuacji, w której nieautoryzowany użytkownik uzyska dostęp do danych, do których nie powinien miec dostępu. \textit{Meteor} nie ma domyślnie zaimplementowanego pakietu, który pozwoliłby na sprawne zarządzanie dostępnością treści w aplikacji.  Dzięki rosnącej popularności frameworku \textit{Meteor} oraz coraz szerszej grupie deweloperów z każdym dniem pojawiają się nowe pakiety, które ułatwiają i~zwiększają funkcjonalność tworzonych aplikacji. Do efektywnego przekazywania danych poszczególnym użytkownikom wykorzystano pakiet \textit{meteor-roles}, który pozwala zarządzać rozsyłanymi danymi oraz jest kompatybilny z wbudowanym pakietem do zarządzania kontami. Instalacja pakietu do zarządzania rolami wymaga dołączenia do projektu pakietu \textit{accounts-password}, co można zrobić nastepującym poleceniem w konsoli:
 \newpage
 \begin{lstlisting}[language=bash,caption={Instalacja accounts-password}]
 	meteor add accounts-password
@@ -167,10 +154,9 @@ Nastepnie możemy dodać właściwy pakiet
 	meteor add alanning:roles
 \end{lstlisting}
 
-
 \section{Zarządzanie elektronicznym indeksem przez administratora}
 
-\indent \indent \indent Administrator jest osobą, która nad wszystkim czuwa, dlatego musi mieć dostęp do wszystkich danych i wszystkich funkcjonalności programu, aby móc kontrolować jego poprawność działania. Będąc głównym zarządcą platformy, administrator jako jedyny ma prawo dodawać do systemu nowe dane. Dzięki temu, że najważniejsze dane wyświetlają się administratorowi od razu po zalogowaniu do systemu, jest on w stanie szybko wykonać powierzone mu zadanie.
+\indent \indent \indent Administrator jest osobą, która nad wszystkim czuwa, dlatego musi mieć dostęp do wszystkich danych i~wszystkich funkcjonalności programu, aby móc kontrolować jego poprawność działania. Będąc głównym zarządcą platformy, administrator jako jedyny ma prawo dodawać do systemu nowe dane. Dzięki temu, że najważniejsze dane wyświetlają się administratorowi od razu po zalogowaniu do systemu, jest on w stanie szybko wykonać powierzone mu zadanie.
 
 \begin{figure}[th!]
 \centering
@@ -189,7 +175,7 @@ Nastepnie możemy dodać właściwy pakiet
 \source{Własne}
 \end{figure}
 
-\noindent Kolejnym zadaniem jest dodawanie przedmiotów, które odbywają się na uczelni. Administrator podaje jego nazwę, wybiera semestr, na którym dane zajęcia się odbywają i z rozwijanej listy wybiera prowadzącego dane wykłady czy ćwiczenia.
+\noindent Kolejnym zadaniem jest dodawanie przedmiotów, które odbywają się na uczelni. Administrator podaje jego nazwę, wybiera semestr, na którym dane zajęcia się odbywają i~z rozwijanej listy wybiera prowadzącego dane wykłady czy ćwiczenia.
 
 \begin{figure}[th!]
 \centering
@@ -247,7 +233,7 @@ Nastepnie możemy dodać właściwy pakiet
 \source{Własne}
 \end{figure}
 
-\noindent Po wybraniu przez użytkownika interesującego go przedmiotu na ekranie pojawi się lista studentów,  zapisanych na dane zajęcia. Przy każdym uczestniku znajdują się jego imię i nazwisko, numer indeksu oraz rozwijane listy z wyborem oceny za zaliczenie ćwiczeń, a także ocena za egzamin końcowy.
+\noindent Po wybraniu przez użytkownika interesującego go przedmiotu na ekranie pojawi się lista studentów,  zapisanych na dane zajęcia. Przy każdym uczestniku znajdują się jego imię i~nazwisko, numer indeksu oraz rozwijane listy z wyborem oceny za zaliczenie ćwiczeń, a także ocena za egzamin końcowy.
 
 \begin{figure}[th!]
 \centering
@@ -257,7 +243,7 @@ Nastepnie możemy dodać właściwy pakiet
 \end{figure}
 
 \section{Funkcjonalność dla studenta}
-\indent \indent \indent Studenci sa grupą, która ma najmniej do powiedzenia w działaniu aplikacji, ale to studenci najbardziej oczekują szybkiego umieszczenia danych w indeksie. Jedyną funkcjonalnością, z której mogą korzystać studenci, jest przegląd własnych osiągnieć w nauce. Po zalogowaniu do systemu student otrzymuje listę przedmiotów, w których uczestniczy. Po wejściu w interesujacy użytkownika przedmiot, pojawią się informacje o prowadzącym zajęcia, oraz oceny z ćwiczeń i egzaminu.
+\indent \indent \indent Studenci sa grupą, która ma najmniej do powiedzenia w działaniu aplikacji, ale to studenci najbardziej oczekują szybkiego umieszczenia danych w indeksie. Jedyną funkcjonalnością, z której mogą korzystać studenci, jest przegląd własnych osiągnieć w nauce. Po zalogowaniu do systemu student otrzymuje listę przedmiotów, w których uczestniczy. Po wejściu w interesujacy użytkownika przedmiot, pojawią się informacje o prowadzącym zajęcia, oraz oceny z ćwiczeń i~egzaminu.
 
 \begin{figure}[th!]
 \centering
@@ -267,7 +253,7 @@ Nastepnie możemy dodać właściwy pakiet
 \end{figure}
 
 \section{Funkcjonalność dla pracownika dziekanatu}
-\indent \indent \indent Kiedy już wykładowca wystawi zaliczenia w elektronicznym indeksie, nadchodzi czas, gdy zarówno wykładowca jak i student, muszą rozliczyć się z tych danych w~dziekanacie. Zadaniem jego pracownika jest utrzymanie porządku oraz spójności danych pomiędzy tymi, które znajdują się w elektronicznej platformie oraz jej papierowym odpowiedniku. Po zalogowaniu do systemu, użytkownikowi pojawi się lista studentów oraz lista wykładowców. Gdy pracownik dziekanatu  wybierze z listy interesującego go studenta, na ekranie pojawi się lista przedmiotów danego ucznia wraz z jego osiągnieciami w nauce, co pozwoli na szybką weryfikację czy dane, które dostarczył student zgadzają się z tymi w aplikacji.
+\indent \indent \indent Kiedy już wykładowca wystawi zaliczenia w elektronicznym indeksie, nadchodzi czas, gdy zarówno wykładowca jak i~student, muszą rozliczyć się z tych danych w~dziekanacie. Zadaniem jego pracownika jest utrzymanie porządku oraz spójności danych pomiędzy tymi, które znajdują się w elektronicznej platformie oraz jej papierowym odpowiedniku. Po zalogowaniu do systemu, użytkownikowi pojawi się lista studentów oraz lista wykładowców. Gdy pracownik dziekanatu  wybierze z listy interesującego go studenta, na ekranie pojawi się lista przedmiotów danego ucznia wraz z jego osiągnieciami w nauce, co pozwoli na szybką weryfikację czy dane, które dostarczył student zgadzają się z tymi w aplikacji.
 
 \begin{figure}[th!]
 \centering
@@ -284,6 +270,9 @@ Nastepnie możemy dodać właściwy pakiet
 \caption{Fragment listy uczestników zajęć\label{RYS.14}}
 \source{Własne}
 \end{figure}
+
+\section{Importowanie i eksportowanie danych}
+\indent \indent \indent Importowanie oraz eksportowanie danych są ważną funkcją w \textit{elektronicznym indeksie}, ponieważ pozwala to użytkownikom na przenoszenie danych pomiędzy systemami, a~także umożliwia prace na danych na maszynach lokalnych użytkowników systemu. Funkcje te również wymagają walidacji aby nie dopuścić do sytuacji gdzie użytkownik zaimportuje błędne dane bądź niepasujące do schematu trzymanych w kolekcji informacji. Korzystając z \textit{MongoDB} w wielu przypadkach niewykonalne jest zaimplementowanie systemu, który w momencie wystąpienia błędu podczas importowania danych przywróci bazę do stanu z przed importu, ponieważ \textit{MongoDB} nie wspiera aktualizacji wielu dokumentów jednocześnie. W systemach gdzie baza nie jest rozbudowana i znajduje się w jednym dokumencie można skorzystać z dwu fazowego systemu aktualizacji co pozwoli osiągnąć efekt jak przy tranzakcjach.\cite{MongoDocs}
 
 \chapter{Aplikacja Elektroniczny indeks w~Meteor}
 
@@ -308,6 +297,7 @@ Aby skorzystać aplikacji musimy uruchomić lokalny serwer, który pozwoli zobac
 	meteor run
 \end{lstlisting}
 
+\newpage
 \noindent Jeżeli na ekranie pojawi się
 
 \begin{figure}[th!]
@@ -317,7 +307,7 @@ Aby skorzystać aplikacji musimy uruchomić lokalny serwer, który pozwoli zobac
 \source{Własne}
 \end{figure}
 
-\noindent oznacza to, że aplikacja uruchomiła się bez błędów i od tego momentu można z niej korzystać pod podanym adresem. Na początku warto podzielić projekt na część serwerową, kliencką oraz dostępną zarówno dla części serwerowej oraz klienckiej.
+\noindent oznacza to, że aplikacja uruchomiła się bez błędów i~od tego momentu można z niej korzystać pod podanym adresem. Na początku warto podzielić projekt na część serwerową, kliencką oraz dostępną zarówno dla części serwerowej oraz klienckiej.
 
 \begin{figure}[H]
 \centering
@@ -333,7 +323,7 @@ meteor remove autopublish
 meteor remove insecure
 \end{lstlisting}
 
-W części klienckiej trzymane są widoki aplikacji, funkcje pomocnicze oraz router, a po stronie serwera plik \textit{publish.js}, który definiuje, jakie dane zostną wysłane do użytkowników. Po podzieleniu projektu trzeba utworzyć kolekcje, w których będziemy trzymać informacje o przedmiotach oraz ocenach studentów zdobytych na zajęciach. Do tego celu utworzymy kolekcję subjects, w której będzie trzymana nazwa przedmiotu, tytuł naukowy i nazwisko prowadzącego zajęcia, semestr, na którym przedmiot się odbywa oraz lista zapisanych studentów. Kolekcja grades będzie łączyła informacje z kolekcji z użytkownikami oraz przedmiotami. Znajdą się tu login oraz id użytkownika oraz id przedmiotu, nazwa przedmiotu, jego prowadzący i oceny z ćwiczeń, i egaminu końcowego.
+W części klienckiej trzymane są widoki aplikacji, funkcje pomocnicze oraz router, a po stronie serwera plik \textit{publish.js}, który definiuje, jakie dane zostną wysłane do użytkowników. Po podzieleniu projektu trzeba utworzyć kolekcje, w których będziemy trzymać informacje o przedmiotach oraz ocenach studentów zdobytych na zajęciach. Do tego celu utworzymy kolekcję subjects, w której będzie trzymana nazwa przedmiotu, tytuł naukowy i~nazwisko prowadzącego zajęcia, semestr, na którym przedmiot się odbywa oraz lista zapisanych studentów. Kolekcja grades będzie łączyła informacje z kolekcji z użytkownikami oraz przedmiotami. Znajdą się tu login oraz id użytkownika oraz id przedmiotu, nazwa przedmiotu, jego prowadzący i~oceny z ćwiczeń, i~egaminu końcowego.
 
 \begin{listing}[H]
 \begin{minted}[frame=single]{js}
@@ -343,7 +333,7 @@ Grades = new Mongo.Collection('grades');
 \caption{Utworzenie kolekcji}
 \end{listing}
 
-\noindent Kiedy dysponujemy już kolekcjami, trzeba utworzyć widoki. Zaczynamy od widoku strony głównej, na której w zależności od grupy danego użytkownika, zawierać będzie imiona i nazwiska studentów, poszczególne przedmioty oraz ich wykładowcy.
+\noindent Kiedy dysponujemy już kolekcjami, trzeba utworzyć widoki. Zaczynamy od widoku strony głównej, na której w zależności od grupy danego użytkownika, zawierać będzie imiona i~nazwiska studentów, poszczególne przedmioty oraz ich wykładowcy.
 
 \begin{listing}
 \begin{minted}[frame=single, fontsize=\scriptsize]{html+handlebars}
@@ -367,7 +357,7 @@ Grades = new Mongo.Collection('grades');
 Analogicznie działa wyświetlanie przedmiotów dla wykładowcy czy administratora. W tym momencie, nawet jeśli w bazie będą wprowadzone przedmioty, strona nadal będzie pusta. Do przesyłu danych wykorzystamy \textit{iron-router}.
 
 \begin{listing}[H]
-\begin{minted}[frame=single, fontsize=\tiny, breaklines=true]{js}
+\begin{minted}[frame=single, fontsize=\scriptsize, breaklines=true]{js}
 waitOn: function () {
     return [ Meteor.subscribe('theSubjects') ];
   },
@@ -400,7 +390,7 @@ action: function () {
 W drugiej linijce kodu widzimy return, który zwraca zasubskrybowane dane z~theSubjects. Żeby te dane można było odebrać, serwer musi je opublikować.
 
 \begin{listing}[H]
-\begin{minted}[frame=single, fontsize=\tiny]{js}
+\begin{minted}[frame=single, fontsize=\scriptsize]{js}
 Meteor.publish('theSubjects', function () {
   if(this.userId){
     if (Roles.userIsInRole(this.userId, 'admin')) {
@@ -424,7 +414,7 @@ Meteor.publish('theSubjects', function () {
 
 Dzięki pakietowi \textit{meteor-roles} jesteśmy w stanie dokładniej określić, jakie dane chcemy wysyłać poszczególnym grupom użytkowników. Dzięki temu w szybki sposób możemy również zarządzać treściami, które pojawiają się na widokach dzięki blokom pomocniczym.
 
-W aplikacji znajduje się szereg managerów, które przekazują operacje wykonywane przez użytkownika do metod, które zostaną wykonane na serwerze. Funkcja \textit{assignSubject}, która zostaje wywołana w momencie, gdy użytkownik chce przypisać studenta do przedmiotu, pobiera id przedmiotu, jego nazwę, nazwę użytkownika, id użytkownika oraz prowadzącego zajęcia i przekazuje je do metody \textit{addStudentToSubject}, która umieszcza te informacje w kolekcji \textit{grades}, jednocześnie przypisując id studenta do listy osób zapisanych na przedmiot w kolekcji \textit{subjects}. Przypisuje także id przedmiotu do listy przedmiotów, na które student uczęszcza, w~kolekcji użytkowników. Funkcje \textit{updateExerciseGrade} i \textit{updateExamGrade} działają w taki sam sposób. Gdy wykładowca zatwierdza zmianę oceny, pobierają one z pola ocenę, jaką zatwierdził prowadzący, a następnie przekazują id studenta, id przedmiotu oraz ocenę do metod o tych samych nazwach. Dzięki temu, że wysłane zostały także id przedmiotu i studenta, możliwa jest aktualizacja oceny konkretnego studenta dla konkretnego przedmiotu. Gdy administrator wysyła formularz \textit{form}, aby dodać nowy przedmiot, z pól formularza zostają pobrane informacje o nazwie przedmiotu, prowadzącym przedmiot oraz informacja, na którym semestrze zajęcia się odbywają, a następnie są one przesłane do metody \textit{addSubject}, która umieszcza przedmiot w kolekcji \textit{subjects}. W trakcie tworzenia nowego użytkownika, zostaje mu przypisana jedna z czterech dostępnych ról. Jeśli tworzenie użytkownika zakończy się powodzeniem, zostaje wywołana metoda \textit{assignRole}, która otrzymuje stworzonego użytkownika oraz rolę, do której będzie przypisany i ustawia danemu użytkownikowi wybraną rolę.
+W aplikacji znajduje się szereg managerów, które przekazują operacje wykonywane przez użytkownika do metod, które zostaną wykonane na serwerze. Funkcja \textit{assignSubject}, która zostaje wywołana w momencie, gdy użytkownik chce przypisać studenta do przedmiotu, pobiera id przedmiotu, jego nazwę, nazwę użytkownika, id użytkownika oraz prowadzącego zajęcia i~przekazuje je do metody \textit{addStudentToSubject}, która umieszcza te informacje w kolekcji \textit{grades}, jednocześnie przypisując id studenta do listy osób zapisanych na przedmiot w kolekcji \textit{subjects}. Przypisuje także id przedmiotu do listy przedmiotów, na które student uczęszcza, w~kolekcji użytkowników. Funkcje \textit{updateExerciseGrade} i~\textit{updateExamGrade} działają w taki sam sposób. Gdy wykładowca zatwierdza zmianę oceny, pobierają one z pola ocenę, jaką zatwierdził prowadzący, a następnie przekazują id studenta, id przedmiotu oraz ocenę do metod o tych samych nazwach. Dzięki temu, że wysłane zostały także id przedmiotu i~studenta, możliwa jest aktualizacja oceny konkretnego studenta dla konkretnego przedmiotu. Gdy administrator wysyła formularz \textit{form}, aby dodać nowy przedmiot, z pól formularza zostają pobrane informacje o nazwie przedmiotu, prowadzącym przedmiot oraz informacja, na którym semestrze zajęcia się odbywają, a następnie są one przesłane do metody \textit{addSubject}, która umieszcza przedmiot w kolekcji \textit{subjects}. W trakcie tworzenia nowego użytkownika, zostaje mu przypisana jedna z czterech dostępnych ról. Jeśli tworzenie użytkownika zakończy się powodzeniem, zostaje wywołana metoda \textit{assignRole}, która otrzymuje stworzonego użytkownika oraz rolę, do której będzie przypisany i~ustawia danemu użytkownikowi wybraną rolę.
 
 \cite{Introduction}
 \cite{MeteorDocs}
@@ -434,7 +424,7 @@ W aplikacji znajduje się szereg managerów, które przekazują operacje wykonyw
 \section{Opis testowania aplikacji}
 \indent \indent \indent Od wersji \textit{Meteor} 1.0, zostało oficjalne udostępnione narzędzie do testowania aplikacji o nazwie \textit{Velocity}. Instaluje się ono razem z jednym z czterech dostępnych frameworków do testowania. W tej pracy użyty został framework \textit{Jasmine}. Aby dodać go do projektu wystarczy w konsoli wpisać
 
-\begin{lstlisting}[language=bash,caption={Instalacja Velocity, Jasmine i html reporter}]
+\begin{lstlisting}[language=bash,caption={Instalacja Velocity, Jasmine i~html reporter}]
 meteor add sanjo:jasmine
 meteor add velocity:html-reporter
 \end{lstlisting}
@@ -443,13 +433,13 @@ meteor add velocity:html-reporter
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\hsize]{images/htmlReporter}
+\includegraphics[width=0.4\hsize]{images/htmlReporter}
 \caption{Html-reporter\label{RYS.18}}
 \source{Własne}
 \end{figure}
 
 \begin{listing}[H]
-\begin{minted}[frame=single, fontsize=\tiny]{js}
+\begin{minted}[frame=single, fontsize=\scriptsize]{js}
 describe('Set user a role', function () {
   it('Should assign user to role', function () {
     if (Meteor.users.find().count() === 0) {
@@ -491,7 +481,7 @@ describe('Set user a role', function () {
 \caption{Test przypisywania roli użytkownikowi}
 \end{listing}
 
-\textit{describe} mówi nam, jaka funkcjonalność będzie testowana, \textit{it} opisuje, co dana funkcjonalność powinna robić. Następnie do replikowanej bazy na potrzeby testu dodajemy użytkowników. Gdy użytkowników w bazie, wskazujemy konkretnego użytkownika i pobieramy wszystkie informacje o nim. Wywołujemy metodę, która przypisuje użytkownikowi rolę, a następnie sprawdzamy czy naszemu użytkownikowi została przypisana taka, której oczekiwaliśmy. Po wszystkim czyścimy zreplikowaną bazę. \cite{Velocity}
+\textit{describe} mówi nam, jaka funkcjonalność będzie testowana, \textit{it} opisuje, co dana funkcjonalność powinna robić. Następnie do replikowanej bazy na potrzeby testu dodajemy użytkowników. Gdy użytkowników w bazie, wskazujemy konkretnego użytkownika i~pobieramy wszystkie informacje o nim. Wywołujemy metodę, która przypisuje użytkownikowi rolę, a następnie sprawdzamy czy naszemu użytkownikowi została przypisana taka, której oczekiwaliśmy. Po wszystkim czyścimy zreplikowaną bazę. \cite{Velocity}
 %\section{Opis własnych rozwiązań}
 
 \chapter{Pakiet walidujący operacje elektronicznego indeksu}
@@ -517,21 +507,14 @@ meteor create --package emflover:validation
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\hsize]{images/newPackage}
-\caption{Nowy pakiet\label{RYS.19} \newline \newline \hspace{\linewidth} \textbf{Interpretacja:} \textit{README.md} zawiera opis pakietu; w  \textit{validation.js} mieści się właściwy kod tworzonego pakietu; \textit{validation-tests.js} zawiera testy pakietu; do testowania pakietów służy framework \textit{Tinytest}; \textit{package.js} zawiera opis pakietu oraz jego zależności i gdzie wykonywać mają się poszczególne funkcje.}
+\caption{Nowy pakiet\label{RYS.19} \newline \newline \hspace{\linewidth} \textbf{Interpretacja:} \textit{README.md} zawiera opis pakietu; w  \textit{validation.js} mieści się właściwy kod tworzonego pakietu; \textit{validation-tests.js} zawiera testy pakietu; do testowania pakietów służy framework \textit{Tinytest}; \textit{package.js} zawiera opis pakietu oraz jego zależności i~gdzie wykonywać mają się poszczególne funkcje.}
 \source{Własne}
 \end{figure}
 
 
-\noindent Samo utworzenie nie wystarczy, żeby z niego korzystać. Trzeba go podpiąć do projektu. Podobnie, jak robi się to z~każdym innym pakietem, nawet jeśli nie jest on udostępniony na \textit{atmospherejs.com}.
+\noindent Samo utworzenie nie wystarczy, żeby z niego korzystać. Trzeba go podpiąć do projektu. Podobnie, jak robi się to z~każdym innym pakietem, nawet jeśli nie jest on udostępniony na \textit{atmospherejs.com}.\cite{Packages}\cite{MeteorDocs}\cite{DiscoverMeteor2013}
 
-\cite{Packages}
-\cite{MeteorDocs}
-\cite{DiscoverMeteor2013}
-
-\section{Implementacja pakietu w~aplikacji}
-
-\indent \indent \indent Tworzenie pakietu wygląda identycznie, jak tworzenie każdej innej funkcji w \textit{javascript}.
-
+\indent Tworzenie pakietu wygląda identycznie, jak tworzenie każdej innej funkcji w \textit{javascript}.
 \begin{listing}[H]
 \begin{minted}[frame=single, breaklines=true,fontsize=\scriptsize]{js}
 checkBeforeAction = function(studentId, exercise, exam){
@@ -556,7 +539,7 @@ Package.onUse(function(api) {
   api.export('checkIfChooseTeacher', 'client');
 });
 \end{minted}
-\caption{Eksport funkcji i użycie plików, w których znajdują się eksportowane funkcje \newline \newline \hspace{\linewidth} \textbf{Interpretacja:} \textit{versionsFrom} mówi, od jakiej wersji \textit{Meteor} można używać danego pakietu; \textit{add\_files} dodaje pliki, w których znajduje się kod pakietu oraz mówi czy ma być przesłany do serwera, czy klienta; \textit{export} - jak sama nazwa wskazuje, eksportuje funkcje z dodanego wcześniej pliku i określa, czy mają zostać wykonane po stronie serwera czy klienta.  \newline}
+\caption{Eksport funkcji i~użycie plików, w których znajdują się eksportowane funkcje \newline \newline \hspace{\linewidth} \textbf{Interpretacja:} \textit{versionsFrom} mówi, od jakiej wersji \textit{Meteor} można używać danego pakietu; \textit{add\_files} dodaje pliki, w których znajduje się kod pakietu oraz mówi czy ma być przesłany do serwera, czy klienta; \textit{export} - jak sama nazwa wskazuje, eksportuje funkcje z dodanego wcześniej pliku i~określa, czy mają zostać wykonane po stronie serwera czy klienta.  \newline}
 \end{listing}
 
 Aby użyć pakietu w aplikacji musimy, wywołać ją po stronie klienta.
@@ -569,14 +552,14 @@ Aby użyć pakietu w aplikacji musimy, wywołać ją po stronie klienta.
     checkBeforeAction(this._id, exerciseGrade, examGrade);
   }
 \end{minted}
-\caption{Funkcja wystawiająca studentowi oceny \newline \newline \hspace{\linewidth} \textbf{Interpretacja:} Funkcja pobiera wartość pola z oceną z egzaminu oraz pobiera z bazy ocenę studenta z ćwiczeń i przekazuje je do funkcji walidującej. \newline}
+\caption{Funkcja wystawiająca studentowi oceny \newline \newline \hspace{\linewidth} \textbf{Interpretacja:} Funkcja pobiera wartość pola z oceną z egzaminu oraz pobiera z bazy ocenę studenta z ćwiczeń i~przekazuje je do funkcji walidującej. \newline}
 \end{listing}
 
 Podczas wystawiania oceny do funkcji przekazane zostają id użytkownika, któremu wystawiana jest ocena, ocena jaką wykła%dowca chce wystawić studentowi z egzaminu oraz wcześniejsza ocena studenta z ćwiczeń.
 
 \section{Przetestowanie pakietu}
 
-Do testowania pakietów \textit{Meteor} służy framework \textit{TinyTest}. Jest to oficjalne i jedyne narzędzie służące do przeprowadzania testów pakietów. Wadą tego frameworka jest fakt, że nie został on w żaden sposób opisany, przez co korzystanie z niego dla osoby niedoświadczonej może być nie do końca zrozumiałe.
+Do testowania pakietów \textit{Meteor} służy framework \textit{TinyTest}. Jest to oficjalne i~jedyne narzędzie służące do przeprowadzania testów pakietów. Wadą tego frameworka jest fakt, że nie został on w żaden sposób opisany, przez co korzystanie z niego dla osoby niedoświadczonej może być nie do końca zrozumiałe.
 \newline \newline
 Aby przetestować pakiety, należy w głównym folderze aplikacji wpisać w konsoli polecenie:
 
@@ -594,7 +577,7 @@ Po wykonaniu polecenia, jeżeli stworzone testy nie zawierają błędów, urucho
 \source{Własne}
 \end{figure}
 
-Jeżeli w teście będą błędy i zostanie otrzymany wynik odbiegający od oczekiwań, na ekranie pojawi się:
+Jeżeli w teście będą błędy i~zostanie otrzymany wynik odbiegający od oczekiwań, na ekranie pojawi się:
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\hsize]{images/tinytestFailure}
@@ -647,7 +630,7 @@ Tinytest.add('validation-client - checkBeforeAction', function (test) {
     test.equal(gradez.exam, null, 'should be default grade');
 }
 \end{minted}
-\caption{Test dodawania oceny z egzaminu studentowi gdy ma on negatywną ocenę z ćwiczeń \newline \newline \hspace{\linewidth} \textbf{Interpretacja:} Pierwszym argumentem \textit{Tinytest.add} jest nazwa naszego testu, a drugim  funkcja, która go wykona. Na potrzeby testu definujmey i tworzymy nowego użytkownika, przedmiot oraz ocenę, a następnie wywołujemy testowaną funkcję, a po jej wykonaniu sprawdzamy czy oceny z ćwiczeń i egzaminu się zgadzają.\cite{TinyTest}  \newline}
+\caption{Test dodawania oceny z egzaminu studentowi gdy ma on negatywną ocenę z ćwiczeń \newline \newline \hspace{\linewidth} \textbf{Interpretacja:} Pierwszym argumentem \textit{Tinytest.add} jest nazwa naszego testu, a drugim  funkcja, która go wykona. Na potrzeby testu definujmey i~tworzymy nowego użytkownika, przedmiot oraz ocenę, a następnie wywołujemy testowaną funkcję, a po jej wykonaniu sprawdzamy czy oceny z ćwiczeń i~egzaminu się zgadzają.\cite{TinyTest}  \newline}
 \end{listing}
 
 \section{Udostępnienie pakietu}
@@ -660,18 +643,18 @@ Tinytest.add('validation-client - checkBeforeAction', function (test) {
 \source{Własne}
 \end{figure}
 
-W takiej sytuacji należy w aplikacji, w której utworzyliśmy pakiet, wejść do ukrytego folderu \textit{.meteor/local}, a następnie usunąć folder o nazwie \textit{isopacks}. Jeżeli to nie rozwiąże problemu należy przenieść pakiet poza aplikacje i w konsoli wpisać odpowiednią komende.
+W takiej sytuacji należy w aplikacji, w której utworzyliśmy pakiet, wejść do ukrytego folderu \textit{.meteor/local}, a następnie usunąć folder o nazwie \textit{isopacks}. Jeżeli to nie rozwiąże problemu należy przenieść pakiet poza aplikacje i~w konsoli wpisać odpowiednią komende.
 
 
 % zakończenie
 \summary
 \indent \indent \indent Celem pracy magisterskiej było stworzenie aplikacji - elektroniczny indeks oraz pakietu, który walidował operacje wykonywane podczas użytkowania oprogramowania. Cele pracy zostały osiągnięte, dając zadowalające rezultaty.
 \newline \newline
-Technologie wykorzystane w pracy okazały się dobrym wyborem, ponieważ oferowały szeroki wachlarz narzędzi, które usprawniały pracę nad projektem, pozwalały w niedługim czasie stworzyć aplikację, która posiadała wymaganą podstawową funkcjonalność, dzięki czemu można było ją przetestować i walidować.
+Technologie wykorzystane w pracy okazały się dobrym wyborem, ponieważ oferowały szeroki wachlarz narzędzi, które usprawniały pracę nad projektem, pozwalały w niedługim czasie stworzyć aplikację, która posiadała wymaganą podstawową funkcjonalność, dzięki czemu można było ją przetestować i~walidować.
 \newline \newline
 Podczas tworzenia pracy pojawiły się problemy ze strony dostarczonych technologii. Dla sprawnego przeglądu informacji przez użytkowników, autor chciał sortować dane wyświetlane użytkownikowi leksykograficznie, na co pozwala \textit{MongoDB}, ale technologia ta ze względu na wykorzystywaną funkcję \textit{memcmp} nie obsługuje poprawnie formatu UTF-8 w różnych ustawieniach lokalnych. Twórcy bazy danych planują wprowadzić zmiany w systemie, ale przybliżona data nie jest znana, ponieważ wymaga to wielu poważnych modyfikacji programu.
 \newline \newline
-Niewątpliwą zaletą systemu jest możliwość jego rozdudowy bez konieczności ingerencji w kod, który został napisany wcześniej, czego dowodem jest dodanie funckji pobierania danych z aplikacji oraz ich import z powrotem do systemu z poziomu aplikacji, już po zakończeniu jej tworzenia. Ta dodatkowa funkcjonalność pozwala użytkownikom zarządzać danymi w swoich własnych aplikacjach typu --- elektroniczny indeks, utworzonym przez nich na własne potrzeby.
+Niewątpliwą zaletą systemu jest możliwość jego rozdudowy bez konieczności ingerencji w kod, który został napisany wcześniej, czego dowodem jest dodanie funkcji pobierania danych z aplikacji oraz ich import z powrotem do systemu z poziomu aplikacji, już po zakończeniu jej tworzenia. Ta dodatkowa funkcjonalność pozwala użytkownikom zarządzać danymi w swoich własnych aplikacjach typu --- elektroniczny indeks, utworzonym przez nich na własne potrzeby.
 
 % załączniki (opcjonalnie):
 %\appendix
