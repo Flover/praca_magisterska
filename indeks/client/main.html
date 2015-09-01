@@ -1,11 +1,11 @@
 <head>
   <title>Elektroniczny indeks</title>
-  <script src="http://eindeks.meteor.com/bower_components/jquery/dist/jquery.js"></script>
+
   <!-- <link rel="stylesheet" type="text/css" href="http://localhost:3000/bower_components/bootstrap/dist/css/bootstrap.css"> -->
-  <link rel="stylesheet" type="text/css" href="http://eindeks.meteor.com/bower_components/materialize/dist/css/materialize.css">
-  <!-- // <script src="http://localhost:3000/bower_components/bootstrap/dist/js/bootstrap.js"></script> -->
-  <script src="http://eindeks.meteor.com/bower_components/materialize/dist/js/materialize.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--   <link rel="stylesheet" type="text/css" href="http://eindeks.meteor.com/bower_components/materialize/dist/css/materialize.css">
+// <script src="http://localhost:3000/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="http://eindeks.meteor.com/bower_components/materialize/dist/js/materialize.js"></script>
+ -->  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 
@@ -71,6 +71,12 @@
   </ul>
 
   <ul id="dropdown2" class="dropdown-content">
+    <li><a href="/usersImport" style="color:#01579b">Importuj użytkowników</a></li>
+    <li><a href="/subjectsImport" style="color:#01579b">Importuj przedmioty</a></li>
+    <li><a href="/gradesImport" style="color:#01579b">Importuj oceny</a></li>
+  </ul>
+<!--
+  <ul id="dropdown2" class="dropdown-content">
     <div class="file-field input-field">
       <input class="file-path validate" type="text"/>
       <div class="btn">
@@ -93,7 +99,7 @@
       </div>
     </div>
   </ul>
-
+   -->
   <nav>
     <div class="nav-wrapper light-blue darken-4">
       <li class="brand-logo left">Elektroniczny indeks</li>
@@ -121,7 +127,7 @@
 
 <template name="header">
   <div class="container">
-    <h1><img src="http://localhost:3000/img/UG_logo_short.png"> Elektroniczny indeks</h1>
+    <h1><img src="http://eindeks.meteor.com/img/UG_logo_short.png"> Elektroniczny indeks</h1>
   </div>
 </template>
 

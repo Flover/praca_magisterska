@@ -261,3 +261,75 @@ Router.map(function() {
     }
   })
 });
+
+Router.map(function() {
+  this.route('usersImport', {
+    path: '/usersImport',
+
+    onBeforeAction: function() {
+      user = Meteor.user();
+      if(!Roles.userIsInRole(user, ['admin'])) {
+        this.layout('appLayout');
+        this.redirect('/');
+        this.stop();
+      }
+      this.next();
+    },
+    action: function () {
+      this.layout('appLayout');
+      this.render('usersImport', {
+        'data': {
+          'User': Meteor.user()
+          }
+      });
+    }
+  })
+});
+
+Router.map(function() {
+  this.route('gradesImport', {
+    path: '/gradesImport',
+
+    onBeforeAction: function() {
+      user = Meteor.user();
+      if(!Roles.userIsInRole(user, ['admin'])) {
+        this.layout('appLayout');
+        this.redirect('/');
+        this.stop();
+      }
+      this.next();
+    },
+    action: function () {
+      this.layout('appLayout');
+      this.render('gradesImport', {
+        'data': {
+          'User': Meteor.user()
+          }
+      });
+    }
+  })
+});
+
+Router.map(function() {
+  this.route('subjectsImport', {
+    path: '/subjectsImport',
+
+    onBeforeAction: function() {
+      user = Meteor.user();
+      if(!Roles.userIsInRole(user, ['admin'])) {
+        this.layout('appLayout');
+        this.redirect('/');
+        this.stop();
+      }
+      this.next();
+    },
+    action: function () {
+      this.layout('appLayout');
+      this.render('subjectsImport', {
+        'data': {
+          'User': Meteor.user()
+          }
+      });
+    }
+  })
+});
